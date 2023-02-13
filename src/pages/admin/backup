@@ -1,0 +1,271 @@
+import React, { Component } from 'react';
+import ReactTable from "react-table";
+
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+
+import 'react-table/react-table.css'
+
+import api from "../../services/api"
+import $ from "jquery";
+
+export default class Admin extends Component {
+    state = {
+        data: [],
+        nameRodada: ""
+    }
+
+    handleOnChange = (e) => {
+        let name = e.target.name;
+        let value = e.target.value;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { team, position, points, data, nameRodada } = this.state;
+
+        for (let index = 0; index < data.length; index++) {
+            const element = data[index];
+            if (element.team === team) {
+                $("#alert-admin").addClass("alert alert-danger").text("O time já foi adicionado, adicione outro time!");
+                setTimeout(function () {
+                    $("#alert-admin").removeClass("alert alert-danger").text("");
+                }, 3000);
+                return;
+            } else if (element.position === position) {
+                $("#alert-admin").addClass("alert alert-danger").text("Já existe um time na posição informada, informe outra posição!");
+                setTimeout(function () {
+                    $("#alert-admin").removeClass("alert alert-danger").text("");
+                }, 3000);
+                return;
+            }
+        }
+
+        if (!team || !position || !points || !nameRodada) {
+            $("#alert-admin").addClass("alert alert-danger").text("Os campos não podem estar vazio!");
+            setTimeout(function () {
+                $("#alert-admin").removeClass("alert alert-danger").text("");
+            }, 3000);
+            return;
+        } else if (data.length === 20) {
+            $("#alert-admin").addClass("alert alert-danger").text("O valor máximo de times é 20, não é possível adicionar mais times!");
+            setTimeout(function () {
+                $("#alert-admin").removeClass("alert alert-danger").text("");
+            }, 3000);
+            return;
+        }
+
+        let obj = {
+            team: this.state.team,
+            points: this.state.points,
+            position: this.state.position,
+        }
+        this.state.data.push(obj);
+
+        this.setState({
+            data: this.state.data
+        })
+        console.log(this.state.data)
+    };
+
+    renderEditable = cellInfo => {
+        return (
+            <div
+                style={{ backgroundColor: "#fafafa" }}
+                suppressContentEditableWarning
+                onBlur={e => {
+                    const data = [...this.state.data];
+                    data[cellInfo.index][cellInfo.column.id] = e.target.innerHTML;
+                    this.setState({ data });
+                }}
+                dangerouslySetInnerHTML={{
+                    __html: this.state.data[cellInfo.index][cellInfo.column.id]
+                }}
+            />
+        );
+    };
+
+    removeRow = row => {
+        return (
+            <div className="container">
+                <button className="btn btn-danger btn-block" onClick={(e) => {
+                    const { data } = this.state;
+
+                    data.splice(row.index, 1);
+                    this.setState({
+                        data: data
+                    })
+                    console.log(data)
+                }}>Remover Time</button>
+            </div>
+        )
+    }
+
+    saveTableAdmin = async () => {
+        const { data, nameRodada } = this.state;
+        $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
+        if (data.length < 1) {
+            $("#alert-admin-rodada").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
+            setTimeout(function () {
+                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+            }, 3000);
+            return;
+        } else if (!nameRodada) {
+            $("#alert-admin-rodada").addClass("alert alert-danger").text("O nome da rodada não pode ser vazio!");
+            $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
+            setTimeout(function () {
+                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+            }, 3000);
+            return;
+        }
+
+        try {
+            let response = await api.post('/admin/criar/rodada', { users: [], tableAdmin: this.state.data, nameRodada: this.state.nameRodada });
+
+            if (response.data === false) {
+                $("#alert-admin-rodada").addClass("alert alert-danger").text("O nome da rodada já está em uso!");
+                $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
+
+                setTimeout(function () {
+                    $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                }, 3000);
+                return;
+            }
+
+            $("#alert-admin-rodada").addClass("alert alert-success").text("Rodada criada com sucesso!");
+            $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
+
+            setTimeout(function () {
+                $("#alert-admin-rodada").removeClass("alert alert-success").text("");
+            }, 3000);
+
+            await this.setState({ data: [] });
+            await this.setState({ nameRodada: "" });
+
+            $("#nameRodada").val(this.setState.name)
+            $("#team").val(this.setState.team)
+            $("#points").val(this.setState.points)
+            $("#position").val(this.setState.position)
+
+            await console.log(response);
+        } catch (error) {
+            $("#alert-admin-rodada").addClass("alert alert-danger").text("Ocorreu um erro ao criar a rodada!");
+            $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
+            setTimeout(function () {
+                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+            }, 3000);
+        }
+
+    }
+
+    render() {
+        const { data } = this.state;
+
+        return (
+            <div>
+                <Header />
+                <div className="container text-center p-2">
+                    <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
+                    <div className="container"><p className="h2">Criação de rodadas</p></div>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            <input
+                                type="text"
+                                name="nameRodada"
+                                id="nameRodada"
+                                placeholder="Nome da Rodada"
+                                onChange={(event) => this.handleOnChange(event)}
+                            />
+                        </label>
+                        <label>
+                            <input
+                                type="text"
+                                name="team"
+                                id="team"
+                                placeholder="Time"
+                                onChange={(event) => this.handleOnChange(event)}
+                            />
+                        </label>{" "}
+                        <label>
+                            <input
+                                type="number"
+                                name="position"
+                                id="position"
+                                placeholder="Posição"
+                                onChange={(event) => this.handleOnChange(event)}
+                            />
+                        </label>
+                        <label>
+                            <input
+                                type="number"
+                                name="points"
+                                id="points"
+                                placeholder="Pontos"
+                                onChange={(event) => this.handleOnChange(event)}
+                            />
+                        </label>
+                    </form>
+
+                    <div className="container">
+                        <button className="btn btn-primary" id="btn-add" onClick={this.handleSubmit}>Adicionar time</button>&nbsp;
+                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Criar rodada</button>
+                    </div>
+
+                    <div className="container mt-5">
+                        <ReactTable
+                            previousText="Anterior"
+                            nextText="Próximo"
+                            noDataText="Sem dados"
+                            data={data}
+                            columns={[
+                                {
+                                    Header: "#",
+                                    accessor: "position",
+                                },
+                                {
+                                    Header: "Time",
+                                    accessor: "team",
+                                },
+                                {
+                                    Header: "Pontos",
+                                    accessor: "points",
+                                },
+                                {
+                                    Header: "Remover",
+                                    Cell: this.removeRow
+                                }
+                            ]}
+                            defaultPageSize={20}
+                            className="-striped -highlight"
+                        />
+                    </div>
+
+                    <div class="modal fade" id="modalSalvarTabela" role="dialog" aria-labelledby="modalSalvarTabelaLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="" role="alert" id="alert-admin-rodada" data-dismiss="alert"></div>
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja criar a rodada</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTableAdmin}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <Footer />
+            </div>
+        );
+    }
+}
+

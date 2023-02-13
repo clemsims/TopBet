@@ -1,0 +1,36 @@
+.foot-name {
+    color: #26a65b;
+}
+
+.navbar-dark .navbar-nav .nav-link,
+.betting-name {
+    color: white;
+}
+
+.link-pointer {
+    cursor: pointer;
+}
+
+#carouselExampleIndicators {
+    height: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #343A40; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #343A40; 
+}
