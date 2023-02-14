@@ -11,6 +11,16 @@ import img3 from "./images/img-3.jpg";
 import luis_perfil from "./images/luisperfil.jpg";
 import hairon_perfil from "./images/haironperfil.jpg";
 
+// Implement ads from Google Admob
+// https://www.npmjs.com/package/react-native-admob
+
+import {
+  AdMobBanner,
+  AdMobInterstitial,
+  PublisherBanner,
+  AdMobRewarded
+} from "react-native-admob";
+
 export default class Index extends Component {
   jqueryEquipe = () => {
     $("html, body").animate(

@@ -17,7 +17,8 @@
     "react-table": "^6.8.6",
     "react-trello": "^2.0.5",
     "semantic-ui-css": "^2.4.1",
-    "semantic-ui-react": "^0.83.0"
+    "semantic-ui-react": "^0.83.0",
+    "react-native-admob": "2.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
