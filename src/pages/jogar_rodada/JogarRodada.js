@@ -247,8 +247,8 @@ export default class JogarRodada extends Component {
                                     </button>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTable}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTable}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </div>
                         </div>

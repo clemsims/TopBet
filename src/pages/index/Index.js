@@ -6,29 +6,10 @@ import $ from "jquery";
 
 import "./styles.css";
 
-import img1 from "./images/img-1.jpg";
+import img1 from "./images/img-1.png";
 import img3 from "./images/img-3.jpg";
-import luis_perfil from "./images/luisperfil.jpg";
-import hairon_perfil from "./images/haironperfil.jpg";
 
 export default class Index extends Component {
-  jqueryEquipe = () => {
-    $("html, body").animate(
-      {
-        scrollTop: $("#equipe").offset().top
-      },
-      1000
-    );
-  };
-
-  jquerySobre = () => {
-    $("html, body").animate(
-      {
-        scrollTop: $("#sobreProjeto").offset().top
-      },
-      1000
-    );
-  };
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -40,8 +21,7 @@ export default class Index extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <a className="navbar-brand h4 mb-0" href="#">
-            <span className="foot-name">Football</span>{" "}
-            <span className="betting-name">Betting</span>
+            <span className="foot-name">TopBet</span>{" "}
           </a>
           <button
             className="navbar-toggler"
@@ -58,14 +38,14 @@ export default class Index extends Component {
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
-                <a className="nav-link link-pointer" onClick={this.jquerySobre}>
-                  Sobre o projeto
+                <a className="nav-link link-pointer" onClick={console.log("test")}>
+                  Home
                 </a>
               </li>
               <li className="nav-item">
                 <a
                   className="nav-link link-pointer "
-                  onClick={this.jqueryEquipe}
+                  onClick={console.log("test")}
                 >
                   Equipe
                 </a>
@@ -76,7 +56,7 @@ export default class Index extends Component {
                   className="btn btn-success"
                   onClick={this.handleLogin}
                 >
-                  Jogar agora
+                  Play now (Login)
                 </button>
               </li>
             </ul>
@@ -132,41 +112,10 @@ export default class Index extends Component {
           </a>
         </div>
 
-        <div className="container" id="sobreProjeto">
-          <div className="row">
-            <div className="col-12 text-center mt-5">
-              <h1 className="display-3">Sobre o projeto</h1>
-              <p>
-                Este projeto foi desenvolvido totalmente em JavaScript. No
-                Front-End foi utilizado{" "}
-                <a href="https://reactjs.org/">ReactJs</a> e no Back-End{" "}
-                <a href="https://nodejs.org/">NodeJs</a>. O projeto se trata de
-                um jogo de palpites no qual o usuário terá que jogar uma Liga
-                (rodada) e dizer qual será a posição final dos times e quantos
-                pontos eles fizeram. Ao enviar seu palpite será gerado uma
-                pontuação e a pontuação ficará disponível no rank geral.
-              </p>
-            </div>
-          </div>
-        </div>
-
         <div className="container mt-5" id="equipe">
           <div className="row">
-            <div className="col-4">
-              <div className="card">
-                <img
-                  class="card-img-top img-fluid mx-auto d-block"
-                  src={luis_perfil}
-                  alt="Card image cap"
-                  id="imagens-perfil"
-                />
-                <div className="card-body text-center">
-                  <h5 class="card-title">Desenvolvedor</h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-4">
+            
+            <div className="col-4 center">
               <div className="card">
                 <img
                   class="card-img-top img-fluid mx-auto d-block"
@@ -174,21 +123,7 @@ export default class Index extends Component {
                 />
 
                 <div className="card-body text-center">
-                  <h5 class="card-title">Desenvolvedor</h5>
-                </div>
-              </div>
-            </div>
-
-            <div className="col-4">
-              <div className="card">
-                <img
-                  class="card-img-top img-fluid mx-auto d-block"
-                  src={hairon_perfil}
-                  alt="Card image cap"
-                  id="imagens-perfil"
-                />
-                <div className="card-body text-center">
-                  <h5 class="card-title">Professor</h5>
+                  <h5 class="card-title">A sample user: Walid. E</h5>
                 </div>
               </div>
             </div>

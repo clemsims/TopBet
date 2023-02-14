@@ -83,43 +83,42 @@ export default class Registro extends Component {
         let verifyUser = await api.get(`users/username/${username}`);
 
         if (verifyEmail.data && verifyUser.data) {
-            $("#alert-register").addClass("alert alert-danger").text("O usuário e o e-mail informado já estão em uso!");
+            $("#alert-register").addClass("alert alert-danger").text("The username and email entered are already in use!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         }
         else if (verifyUser.data) {
-            $("#alert-register").addClass("alert alert-danger").text("O usuário informado já está em uso!");
+            $("#alert-register").addClass("alert alert-danger").text("The username is already in use!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         }
         else if (verifyEmail.data) {
-            $("#alert-register").addClass("alert alert-danger").text("O e-mail informado já está em uso!");
+            $("#alert-register").addClass("alert alert-danger").text("The email is already in use!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         }
         else if (password.length < 6) {
-            $("#alert-register").addClass("alert alert-danger").text("A senha tem menos que 6 caracteres!");
+            $("#alert-register").addClass("alert alert-danger").text("The password has less than 6 characters!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         }
         else if (username.length > 20) {
-            $("#alert-register").addClass("alert alert-danger").text("O usuário não pode ultrapassar 20 caracteres!");
+            $("#alert-register").addClass("alert alert-danger").text("The username can not exceed 20 characters!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         } else {
             await api.post('registro', { name, username, email, password });
-
-            $("#alert-register").addClass("alert alert-success").text("Cadastro realizado com sucesso. Redirecionando para o login ...");
+            $("#alert-register").addClass("alert alert-success").text("Registration successfully completed. Redirecting to login ...");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
             let props = this.props;
@@ -138,16 +137,16 @@ export default class Registro extends Component {
                         <div id="formHeader">
                             <h2 className="h2-login inactive underlineHover" id="loginButton" onClick={this.handleLogin}>Login</h2>
 
-                            <h2 className="h2-login active">Cadastrar</h2>
+                            <h2 className="h2-login active">Register</h2>
                         </div>
 
                         <div className="form-padding">
                             <form>
-                                <input type="text" id="name" className="fadeIn second" placeholder="Nome completo" name="name" onChange={(event) => this.handleOnChange(event)} />
-                                <input type="text" id="user" className="fadeIn third" placeholder="Usuário" name="username" onChange={(event) => this.handleOnChange(event)} />
+                                <input type="text" id="name" className="fadeIn second" placeholder="Full Name" name="name" onChange={(event) => this.handleOnChange(event)} />
+                                <input type="text" id="user" className="fadeIn third" placeholder="Username" name="username" onChange={(event) => this.handleOnChange(event)} />
                                 <input type="email" id="email" className="fadeIn fourth" placeholder="E-mail" name="email" onChange={(event) => this.handleOnChange(event)} />
-                                <input type="password" id="password" className="fadeIn five" placeholder="Senha" name="password" onChange={(event) => this.handleOnChange(event)} />
-                                <button type="submit" className="fadeIn six btn-register" value="Cadastrar" id="btn-cadastrar" onClick={this.handleRegisterUser}>Cadastrar &nbsp;<i className="" id="icon-loading"></i></button>
+                                <input type="password" id="password" className="fadeIn five" placeholder="Password" name="password" onChange={(event) => this.handleOnChange(event)} />
+                                <button type="submit" className="fadeIn six btn-register" value="Register" id="btn-cadastrar" onClick={this.handleRegisterUser}>Register &nbsp;<i className="" id="icon-loading"></i></button>
                             </form>
                         </div>
                     </div>

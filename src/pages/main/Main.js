@@ -6,7 +6,7 @@ import Footer from "../../components/Footer";
 
 import api from "../../services/api"
 
-import img from "../index/images/img-1.jpg";
+import img from "../index/images/img-1.png";
 
 export default class Main extends Component {
     state = {
