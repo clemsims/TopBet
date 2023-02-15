@@ -26,6 +26,9 @@ export default class Login extends Component {
         e.preventDefault();
         const { user, password } = this.state;
 
+        let resptest = await api.get(`/`);
+        console.log(resptest);
+
         if (!user) {
             $("#input-login").css("border-color", "red");
             setTimeout(function () {
