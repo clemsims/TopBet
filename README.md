@@ -1,2 +1,1 @@
-
-lien logo: https://imgur.com/HvVE2nr
+lien logo: https://i.imgur.com/HvVE2nr.png

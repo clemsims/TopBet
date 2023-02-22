@@ -8,7 +8,7 @@ import api from "../../services/api"
 
 import img from "../index/images/img-1.png";
 
-import logo from "https://i.imgur.com/HvVE2nr.png";
+import logo from "../index/images/TOPBET.png";
 
 
 export default class Main extends Component {
