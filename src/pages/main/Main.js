@@ -8,9 +8,6 @@ import api from "../../services/api"
 
 import img from "../index/images/img-1.png";
 
-import logo from "../index/images/TOPBET.png";
-
-
 export default class Main extends Component {
     state = {
         loading: false,
@@ -145,7 +142,7 @@ export default class Main extends Component {
                     <main role="main" className="container-fluid w-100">
                         <div class="row jumbotron jumbotron">
                             <div class="container-fluid">
-                                <img src={logo} alt="Logo" />
+                                <h1 class="display-3">Football Betting</h1>
                                 <p className="lead">Abaixo está algumas rodadas disponíveis para jogar, para iniciar suas apostas, escolha uma delas e aperte em "jogar".<br />
                                 </p>
                             </div>
