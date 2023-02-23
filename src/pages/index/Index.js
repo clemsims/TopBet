@@ -8,6 +8,8 @@ import "./styles.css";
 
 import img1 from "./images/img-1.png";
 import img3 from "./images/img-3.jpg";
+import logo from '../index/images/TOPBET.png';
+
 
 export default class Index extends Component {
 
@@ -21,7 +23,7 @@ export default class Index extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <a className="navbar-brand h4 mb-0" href="#">
-            <span className="foot-name">TopBet</span>{" "}
+            <img src={logo} alt="TopBet Logo" className="img-fluid logo" style={{maxWidth: "80px"}} />
           </a>
           <button
             className="navbar-toggler"
@@ -56,7 +58,7 @@ export default class Index extends Component {
                   className="btn btn-success"
                   onClick={this.handleLogin}
                 >
-                  Play now (Login)
+                  Bet now (Login)
                 </button>
               </li>
             </ul>
