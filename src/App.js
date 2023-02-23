@@ -11,6 +11,7 @@ import AdminCriarRodada from "./pages/admin/AdminCriarRodada";
 import AdminEncerrarRodada from "./pages/admin/AdminEncerrarRodada";
 import AdminEditarUsuario from "./pages/admin/AdminEditarUsuario";
 import JogarRodada from "./pages/jogar_rodada/JogarRodada";
+import BestQuotations from "./pages/quotations/BestQuotations";
 
 export default class App extends Component {
   render() {
@@ -40,7 +41,9 @@ export default class App extends Component {
           <Route
             path="/rodada/jogar_rodada" // in english: play_round
             exact
-            component={JogarRodada} />
+            component={JogarRodada}
+          />
+          <Route path="/best_quotations" exact component={BestQuotations} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
