@@ -7,11 +7,11 @@ import Registro from "./pages/registro/Registro";
 import Main from "./pages/main/Main";
 import Error404 from "./pages/error_404/Error";
 import Ranking from "./pages/ranking/Ranking";
-import AdminCriarRodada from "./pages/admin/AdminCriarRodada";
+import AdminRaisingRotation from "./pages/admin/AdminRaisingRotation";
 import AdminEncerrarRodada from "./pages/admin/AdminEncerrarRodada";
 import AdminEditarUsuario from "./pages/admin/AdminEditarUsuario";
 import JogarRodada from "./pages/jogar_rodada/JogarRodada";
-import BestQuotations from "./pages/quotations/BestQuotations";
+import BestRates from "./pages/rates/BestRates";
 
 export default class App extends Component {
   render() {
@@ -26,7 +26,7 @@ export default class App extends Component {
           <Route
             path="/admin/criar_rodada" // in english: create_round
             exact
-            component={AdminCriarRodada}
+            component={AdminRaisingRotation}
           />
           <Route
             path="/admin/encerrar_rodada" // in english: close_round
@@ -43,7 +43,7 @@ export default class App extends Component {
             exact
             component={JogarRodada}
           />
-          <Route path="/best_quotations" exact component={BestQuotations} />
+          <Route path="/best_rates" exact component={BestRates} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>

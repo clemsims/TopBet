@@ -18,6 +18,10 @@ export default class Index extends Component {
     this.props.history.push("/login");
   };
 
+  handleBestRates = () => {
+    this.props.history.push("/best-quotations");
+  };
+
   render() {
     return (
       <div>
@@ -61,6 +65,15 @@ export default class Index extends Component {
                   Bet now (Login)
                 </button>
               </li>
+              <li className="nav-item">
+                <button
+                  type="button"
+                  className="btn btn-outline-light"
+                  onClick={this.handleBestRates}
+                >
+                  Best Rates
+                </button>
+              </li>
             </ul>
           </div>
         </nav>
@@ -95,43 +108,12 @@ export default class Index extends Component {
             </div>
           </div>
           <a
-            class="carousel-control-prev"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true" />
-            <span class="sr-only">Anterior</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true" />
-            <span class="sr-only">Próximo</span>
-          </a>
-        </div>
-
-        <div className="container mt-5" id="equipe">
-          <div className="row">
-            
-            <div className="col-4 center">
-              <div className="card">
-                <img
-                  class="card-img-top img-fluid mx-auto d-block"
-                  src="https://media.tenor.com/M1KPEboSVCEAAAAM/yasincengiz38-skibididop.gif"
-                />
-
-                <div className="card-body text-center">
-                  <h5 class="card-title">A sample user: Walid. E</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-}
+              class="carousel-control-prev"
+              href="#carouselExampleIndicators"
+              role="button"
+              data-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true" />
+              <span class="sr-only">Anterior</span>
+            </a>
+</div> </div> ) }}
