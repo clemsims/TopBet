@@ -1,36 +1,53 @@
 .foot-name {
-    color: #26a65b;
+  color: #c91010;
 }
 
 .navbar-dark .navbar-nav .nav-link,
 .betting-name {
-    color: white;
+  color: white;
 }
 
 .link-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #carouselExampleIndicators {
-    height: auto;
+  height: auto;
 }
 
 /* width */
 ::-webkit-scrollbar {
-    width: 10px;
+  width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+  background: #f1f1f1;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #343A40; 
+  background: #343A40;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #343A40; 
+  background: #343A40;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 20px;
+  background-color: red;
+  color: white;
+}
+
+
+.buttom-text {
+  color: rgb(4, 0, 0);
+  font-size: 16px;
+  text-align: center;
+  padding: 100px;
 }
