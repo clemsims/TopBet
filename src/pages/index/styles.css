@@ -16,10 +16,14 @@
   padding: 100px;
 }
 
+.button-wrapper {
+  text-align: center;
+}
+
 .nav-item-home {
   display: inline-block;
-  padding: 8px 15px;
-  background-color: #006400;
+  padding: 15px 15px;
+  background-color: #ff0000;
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -30,10 +34,11 @@
   margin-right: 20px;
 }
 
-.nav-item-home:hover {
-  background-color: #006400;
-
+.nav-item-home:active {
+  transform: translateY(2px);
+  box-shadow: none;
 }
+
 
 .nav-item-betnow {
   display: inline-block;
