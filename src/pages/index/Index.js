@@ -49,23 +49,23 @@ export default class Index extends Component {
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item-home">
-                <a className="nav-link link-pointer" onClick={console.log("test")}>
+                <a className="nav-item-home" onClick={console.log("test")}>
                   Home
                 </a>
               </li>
-              <li className="nav-item-betnow">
+              <li>
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="nav-item-betnow"
                   onClick={this.handleLogin}
                 >
                   Bet now (Login)
                 </button>
               </li>
-              <li className="nav-item-bestrates">
+              <li>
                 <button
                   type="button"
-                  className="btn btn-outline-light"
+                  className="nav-item-bestrates"
                   onClick={this.handleBestRates}
                 >
                   Best Rates
