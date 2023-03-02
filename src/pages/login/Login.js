@@ -26,15 +26,18 @@ export default class Login extends Component {
         e.preventDefault();
         const { user, password } = this.state;
 
+        let resptest = await api.get(`/`);
+        console.log(resptest);
+
         if (!user) {
-            $("#input-login").css("border-color", "red");
+            $("#input-login").css("border-color", "blue");
             setTimeout(function () {
                 $("#input-login").css("border-color", "");
             }, 3000);
         }
 
         if (!password) {
-            $("#input-password").css("border-color", "red");
+            $("#input-password").css("border-color", "blue");
             setTimeout(function () {
                 $("#input-password").css("border-color", "");
             }, 3000);
@@ -98,7 +101,7 @@ export default class Login extends Component {
         $("#icon-loading-confirmar").addClass("fas fa-sync-alt loading-refresh-animate");
 
         if (!response.data.email) {
-            $("#inputEmailChange").css("border-color", "red");
+            $("#inputEmailChange").css("border-color", "blue");
             $("#alert-recuperar-senha").addClass("alert alert-danger").text("O e-mail informado não existe!");
             $("#icon-loading-confirmar").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {

@@ -3,6 +3,8 @@
 import React, { Component } from 'react';
 
 import { withRouter } from "react-router";
+import { Link } from 'react-router-dom';
+
 import api from "../services/api";
 import $ from "jquery";
 
@@ -160,135 +162,100 @@ class Header extends Component {
 
     render() {
         return (
-            <header>
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-                    <a
-                        className="navbar-brand h4 mb-0 link-pointer"
-                        name="/main"
-                        onClick={(event) => this.handleGoPage(event)}>
-                        <span
-                            className="foot-name"
-                            name="/main"
-                            onClick={(event) => this.handleGoPage(event)}
-                        >
-                            Football&nbsp;
-                        </span>
-                        <span
-                            className="betting-name"
-                            name="/main"
-                            onClick={(event) => this.handleGoPage(event)}
-                        >
-                            Betting
-                        </span>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="" name="/main" onClick={(event) => this.handleGoPage(event)}>Home <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="" name="/ranking" onClick={(event) => this.handleGoPage(event)}>Ranking</a>
-                            </li>
-                            <li class="nav-item">
-                                <li class="nav-item dropdown link-pointer invisible" id="admin">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdownAdmin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Admin</a>
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownAdmin">
-                                        <a class="dropdown-item" name="/admin/editar_usuario" onClick={(event) => this.handleGoPage(event)}><i class="fas fa-users"></i> Usuários</a>
-                                        <a class="dropdown-item" name="/admin/encerrar_rodada" onClick={(event) => this.handleGoPage(event)}><i class="fas fa-edit"></i> Rodadas</a>
-                                        <a class="dropdown-item" name="/admin/criar_rodada" onClick={(event) => this.handleGoPage(event)}><i class="fas fa-plus-square"></i> Criar rodada</a>
-                                        <a class="dropdown-item" data-toggle="modal" data-target="#modalResetarRanking"><i class="fas fa-list-ol"></i> Resetar Ranking</a>
-                                    </div>
-                                </li>
-                            </li>
-                        </ul>
-
-
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item dropdown link-pointer">
-                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Configurações</a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalAlterarSenha"><i class="fas fa-edit"></i> Alterar senha</a>
-                                    <a class="dropdown-item" data-toggle="modal" data-target="#modalExcluir"><i class="fas fa-trash-alt"></i> Apagar conta</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" onClick={this.handleLogout}><i class="fas fa-sign-out-alt"></i> Sair</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-
-                <div class="modal fade" id="modalExcluir" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Você deseja realmente excluir sua conta?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form>
-                                <div className="modal-body">
-                                    <div class="" role="alert" id="alert-excluir-conta" data-dismiss="alert"></div>
-                                    <input id="inputPasswordChange" class="w-100 mx-auto" type="password" placeholder="Insira sua senha" name="changePassword" value={this.state.changePassword} onChange={this.handleOnChange} />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarExcluir" name="/login" onClick={(event) => { this.handleDeleteAccount(event) }}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+          <header className="header-area">
+            <nav className="navbar navbar-expand-md navbar-dark">
+              <div className="container">
+                <Link className="navbar-brand" to="/">
+                  Trivia Rates
+                </Link>
+                <button
+                  className="navbar-toggler"
+                  type="button"
+                  data-toggle="collapse"
+                  data-target="#navbarNav"
+                  aria-controls="navbarNav"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation"
+                >
+                  <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarNav">
+                  <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/">
+                        Home
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/ranking">
+                        Ranking
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/best_Rates">
+                        Here are the top Rates
+                      </Link>
+                    </li>
+                    {this.state.admin ? (
+                      <li className="nav-item" id="admin">
+                        <Link className="nav-link" to="/admin/criar_rodada">
+                          Admin
+                        </Link>
+                      </li>
+                    ) : null}
+                    {sessionStorage.getItem("username") !== null ? (
+                      <>
+                        <li className="nav-item">
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger btn-sm mt-2"
+                            data-toggle="modal"
+                            data-target="#modal-excluir-conta"
+                          >
+                            Exclude account
+                          </button>
+                        </li>
+                        <li className="nav-item ml-2">
+                          <button
+                            type="button"
+                            className="btn btn-outline-primary btn-sm mt-2"
+                            data-toggle="modal"
+                            data-target="#modal-alterar-senha"
+                          >
+                            Alterar senha
+                          </button>
+                        </li>
+                        <li className="nav-item ml-2">
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger btn-sm mt-2"
+                            onClick={this.handleLogout}
+                          >
+                            Sair
+                          </button>
+                        </li>
+                      </>
+                    ) : (
+                      <>
+                        <li className="nav-item ml-2">
+                          <Link className="nav-link" to="/login">
+                            Login
+                          </Link>
+                        </li>
+                        <li className="nav-item ml-2">
+                          <Link className="nav-link" to="/registro">
+                            Registro
+                          </Link>
+                        </li>
+                      </>
+                    )}
+                  </ul>
                 </div>
-
-                <div class="modal fade" id="modalAlterarSenha" role="dialog" aria-labelledby="modalAlterarSenhaLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalAlterarSenhaLabel">Insira sua nova senha abaixo</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form>
-                                <div className="modal-body">
-                                    <div class="" role="alert" id="alert-alterar-senha" data-dismiss="alert"></div>
-                                    <input id="inputPasswordChangeAlterar" class="w-100 mx-auto" type="password" placeholder="Senha anterior" name="changePassword" value={this.state.changePassword} onChange={this.handleOnChange} />
-                                    <input id="inputNewPasswordChange" class="w-100 mx-auto" type="password" placeholder="Nova senha" name="changeNewPassword" value={this.state.changeNewPassword} onChange={this.handleOnChange} />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarAlterar" onClick={this.handleChangePassword}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="modalResetarRanking" role="dialog" aria-labelledby="modalResetarRankingLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="" role="alert" id="alert-reset-ranking" data-dismiss="alert"></div>
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="modalResetarRankingLabel">Você deseja realmente resetar o ranking?</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="button" class="btn btn-primary" id="btn-confimarExcluir" onClick={this.handleResetRanking}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        )
-    }
+              </div>
+            </nav>
+          </header>
+        );
+      }      
 }
 
 export default withRouter(Header);

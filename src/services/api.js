@@ -1,6 +1,11 @@
 import Axios from "axios";
-import config from "../config/config"
 
-const api = Axios.create({ baseURL: config.heroku }); // let's modifiy this line to use the config file to use our hosted API.
+const envurl = process.env.REACT_APP_API_URL;
+
+const api = Axios.create({ baseURL: envurl });
+
+// envurl is a codesandbox env variable
+console.log(envurl)
 
 export default api;
+
