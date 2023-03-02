@@ -11,7 +11,48 @@ import img3 from "./images/img-3.jpg";
 import logo from '../index/images/TOPBET.png';
 
 
+// Define an array of upcoming events
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Manchester United vs. Liverpool",
+    date: "March 5, 2023",
+    time: "9:00 AM EST",
+  },
+  {
+    id: 2,
+    title: "Los Angeles Lakers vs. Brooklyn Nets",
+    date: "March 6, 2023",
+    time: "8:30 PM EST",
+  },
+  {
+    id: 3,
+    title: "Boston Red Sox vs. New York Yankees",
+    date: "March 7, 2023",
+    time: "1:05 PM EST",
+  },
+];
+
+
 export default class Index extends Component {
+
+
+  renderUpcomingEvents() {
+    return (
+      <div className="upcoming-events">
+        <h2>Upcoming Events</h2>
+        {upcomingEvents.map(event => (
+          <div key={event.id} className="event-item">
+            <div className="event-details">
+              <div className="event-title">{event.title}</div>
+              <div className="event-time">{event.date} - {event.time}</div>
+            </div>
+            <button className="event-bet-button">Bet Now</button>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -98,6 +139,8 @@ export default class Index extends Component {
             <span className="sr-only">Previous</span>
           </a>
         </div>
+
+        {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
 
         <div className="buttom-text">
           At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />

@@ -22,6 +22,9 @@
   text-align: center;
 }
 
+/* button for home */
+
+
 .nav-item-home {
   display: inline-block;
   padding: 15px 15px;
@@ -40,6 +43,9 @@
   transform: translateY(2px);
   box-shadow: none;
 }
+
+/* button for bet now */
+
 
 
 .nav-item-betnow {
@@ -61,6 +67,9 @@
   box-shadow: none;
 }
 
+/* button for best rate */
+
+
 .nav-item-bestrates {
   display: inline-block;
   padding: 8px 15px;
@@ -78,4 +87,55 @@
 .nav-item-bestrates:active {
   transform: translateY(2px);
   box-shadow: none;
+}
+
+
+
+/* upcoming event section */
+
+
+.upcoming-events {
+  background-color: #f0fff0;
+  border: 2px solid #2e8b57;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+
+.event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e8b57;
+}
+
+.event-time {
+  font-size: 16px;
+  color: #666;
+}
+
+.event-bet-button {
+  background-color: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.event-bet-button:hover {
+  background-color: #1c7430;
 }
