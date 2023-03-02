@@ -1,36 +1,141 @@
-.foot-name {
-    color: #26a65b;
-}
-
 .navbar-dark .navbar-nav .nav-link,
-.betting-name {
-    color: white;
-}
+
 
 .link-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #carouselExampleIndicators {
-    height: auto;
+  height: auto;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
+.buttom-text {
+  color: rgb(4, 0, 0);
+  font-size: 16px;
+  text-align: center;
+  padding: 100px;
+  background-color: #f2f2f2;
+
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #343A40; 
+.button-wrapper {
+  text-align: center;
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #343A40; 
+/* button for home */
+
+
+.nav-item-home {
+  display: inline-block;
+  padding: 15px 15px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.nav-item-home:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* button for bet now */
+
+
+
+.nav-item-betnow {
+  display: inline-block;
+  padding: 8px 25px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.nav-item-betnow:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+/* button for best rate */
+
+
+.nav-item-bestrates {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: #ff0000;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.nav-item-bestrates:active {
+  transform: translateY(2px);
+  box-shadow: none;
+}
+
+
+
+/* upcoming event section */
+
+
+.upcoming-events {
+  background-color: #f0fff0;
+  border: 2px solid #2e8b57;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+
+.event-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2e8b57;
+}
+
+.event-time {
+  font-size: 16px;
+  color: #666;
+}
+
+.event-bet-button {
+  background-color: #2e8b57;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.event-bet-button:hover {
+  background-color: #1c7430;
 }

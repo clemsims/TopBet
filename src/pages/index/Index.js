@@ -8,12 +8,59 @@ import "./styles.css";
 
 import img1 from "./images/img-1.png";
 import img3 from "./images/img-3.jpg";
+import logo from '../index/images/TOPBET.png';
+
+
+// Define an array of upcoming events
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Manchester United vs. Liverpool",
+    date: "March 5, 2023",
+    time: "9:00 AM EST",
+  },
+  {
+    id: 2,
+    title: "Los Angeles Lakers vs. Brooklyn Nets",
+    date: "March 6, 2023",
+    time: "8:30 PM EST",
+  },
+  {
+    id: 3,
+    title: "Boston Red Sox vs. New York Yankees",
+    date: "March 7, 2023",
+    time: "1:05 PM EST",
+  },
+];
+
 
 export default class Index extends Component {
+
+
+  renderUpcomingEvents() {
+    return (
+      <div className="upcoming-events">
+        <h2>Upcoming Events</h2>
+        {upcomingEvents.map(event => (
+          <div key={event.id} className="event-item">
+            <div className="event-details">
+              <div className="event-title">{event.title}</div>
+              <div className="event-time">{event.date} - {event.time}</div>
+            </div>
+            <button className="event-bet-button">Bet Now</button>
+          </div>
+        ))}
+      </div>
+    );
+  }
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
     this.props.history.push("/login");
+  };
+
+  handleBestRates = () => {
+    this.props.history.push("/best-rates");
   };
 
   render() {
@@ -21,7 +68,12 @@ export default class Index extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <a className="navbar-brand h4 mb-0" href="#">
-            <span className="foot-name">TopBet</span>{" "}
+            <img
+              src={logo}
+              alt="TopBet Logo"
+              className="img-fluid logo"
+              style={{ maxWidth: "80px" }}
+            />
           </a>
           <button
             className="navbar-toggler"
@@ -30,104 +82,75 @@ export default class Index extends Component {
             data-target="#navbar-side"
             aria-controls="navbar-side"
             aria-expanded="false"
-            aria-label="Abrir navegação"
+            aria-label="Open navigation"
           >
             <span className="navbar-toggler-icon" />
           </button>
 
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link link-pointer" onClick={console.log("test")}>
+              <li className="button-wrapper">
+                <button type="button" className="nav-item-home" onClick={console.log("test")}>
                   Home
-                </a>
+                </button>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link link-pointer "
-                  onClick={console.log("test")}
-                >
-                  Equipe
-                </a>
-              </li>
-              <li className="nav-item">
+              <li>
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="nav-item-betnow"
                   onClick={this.handleLogin}
                 >
-                  Play now (Login)
+                  Bet now (Login)
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  className="nav-item-bestrates"
+                  onClick={this.handleBestRates}
+                >
+                  Best Rates
                 </button>
               </li>
             </ul>
           </div>
         </nav>
 
-        <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            />
+        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+          <ol className="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
             <li data-target="#carouselExampleIndicators" data-slide-to="1" />
           </ol>
-          <div id="carouselExampleIndicators" class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                class="d-block img-fluid w-100 mx-auto"
-                src={img1}
-                alt="First slide"
-              />
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img className="d-block img-fluid w-100 mx-auto" src={img1} alt="First slide" />
             </div>
-            <div class="carousel-item">
-              <img
-                class="d-block img-fluid w-100 mx-auto"
-                src={img3}
-                alt="Third slide"
-              />
+            <div className="carousel-item">
+              <img className="d-block img-fluid w-100 mx-auto" src={img3} alt="Third slide" />
             </div>
           </div>
           <a
-            class="carousel-control-prev"
+            className="carousel-control-prev"
             href="#carouselExampleIndicators"
             role="button"
             data-slide="prev"
           >
-            <span class="carousel-control-prev-icon" aria-hidden="true" />
-            <span class="sr-only">Anterior</span>
-          </a>
-          <a
-            class="carousel-control-next"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true" />
-            <span class="sr-only">Próximo</span>
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
+            <span className="sr-only">Previous</span>
           </a>
         </div>
 
-        <div className="container mt-5" id="equipe">
-          <div className="row">
-            
-            <div className="col-4 center">
-              <div className="card">
-                <img
-                  class="card-img-top img-fluid mx-auto d-block"
-                  src="https://media.tenor.com/M1KPEboSVCEAAAAM/yasincengiz38-skibididop.gif"
-                />
+        {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
 
-                <div className="card-body text-center">
-                  <h5 class="card-title">A sample user: Walid. E</h5>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="buttom-text">
+          At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />
+          That's why we offer rewards for watching ads, rather than requiring users to bet money.<br />
+          This ensures that users can enjoy the thrill of sports betting without taking unnecessary risks <br />
+          or engaging in behavior that is harmful to themselves or others.<br />
+          Our rewards program is designed to be fair, transparent, and easy to use. <br />
+          Simply watch ads and earn rewards that you can use to place bets on your favorite sports teams and events.<br />
+          We provide clear and upfront information on the terms and conditions of our rewards program,<br />
+          so you can make informed decisions about your betting and avoid any potential risks or issues.
         </div>
       </div>
     );
