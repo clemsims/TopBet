@@ -230,7 +230,7 @@ export default class AdminEncerrarRodada extends Component {
                     class="btn btn-secondary"
                     data-dismiss="modal"
                   >
-                    Cancelar
+                    Cancel
                   </button>
                   <button
                     type="submit"
@@ -238,7 +238,7 @@ export default class AdminEncerrarRodada extends Component {
                     id="btn-encerrarRodada"
                     onClick={this.saveTableAdmin}
                   >
-                    Confirmar &nbsp;<i className="" id="icon-loading" />
+                    Confirm &nbsp;<i className="" id="icon-loading" />
                   </button>
                 </div>
               </div>

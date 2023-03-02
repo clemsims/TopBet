@@ -47,14 +47,14 @@ export default class Login extends Component {
             let retriveUsername = await api.get(`/users/username/${user}`);
 
             if (!retriveUsername.data) {
-                $("#alert-login").addClass("alert alert-danger").text("O usuário informado é inválido!");
+                // $("#alert-login").addClass("alert alert-danger").text("The username entered is invalid!");
                 $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
                 setTimeout(function () {
                     $("#alert-login").removeClass("alert alert-danger");
                 }, 5000)
             }
             else if (password !== retriveUsername.data.password) {
-                $("#alert-login").addClass("alert alert-danger").text("A senha informada está incorreta!");
+                // $("#alert-login").addClass("alert alert-danger").text("The password entered is incorrect!");
                 $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
                 setTimeout(function () {
                     $("#alert-login").removeClass("alert alert-danger");
@@ -70,7 +70,7 @@ export default class Login extends Component {
                 this.props.history.push('/main');
             }
         } catch (error) {
-            $("#alert-login").addClass("alert alert-danger").text("Ocorreu um erro ao solicitar sua requisição!");
+            $("#alert-login").addClass("alert alert-danger").text("An error occurred while requesting your request!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
         }
 
@@ -109,7 +109,7 @@ export default class Login extends Component {
             let retrivePassword = await api.post(`/recuperar/senha/${this.state.changeEmail}`);
 
             let sendEmail = await api.get(`/enviar/email/${this.state.changeEmail}/${retrivePassword.data.password}`);
-            $("#alert-recuperar-senha").addClass("alert alert-success").text("A senha foi redefinida com sucesso, verifique seu e-mail!");
+            $("#alert-recuperar-senha").addClass("alert alert-success").text("The password has been successfully reset, check your email!");
             $("#icon-loading-confirmar").removeClass("fas fa-sync-alt loading-refresh-animate");
             this.setState({ changeEmail: "" });
             $("#inputEmailChange").val(this.state.changeEmail);
@@ -129,7 +129,7 @@ export default class Login extends Component {
                         <div id="formHeader">
                             <h2 className="h2-login active">Login</h2>
 
-                            <h2 className="h2-login inactive underlineHover" onClick={this.handleRegistro}>Cadastrar</h2>
+                            <h2 className="h2-login inactive underlineHover" onClick={this.handleRegistro}>Register</h2>
                         </div>
 
                         <div className="form-padding">
@@ -147,17 +147,17 @@ export default class Login extends Component {
                                     type="password"
                                     id="input-password"
                                     className="fadeIn third"
-                                    placeholder="Senha"
+                                    placeholder="Password"
                                     name="password"
                                     onChange={(event) => this.handleOnChange(event)}
                                     required
                                 />
-                                <button type="submit" className="fadeIn fourth btn-login" value="Entrar" onClick={this.handleLogin} >Entrar &nbsp;<i className="" id="icon-loading"></i></button>
+                                <button type="submit" className="fadeIn fourth btn-login" value="Enter" onClick={this.handleLogin} >Enter &nbsp;<i className="" id="icon-loading"></i></button>
                             </form>
                         </div>
 
                         <div id="formFooter">
-                            <a className="underlineHover link-pointer" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu a senha?</a>
+                            <a className="underlineHover link-pointer" data-toggle="modal" data-target="#modalRecuperarSenha">Forgot password?</a>
                         </div>
 
                     </div>
@@ -167,7 +167,7 @@ export default class Login extends Component {
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="modalRecuperarSenhaLabel">Insira seu e-mail abaixo e senha abaixo</h5>
+                                <h5 class="modal-title" id="modalRecuperarSenhaLabel">Enter your email and password below</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
@@ -178,8 +178,8 @@ export default class Login extends Component {
                                     <input id="inputEmailChange" class="w-100 mx-auto" type="email" placeholder="E-mail" name="changeEmail" onChange={this.handleOnChange} />
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearEmail}>Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRecuperar" onClick={this.handleRecuperarSenha}>Confirmar &nbsp;<i className="" id="icon-loading-confirmar"></i></button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearEmail}>Cancel</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRecuperar" onClick={this.handleRecuperarSenha}>Confirm &nbsp;<i className="" id="icon-loading-confirmar"></i></button>
                                 </div>
                             </form>
                         </div>

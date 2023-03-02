@@ -23,21 +23,24 @@ export default class App extends Component {
           <Route path="/main" exact component={Main} />
           <Route path="/ranking" exact component={Ranking} />
           <Route
-            path="/admin/criar_rodada"
+            path="/admin/criar_rodada" // in english: create_round
             exact
             component={AdminCriarRodada}
           />
           <Route
-            path="/admin/encerrar_rodada"
+            path="/admin/encerrar_rodada" // in english: close_round
             exact
             component={AdminEncerrarRodada}
           />
           <Route
-            path="/admin/editar_usuario"
+            path="/admin/editar_usuario" // in english: edit_user
             exact
             component={AdminEditarUsuario}
           />
-          <Route path="/rodada/jogar_rodada" exact component={JogarRodada} />
+          <Route
+            path="/rodada/jogar_rodada" // in english: play_round
+            exact
+            component={JogarRodada} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>

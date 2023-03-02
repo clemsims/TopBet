@@ -237,7 +237,7 @@ class Header extends Component {
                                     <input id="inputPasswordChange" class="w-100 mx-auto" type="password" placeholder="Insira sua senha" name="changePassword" value={this.state.changePassword} onChange={this.handleOnChange} />
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancelar</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancel</button>
                                     <button type="submit" class="btn btn-primary" id="btn-confimarExcluir" name="/login" onClick={(event) => { this.handleDeleteAccount(event) }}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </form>
@@ -261,8 +261,8 @@ class Header extends Component {
                                     <input id="inputNewPasswordChange" class="w-100 mx-auto" type="password" placeholder="Nova senha" name="changeNewPassword" value={this.state.changeNewPassword} onChange={this.handleOnChange} />
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarAlterar" onClick={this.handleChangePassword}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onClick={this.handleClearState}>Cancel</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarAlterar" onClick={this.handleChangePassword}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </form>
                         </div>
@@ -280,8 +280,8 @@ class Header extends Component {
                                 </button>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                <button type="button" class="btn btn-primary" id="btn-confimarExcluir" onClick={this.handleResetRanking}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" id="btn-confimarExcluir" onClick={this.handleResetRanking}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
                             </div>
                         </div>
                     </div>
