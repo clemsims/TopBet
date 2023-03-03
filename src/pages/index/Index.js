@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React, { Component } from "react";
 
 import $ from "jquery";
@@ -163,7 +162,7 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        <div classname="header">
+        <div className="headertext">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a className="navbar-brand h4 mb-0" href="#">
               <img
@@ -182,7 +181,6 @@ export default class Index extends Component {
               aria-expanded="false"
               aria-label="Open navigation"
             >
-              <span className="navbar-toggler-icon" />
             </button>
 
             <div className="collapse navbar-collapse" id="navbar-side">
@@ -215,13 +213,22 @@ export default class Index extends Component {
           </nav>
         </div >
 
-        <div class="container">
-          {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
-          {this.renderleaderboardEntries()} {/* Render the list of upcoming events */}
+          // sections of the page:
 
-          {this.renderOpenBets()} {/* Render the list of upcoming events */}
-          {this.renderAccountInfo()} {/* Render the list of upcoming events */}
+        <div className="upcoming-events-section">
+          {this.renderUpcomingEvents()}
+        </div>
 
+        <div className="leaderboard-section">
+          {this.renderleaderboardEntries()}
+        </div>
+
+        <div className="open-bets-section">
+          {this.renderOpenBets()}
+        </div>
+
+        <div className="account-info-section">
+          {this.renderAccountInfo()}
         </div>
 
 

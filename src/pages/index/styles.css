@@ -89,9 +89,7 @@
   box-shadow: none;
 }
 
-.container {
-  margin-top: 100px !important;
-}
+
 
 /* upcoming event section */
 
@@ -247,4 +245,40 @@
 
 .leaderboard-entries tr:hover {
   background-color: #ddd;
+}
+
+
+
+/* adding space between sections */
+
+
+.headertext {
+  margin-bottom: 50px;
+}
+
+.upcoming-events-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.leaderboard-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.open-bets-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.account-info-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+}
+
+.buttom-text {
+  padding-top: 20px;
 }
