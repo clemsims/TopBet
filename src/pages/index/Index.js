@@ -60,18 +60,53 @@ const accountInfo = {
 const leaderboardEntries = [
   {
     id: 1,
-    username: "user1",
-    winnings: 500,
+    username: "JennaSmith",
+    score: 450,
   },
   {
     id: 2,
-    username: "user2",
-    winnings: 300,
+    username: "AlexJohnson",
+    score: 320,
   },
   {
     id: 3,
-    username: "user3",
-    winnings: 200,
+    username: "ChrisAnderson",
+    score: 280,
+  },
+  {
+    id: 4,
+    username: "LaurenWilliams",
+    score: 210,
+  },
+  {
+    id: 5,
+    username: "SamThompson",
+    score: 180,
+  },
+  {
+    id: 6,
+    username: "RyanClark",
+    score: 150,
+  },
+  {
+    id: 7,
+    username: "GraceMiller",
+    score: 120,
+  },
+  {
+    id: 8,
+    username: "HenryWhite",
+    score: 90,
+  },
+  {
+    id: 9,
+    username: "DaisyWilson",
+    score: 60,
+  },
+  {
+    id: 10,
+    username: "BenJackson",
+    score: 30,
   },
 ];
 
@@ -83,7 +118,7 @@ export default class Index extends Component {
   renderleaderboardEntries() {
     return (
       <div className="leaderboard-entries">
-        <h2>Leaderboard</h2>
+        <h2>Global Ranking</h2>
         <table>
           <thead>
             <tr>
