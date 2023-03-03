@@ -139,3 +139,70 @@
 .event-bet-button:hover {
   background-color: #1c7430;
 }
+
+/* betting slip section */
+
+/* Style for the betting slip section */
+.betting-slip {
+  background-color: #f6e3e3;
+  border: 1px solid #d9b7b7;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Style for the open bets list */
+.open-bets ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open-bets li {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9dada;
+  border: 1px solid #e6c1c1;
+}
+
+/* Style for the current bet */
+.open-bets li.current-bet {
+  background-color: #ffc1c1;
+  border: 1px solid #ff8080;
+}
+
+/* account info section */
+
+/* Style for the account information section */
+.account-info {
+  background-color: #f6e3e3;
+  border: 1px solid #d9b7b7;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.account-info h2 {
+  color: #555;
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.account-info p {
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px 0;
+}
+
+/* Style for the username */
+.account-info p.username {
+  font-weight: bold;
+}
+
+/* Style for the balance */
+.account-info p.balance {
+  color: #0d6efd;
+  font-weight: bold;
+}

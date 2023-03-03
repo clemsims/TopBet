@@ -33,6 +33,29 @@ const upcomingEvents = [
   },
 ];
 
+// Define an array of open bets
+const openBets = [
+  {
+    id: 1,
+    team: "Manchester United",
+    odds: 2.0,
+    stake: 10,
+  },
+  {
+    id: 2,
+    team: "Los Angeles Lakers",
+    odds: 1.5,
+    stake: 5,
+  },
+];
+
+// Define account information
+const accountInfo = {
+  username: "johnsmith",
+  balance: 100,
+  currency: "USD",
+};
+
 
 export default class Index extends Component {
 
@@ -50,6 +73,31 @@ export default class Index extends Component {
             <button className="event-bet-button">Bet Now</button>
           </div>
         ))}
+      </div>
+    );
+  }
+
+  renderOpenBets() {
+    return (
+      <div className="open-bets">
+        <h2>Open Bets</h2>
+        <ul>
+          {openBets.map(bet => (
+            <li key={bet.id}>
+              {bet.team} ({bet.odds}) - ${bet.stake}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  renderAccountInfo() {
+    return (
+      <div className="account-info">
+        <h2>Account Information</h2>
+        <p>Username: {accountInfo.username}</p>
+        <p>Balance: {accountInfo.balance} {accountInfo.currency}</p>
       </div>
     );
   }
@@ -90,7 +138,7 @@ export default class Index extends Component {
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
               <li className="button-wrapper">
-                <button type="button" className="nav-item-home" onClick={console.log("test")}>
+                <button type="button" className="nav-item-home" onClick={console.log("test")}> 
                   Home
                 </button>
               </li>
@@ -141,6 +189,8 @@ export default class Index extends Component {
         </div>
 
         {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
+        {this.renderOpenBets()} {/* Render the list of upcoming events */}
+        {this.renderAccountInfo()} {/* Render the list of upcoming events */}
 
         <div className="buttom-text">
           At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />
