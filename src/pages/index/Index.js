@@ -11,7 +11,147 @@ import img3 from "./images/img-3.jpg";
 import logo from '../index/images/TOPBET.png';
 
 
+// Define an array of upcoming events
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Manchester United vs. Liverpool",
+    date: "March 5, 2023",
+    time: "9:00 AM EST",
+  },
+  {
+    id: 2,
+    title: "Los Angeles Lakers vs. Brooklyn Nets",
+    date: "March 6, 2023",
+    time: "8:30 PM EST",
+  },
+  {
+    id: 3,
+    title: "Boston Red Sox vs. New York Yankees",
+    date: "March 7, 2023",
+    time: "1:05 PM EST",
+  },
+];
+
+// Define an array of open bets
+const openBets = [
+  {
+    id: 1,
+    team: "Manchester United",
+    odds: 2.0,
+    stake: 10,
+  },
+  {
+    id: 2,
+    team: "Los Angeles Lakers",
+    odds: 1.5,
+    stake: 5,
+  },
+];
+
+// Define account information
+const accountInfo = {
+  username: "johnsmith",
+  balance: 100,
+  currency: "USD",
+};
+
+
+
+
+// Define an array of leaderboard entries
+const leaderboardEntries = [
+  {
+    id: 1,
+    username: "user1",
+    winnings: 500,
+  },
+  {
+    id: 2,
+    username: "user2",
+    winnings: 300,
+  },
+  {
+    id: 3,
+    username: "user3",
+    winnings: 200,
+  },
+];
+
+
 export default class Index extends Component {
+
+
+
+  renderleaderboardEntries() {
+    return (
+      <div className="leaderboard-entries" style={{ backgroundImage: `(${img1})` }}>
+        <h2>Leaderboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboardEntries.map((entry, index) => (
+              <tr key={entry.id}>
+                <td>{index + 1}</td>
+                <td>{entry.username}</td>
+                <td>{entry.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
+
+
+  renderUpcomingEvents() {
+    return (
+      <div className="upcoming-events">
+        <h2>Upcoming Events</h2>
+        {upcomingEvents.map(event => (
+          <div key={event.id} className="event-item">
+            <div className="event-details">
+              <div className="event-title">{event.title}</div>
+              <div className="event-time">{event.date} - {event.time}</div>
+            </div>
+            <button className="event-bet-button">Bet Now</button>
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  renderOpenBets() {
+    return (
+      <div className="open-bets">
+        <h2>Open Bets</h2>
+        <ul>
+          {openBets.map(bet => (
+            <li key={bet.id}>
+              {bet.team} ({bet.odds}) - ${bet.stake}
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  }
+
+  renderAccountInfo() {
+    return (
+      <div className="account-info">
+        <h2>Account Information</h2>
+        <p>Username: {accountInfo.username}</p>
+        <p>Balance: {accountInfo.balance} {accountInfo.currency}</p>
+      </div>
+    );
+  }
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -19,7 +159,7 @@ export default class Index extends Component {
   };
 
   handleBestRates = () => {
-    this.props.history.push("/best-quotations");
+    this.props.history.push("/best-rates");
   };
 
   render() {
@@ -27,7 +167,12 @@ export default class Index extends Component {
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
           <a className="navbar-brand h4 mb-0" href="#">
-            <img src={logo} alt="TopBet Logo" className="img-fluid logo" style={{maxWidth: "80px"}} />
+            <img
+              src={logo}
+              alt="TopBet Logo"
+              className="img-fluid logo"
+              style={{ maxWidth: "80px" }}
+            />
           </a>
           <button
             className="navbar-toggler"
@@ -36,39 +181,31 @@ export default class Index extends Component {
             data-target="#navbar-side"
             aria-controls="navbar-side"
             aria-expanded="false"
-            aria-label="Abrir navegação"
+            aria-label="Open navigation"
           >
             <span className="navbar-toggler-icon" />
           </button>
 
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item">
-                <a className="nav-link link-pointer" onClick={console.log("test")}>
+              <li className="button-wrapper">
+                <button type="button" className="nav-item-home" onClick={console.log("test")}>
                   Home
-                </a>
+                </button>
               </li>
-              <li className="nav-item">
-                <a
-                  className="nav-link link-pointer "
-                  onClick={console.log("test")}
-                >
-                  Equipe
-                </a>
-              </li>
-              <li className="nav-item">
+              <li>
                 <button
                   type="button"
-                  className="btn btn-success"
+                  className="nav-item-betnow"
                   onClick={this.handleLogin}
                 >
                   Bet now (Login)
                 </button>
               </li>
-              <li className="nav-item">
+              <li>
                 <button
                   type="button"
-                  className="btn btn-outline-light"
+                  className="nav-item-bestrates"
                   onClick={this.handleBestRates}
                 >
                   Best Rates
@@ -78,42 +215,47 @@ export default class Index extends Component {
           </div>
         </nav>
 
-        <div
-          id="carouselExampleIndicators"
-          className="carousel slide"
-          data-ride="carousel"
-        >
-          <ol class="carousel-indicators">
-            <li
-              data-target="#carouselExampleIndicators"
-              data-slide-to="0"
-              class="active"
-            />
+
+
+        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
+          <ol className="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
             <li data-target="#carouselExampleIndicators" data-slide-to="1" />
           </ol>
-          <div id="carouselExampleIndicators" class="carousel-inner">
-            <div class="carousel-item active">
-              <img
-                class="d-block img-fluid w-100 mx-auto"
-                src={img1}
-                alt="First slide"
-              />
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img className="d-block img-fluid w-100 mx-auto" src={img1} alt="First slide" />
             </div>
-            <div class="carousel-item">
-              <img
-                class="d-block img-fluid w-100 mx-auto"
-                src={img3}
-                alt="Third slide"
-              />
+            <div className="carousel-item">
+              <img className="d-block img-fluid w-100 mx-auto" src={img3} alt="Third slide" />
             </div>
           </div>
           <a
-              class="carousel-control-prev"
-              href="#carouselExampleIndicators"
-              role="button"
-              data-slide="prev"
-            >
-              <span class="carousel-control-prev-icon" aria-hidden="true" />
-              <span class="sr-only">Anterior</span>
-            </a>
-</div> </div> ) }}
+            className="carousel-control-prev"
+            href="#carouselExampleIndicators"
+            role="button"
+            data-slide="prev"
+          >
+            <span className="carousel-control-prev-icon" aria-hidden="true" />
+            <span className="sr-only">Previous</span>
+          </a>
+        </div>
+        {this.renderleaderboardEntries()} {/* Render the list of upcoming events */}
+        {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
+        {this.renderOpenBets()} {/* Render the list of upcoming events */}
+        {this.renderAccountInfo()} {/* Render the list of upcoming events */}
+
+        <div className="buttom-text">
+          At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />
+          That's why we offer rewards for watching ads, rather than requiring users to bet money.<br />
+          This ensures that users can enjoy the thrill of sports betting without taking unnecessary risks <br />
+          or engaging in behavior that is harmful to themselves or others.<br />
+          Our rewards program is designed to be fair, transparent, and easy to use. <br />
+          Simply watch ads and earn rewards that you can use to place bets on your favorite sports teams and events.<br />
+          We provide clear and upfront information on the terms and conditions of our rewards program,<br />
+          so you can make informed decisions about your betting and avoid any potential risks or issues.
+        </div>
+      </div>
+    );
+  }
+}
