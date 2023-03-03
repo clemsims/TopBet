@@ -206,3 +206,40 @@
   color: #0d6efd;
   font-weight: bold;
 }
+
+
+/* Style for the leaderboard part */
+.leaderboard-entries {
+  background-image: url('images/img-3.jpg');
+  background-size: cover;
+  background-position: center center;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.leaderboard-entries table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-entries th,
+.leaderboard-entries td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.leaderboard-entries th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+
+.leaderboard-entries tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.leaderboard-entries tr:hover {
+  background-color: #ddd;
+}

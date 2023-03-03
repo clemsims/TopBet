@@ -57,7 +57,58 @@ const accountInfo = {
 };
 
 
+
+
+// Define an array of leaderboard entries
+const leaderboardEntries = [
+  {
+    id: 1,
+    username: "user1",
+    winnings: 500,
+  },
+  {
+    id: 2,
+    username: "user2",
+    winnings: 300,
+  },
+  {
+    id: 3,
+    username: "user3",
+    winnings: 200,
+  },
+];
+
+
 export default class Index extends Component {
+
+
+
+  renderleaderboardEntries() {
+    return (
+      <div className="leaderboard-entries" style={{ backgroundImage: `(${img1})` }}>
+        <h2>Leaderboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Username</th>
+              <th>Score</th>
+            </tr>
+          </thead>
+          <tbody>
+            {leaderboardEntries.map((entry, index) => (
+              <tr key={entry.id}>
+                <td>{index + 1}</td>
+                <td>{entry.username}</td>
+                <td>{entry.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+
 
 
   renderUpcomingEvents() {
@@ -138,7 +189,7 @@ export default class Index extends Component {
           <div className="collapse navbar-collapse" id="navbar-side">
             <ul className="navbar-nav ml-auto">
               <li className="button-wrapper">
-                <button type="button" className="nav-item-home" onClick={console.log("test")}> 
+                <button type="button" className="nav-item-home" onClick={console.log("test")}>
                   Home
                 </button>
               </li>
@@ -164,6 +215,8 @@ export default class Index extends Component {
           </div>
         </nav>
 
+
+
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
           <ol className="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
@@ -187,7 +240,7 @@ export default class Index extends Component {
             <span className="sr-only">Previous</span>
           </a>
         </div>
-
+        {this.renderleaderboardEntries()} {/* Render the list of upcoming events */}
         {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
         {this.renderOpenBets()} {/* Render the list of upcoming events */}
         {this.renderAccountInfo()} {/* Render the list of upcoming events */}
