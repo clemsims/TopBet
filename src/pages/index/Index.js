@@ -6,8 +6,6 @@ import $ from "jquery";
 
 import "./styles.css";
 
-import img1 from "./images/img-1.png";
-import img3 from "./images/img-3.jpg";
 import logo from '../index/images/TOPBET.png';
 
 
@@ -85,7 +83,7 @@ export default class Index extends Component {
 
   renderleaderboardEntries() {
     return (
-      <div className="leaderboard-entries" style={{ backgroundImage: `(${img1})` }}>
+      <div className="leaderboard-entries">
         <h2>Leaderboard</h2>
         <table>
           <thead>
@@ -165,85 +163,67 @@ export default class Index extends Component {
   render() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-          <a className="navbar-brand h4 mb-0" href="#">
-            <img
-              src={logo}
-              alt="TopBet Logo"
-              className="img-fluid logo"
-              style={{ maxWidth: "80px" }}
-            />
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbar-side"
-            aria-controls="navbar-side"
-            aria-expanded="false"
-            aria-label="Open navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
+        <div classname="header">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a className="navbar-brand h4 mb-0" href="#">
+              <img
+                src={logo}
+                alt="TopBet Logo"
+                className="img-fluid logo"
+                style={{ maxWidth: "80px" }}
+              />
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-side"
+              aria-controls="navbar-side"
+              aria-expanded="false"
+              aria-label="Open navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
 
-          <div className="collapse navbar-collapse" id="navbar-side">
-            <ul className="navbar-nav ml-auto">
-              <li className="button-wrapper">
-                <button type="button" className="nav-item-home" onClick={console.log("test")}>
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="nav-item-betnow"
-                  onClick={this.handleLogin}
-                >
-                  Bet now (Login)
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="nav-item-bestrates"
-                  onClick={this.handleBestRates}
-                >
-                  Best Rates
-                </button>
-              </li>
-            </ul>
-          </div>
-        </nav>
-
-
-
-        <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-          <ol className="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active" />
-            <li data-target="#carouselExampleIndicators" data-slide-to="1" />
-          </ol>
-          <div className="carousel-inner">
-            <div className="carousel-item active">
-              <img className="d-block img-fluid w-100 mx-auto" src={img1} alt="First slide" />
+            <div className="collapse navbar-collapse" id="navbar-side">
+              <ul className="navbar-nav ml-auto">
+                <li className="button-wrapper">
+                  <button type="button" className="nav-item-home" onClick={console.log("test")}>
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-betnow"
+                    onClick={this.handleLogin}
+                  >
+                    Bet now (Login)
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-bestrates"
+                    onClick={this.handleBestRates}
+                  >
+                    Best Rates
+                  </button>
+                </li>
+              </ul>
             </div>
-            <div className="carousel-item">
-              <img className="d-block img-fluid w-100 mx-auto" src={img3} alt="Third slide" />
-            </div>
-          </div>
-          <a
-            className="carousel-control-prev"
-            href="#carouselExampleIndicators"
-            role="button"
-            data-slide="prev"
-          >
-            <span className="carousel-control-prev-icon" aria-hidden="true" />
-            <span className="sr-only">Previous</span>
-          </a>
+          </nav>
+        </div >
+
+        <div class="container">
+          {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
+          {this.renderleaderboardEntries()} {/* Render the list of upcoming events */}
+
+          {this.renderOpenBets()} {/* Render the list of upcoming events */}
+          {this.renderAccountInfo()} {/* Render the list of upcoming events */}
+
         </div>
-        {this.renderleaderboardEntries()} {/* Render the list of upcoming events */}
-        {this.renderUpcomingEvents()} {/* Render the list of upcoming events */}
-        {this.renderOpenBets()} {/* Render the list of upcoming events */}
-        {this.renderAccountInfo()} {/* Render the list of upcoming events */}
+
 
         <div className="buttom-text">
           At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />

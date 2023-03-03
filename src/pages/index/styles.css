@@ -89,12 +89,17 @@
   box-shadow: none;
 }
 
-
+.container {
+  margin-top: 100px !important;
+}
 
 /* upcoming event section */
 
 
 .upcoming-events {
+  margin-top: 100px !important;
+  /* Add a margin of 100px */
+  padding: 20px 0;
   background-color: #f0fff0;
   border: 2px solid #2e8b57;
   border-radius: 8px;
