@@ -5,7 +5,7 @@ import $ from "jquery";
 
 import "./styles.css";
 
-import logo from '../index/images/TOPBET.png';
+//import logo from '../index/images/TOPBET.png';
 
 
 // Define an array of upcoming events
@@ -109,6 +109,10 @@ const leaderboardEntries = [
     score: 30,
   },
 ];
+
+// logo 
+const logo = document.createElement('div');
+logo.classList.add('logo');
 
 
 export default class Index extends Component {
