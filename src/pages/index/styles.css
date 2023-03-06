@@ -100,9 +100,9 @@
 
 .upcoming-events {
   margin-top: 100px;
-  padding: 20px 0;
+  padding: 20px 15px;
   background-color: #f0fff0;
-  border: 2px solid #2e8b57;
+  border: 3px solid #2e8b57;
   border-radius: 8px;
 
 }
@@ -207,13 +207,15 @@
 
 /* Style for the leaderboard part */
 .leaderboard-entries {
-  background-image: url('images/it-s-a-blank-te_60950613.png');
-  background-size: cover;
+  background-image: url('images/background_topbet.png');
   background-position: center center;
-  padding: 40px;
+  padding: 80px 20px;
   border-radius: 20px;
   margin: 40px auto;
   max-width: 10000px;
+  color: #f6f1f1;
+  background-size: auto;
+
 }
 
 .leaderboard-entries table {
@@ -230,16 +232,8 @@
 
 .leaderboard-entries th {
   font-weight: bold;
-  background-color: #f2f2f2;
 }
 
-.leaderboard-entries tr:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.leaderboard-entries tr:hover {
-  background-color: #ddd;
-}
 
 
 
