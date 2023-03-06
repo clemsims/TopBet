@@ -110,11 +110,6 @@ const leaderboardEntries = [
   },
 ];
 
-// logo 
-const logo = document.createElement('div');
-logo.classList.add('logo');
-
-
 export default class Index extends Component {
 
 
@@ -204,12 +199,7 @@ export default class Index extends Component {
         <div className="headertext">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a className="navbar-brand h4 mb-0" href="#">
-              <img
-                src={logo}
-                alt="TopBet Logo"
-                className="img-fluid logo"
-                style={{ maxWidth: "80px" }}
-              />
+              <div className="logo">TopBet</div>
             </a>
             <button
               className="navbar-toggler"
