@@ -98,18 +98,14 @@
 
 /* upcoming event section */
 
-
 .upcoming-events {
-  margin-top: 100px !important;
-  /* Add a margin of 100px */
+  margin-top: 100px;
   padding: 20px 0;
   background-color: #f0fff0;
   border: 2px solid #2e8b57;
   border-radius: 8px;
-  padding: 20px;
-  margin-top: 30px;
-}
 
+}
 
 .event-item {
   display: flex;
@@ -188,13 +184,6 @@
   border: 1px solid #d9b7b7;
   padding: 20px;
   margin-top: 20px;
-}
-
-.account-info h2 {
-  color: #555;
-  font-size: 18px;
-  margin-top: 0;
-  margin-bottom: 10px;
 }
 
 .account-info p {
@@ -302,4 +291,15 @@
   text-align: center;
   justify-content: center;
   font-family: Helvetica;
+}
+
+
+
+/* set styles for all titles (not working without !important) */
+
+h2 {
+  font-family: Arial !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
 }
