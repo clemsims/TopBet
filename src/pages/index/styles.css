@@ -27,8 +27,8 @@
 
 .nav-item-home {
   display: inline-block;
-  padding: 15px 15px;
-  background-color: #4CAF50;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #509b1b, #00e2da);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -37,6 +37,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-home:active {
@@ -47,11 +49,10 @@
 /* button for bet now */
 
 
-
 .nav-item-betnow {
   display: inline-block;
-  padding: 8px 25px;
-  background-color: #ff0000;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #9B1B30, #E20030);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -60,6 +61,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-betnow:active {
@@ -72,8 +75,8 @@
 
 .nav-item-bestrates {
   display: inline-block;
-  padding: 8px 15px;
-  background-color: #ff0000;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #9B1B30, #E20030);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -82,6 +85,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-bestrates:active {
@@ -289,7 +294,7 @@
 
 .logo {
   background: linear-gradient(to right, #9B1B30, #E20030);
-  padding: 15px;
+  padding: 8px 25px;
   border-radius: 5px;
   color: #FFFFFF;
   font-size: 24px;
