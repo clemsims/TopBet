@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import api from "../../services/api";
 import $ from "jquery";
-
 import "./styles.css";
 
 export default class Login extends Component {
+
+  // Redirects to the right pages for the header buttons
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -19,6 +20,7 @@ export default class Login extends Component {
     this.props.history.push("/");
   };
 
+  // Defines the initial state for this component
 
   state = {
     user: "",
@@ -26,6 +28,7 @@ export default class Login extends Component {
     changeEmail: ""
   };
 
+  // Lifecycle method that gets called before the component is mounted ("mounted" refers to the point at which a component is initialized and added to the UI.)
   componentWillMount() {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
   }
