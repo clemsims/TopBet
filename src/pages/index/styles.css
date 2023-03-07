@@ -46,6 +46,38 @@
   box-shadow: none;
 }
 
+/* testing flammes */
+
+.nav-item-home:active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, #FFF, #FFA000, #FF5733);
+  animation: flames 1s ease-out forwards;
+}
+
+
+@keyframes flames {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+
 /* button for bet now */
 
 
@@ -167,13 +199,13 @@
   margin-bottom: 10px;
   padding: 10px;
   background-color: #f9dada;
-  border: 1px solid #e6c1c1;
+  border: 1px solid #090101;
 }
 
 /* Style for the current bet */
 .open-bets li.current-bet {
   background-color: #ffc1c1;
-  border: 1px solid #ff8080;
+  border: 1px solid #090101;
 }
 
 /* account info section */
@@ -181,8 +213,8 @@
 /* Style for the account information section */
 .account-info {
   background-color: #f6e3e3;
-  border: 1px solid #d9b7b7;
-  padding: 20px;
+  border: 1px solid #080000;
+  padding: 15px 20px;
   margin-top: 20px;
 }
 
@@ -208,12 +240,14 @@
 /* Style for the leaderboard part */
 .leaderboard-entries {
   background-image: url('images/background_topbet.png');
+  background-color: rgba(255, 255, 255, 0.5);
   background-position: center center;
-  padding: 80px 20px;
+  padding: 200px 20px;
   border-radius: 20px;
   margin: 40px auto;
   max-width: 10000px;
-  color: #f6f1f1;
+  color: white;
+  ;
   background-size: auto;
 
 }

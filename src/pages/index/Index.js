@@ -117,7 +117,7 @@ export default class Index extends Component {
   renderleaderboardEntries() {
     return (
       <div className="leaderboard-entries">
-        <h2>Global Ranking</h2>
+        <h3>Global Ranking</h3>
         <table>
           <thead>
             <tr>
@@ -244,14 +244,6 @@ export default class Index extends Component {
 
           // sections of the page:
 
-        <div className="upcoming-events-section">
-          {this.renderUpcomingEvents()}
-        </div>
-
-        <div className="leaderboard-section">
-          {this.renderleaderboardEntries()}
-        </div>
-
         <div className="open-bets-section">
           {this.renderOpenBets()}
         </div>
@@ -260,6 +252,13 @@ export default class Index extends Component {
           {this.renderAccountInfo()}
         </div>
 
+        <div className="upcoming-events-section">
+          {this.renderUpcomingEvents()}
+        </div>
+
+        <div className="leaderboard-section">
+          {this.renderleaderboardEntries()}
+        </div>
 
         <div className="buttom-text">
           At Top Bet, we're committed to promoting responsible and ethical sports betting practices. <br />
