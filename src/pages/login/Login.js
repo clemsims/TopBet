@@ -33,8 +33,8 @@ export default class Login extends Component {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
   }
 
-  handleRegistro = () => {
-    this.props.history.push("/registro");
+  handleregistration = () => {
+    this.props.history.push("/registration");
   };
 
   handleLogin = async e => {
@@ -220,7 +220,7 @@ export default class Login extends Component {
 
               <h2
                 className="h2-login inactive underlineHover"
-                onClick={this.handleRegistro}
+                onClick={this.handleregistration}
               >
                 Register
               </h2>
