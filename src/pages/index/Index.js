@@ -188,7 +188,7 @@ export default class Index extends Component {
   };
 
   handlehome = () => {
-    this.props.history.push("/index");
+    this.props.history.push("/");
   };
 
   render() {

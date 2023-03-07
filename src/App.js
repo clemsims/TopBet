@@ -11,7 +11,7 @@ import AdminRaisingRotation from "./pages/admin/AdminRaisingRotation";
 import AdminEncerrarRodada from "./pages/admin/AdminEncerrarRodada";
 import AdminEditarUsuario from "./pages/admin/AdminEditarUsuario";
 import JogarRodada from "./pages/jogar_rodada/JogarRodada";
-import BestRates from "./pages/rates/BestRates";
+import BestRates from "./pages/bestrates/BestRates";
 
 export default class App extends Component {
   render() {
@@ -43,7 +43,7 @@ export default class App extends Component {
             exact
             component={JogarRodada}
           />
-          <Route path="/best_rates" exact component={BestRates} />
+          <Route path="/bestrates" exact component={BestRates} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
