@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 import api from "../../services/api";
 import $ from "jquery";
@@ -7,6 +5,21 @@ import $ from "jquery";
 import "./styles.css";
 
 export default class Login extends Component {
+
+  handleLogin = () => {
+    if (sessionStorage.getItem("username")) this.props.history.push("/main");
+    this.props.history.push("/login");
+  };
+
+  handleBestRates = () => {
+    this.props.history.push("/bestrates");
+  };
+
+  handlehome = () => {
+    this.props.history.push("/");
+  };
+
+
   state = {
     user: "",
     password: "",
@@ -30,14 +43,14 @@ export default class Login extends Component {
 
     if (!user) {
       $("#input-login").css("border-color", "blue");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#input-login").css("border-color", "");
       }, 3000);
     }
 
     if (!password) {
       $("#input-password").css("border-color", "blue");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#input-password").css("border-color", "");
       }, 3000);
     }
@@ -53,7 +66,7 @@ export default class Login extends Component {
         $("#icon-loading").removeClass(
           "fas fa-sync-alt loading-refresh-animate"
         );
-        setTimeout(function() {
+        setTimeout(function () {
           $("#alert-login").removeClass("alert alert-danger");
         }, 5000);
       } else if (password !== retriveUsername.data.password) {
@@ -61,7 +74,7 @@ export default class Login extends Component {
         $("#icon-loading").removeClass(
           "fas fa-sync-alt loading-refresh-animate"
         );
-        setTimeout(function() {
+        setTimeout(function () {
           $("#alert-login").removeClass("alert alert-danger");
         }, 5000);
       } else {
@@ -112,7 +125,7 @@ export default class Login extends Component {
       $("#icon-loading-confirmar").removeClass(
         "fas fa-sync-alt loading-refresh-animate"
       );
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-recuperar-senha")
           .removeClass("alert alert-danger")
           .text("");
@@ -124,8 +137,7 @@ export default class Login extends Component {
       );
 
       let sendEmail = await api.get(
-        `/enviar/email/${this.state.changeEmail}/${
-          retrivePassword.data.password
+        `/enviar/email/${this.state.changeEmail}/${retrivePassword.data.password
         }`
       );
       $("#alert-recuperar-senha")
@@ -148,6 +160,55 @@ export default class Login extends Component {
   render() {
     return (
       <div className="div-panel">
+        <div className="headertext">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a className="navbar-brand h4 mb-0" href="#">
+              <div className="logo">TopBet</div>
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-side"
+              aria-controls="navbar-side"
+              aria-expanded="false"
+              aria-label="Open navigation"
+            />
+
+            <div className="collapse navbar-collapse" id="navbar-side">
+              <ul className="navbar-nav ml-auto">
+                <li className="button-wrapper">
+                  <button
+                    type="button"
+                    className="nav-item-home"
+                    onClick={this.handlehome}
+                  >
+                    Home
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-betnow"
+                    onClick={this.handleLogin}
+                  >
+                    Bet now (Login)
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-bestrates"
+                    onClick={this.handleBestRates}
+                  >
+                    Best Rates
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        // sections of the page:
         <div className="wrapper fadeInDown">
           <div class="" role="alert" id="alert-login" data-dismiss="alert" />
           <div id="formContent">

@@ -30,7 +30,18 @@ export default class Index extends Component {
   }
 
 
+  handleLogin = () => {
+    if (sessionStorage.getItem("username")) this.props.history.push("/main");
+    this.props.history.push("/login");
+  };
 
+  handleBestRates = () => {
+    this.props.history.push("/bestrates");
+  };
+
+  handlehome = () => {
+    this.props.history.push("/");
+  };
 
 
 
