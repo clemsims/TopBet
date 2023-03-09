@@ -86,7 +86,6 @@ export default class Login extends Component {
         sessionStorage.setItem("username", retriveUsername.data.username);
         sessionStorage.setItem("admin", retriveUsername.data.admin);
         sessionStorage.setItem("loading", true);
-
         this.props.history.push("/main");
       }
     } catch (error) {
@@ -166,7 +165,13 @@ export default class Login extends Component {
         <div className="headertext">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a className="navbar-brand h4 mb-0" href="#">
-              <div className="logo">TopBet</div>
+              <button className="logo" type="button" onClick={this.handlehome}
+              >TopBet
+
+
+
+
+              </button>
             </a>
             <button
               className="navbar-toggler"
@@ -181,13 +186,6 @@ export default class Login extends Component {
             <div className="collapse navbar-collapse" id="navbar-side">
               <ul className="navbar-nav ml-auto">
                 <li className="button-wrapper">
-                  <button
-                    type="button"
-                    className="nav-item-home"
-                    onClick={this.handlehome}
-                  >
-                    Home
-                  </button>
                 </li>
                 <li>
                   <button

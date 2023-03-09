@@ -4,8 +4,6 @@ import $ from "jquery";
 
 import "./styles.css";
 
-//import logo from '../index/images/TOPBET.png';
-
 // Define an array of upcoming events
 const upcomingEvents = [
   {
@@ -157,7 +155,7 @@ export default class Index extends Component {
         <h2>Open Bets</h2>
         <ul>
           {openBets.map(bet => (
-            <li key={bet.id}>
+            <li kexy={bet.id}>
               {bet.team} ({bet.odds}) - ${bet.stake}
             </li>
           ))}
@@ -197,7 +195,11 @@ export default class Index extends Component {
         <div className="headertext">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a className="navbar-brand h4 mb-0" href="#">
-              <div className="logo">TopBet</div>
+              <button className="logo" type="button" onClick={this.handlehome}
+              >TopBet
+
+              </button>
+
             </a>
             <button
               className="navbar-toggler"
@@ -212,13 +214,6 @@ export default class Index extends Component {
             <div className="collapse navbar-collapse" id="navbar-side">
               <ul className="navbar-nav ml-auto">
                 <li className="button-wrapper">
-                  <button
-                    type="button"
-                    className="nav-item-home"
-                    onClick={this.handlehome}
-                  >
-                    Home
-                  </button>
                 </li>
                 <li>
                   <button
