@@ -27,8 +27,8 @@
 
 .nav-item-home {
   display: inline-block;
-  padding: 15px 15px;
-  background-color: #4CAF50;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #509b1b, #00e2da);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -37,6 +37,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-home:active {
@@ -44,14 +46,14 @@
   box-shadow: none;
 }
 
-/* button for bet now */
 
+/* button for bet now */
 
 
 .nav-item-betnow {
   display: inline-block;
-  padding: 8px 25px;
-  background-color: #ff0000;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #9B1B30, #E20030);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -60,6 +62,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-betnow:active {
@@ -72,8 +76,8 @@
 
 .nav-item-bestrates {
   display: inline-block;
-  padding: 8px 15px;
-  background-color: #ff0000;
+  padding: 15px 25px;
+  background-image: linear-gradient(to right, #9B1B30, #E20030);
   color: #fff;
   font-size: 16px;
   text-align: center;
@@ -82,6 +86,8 @@
   border: none;
   cursor: pointer;
   margin-right: 20px;
+  font-weight: bold;
+
 }
 
 .nav-item-bestrates:active {
@@ -93,15 +99,14 @@
 
 /* upcoming event section */
 
-
 .upcoming-events {
+  margin-top: 100px;
+  padding: 20px 15px;
   background-color: #f0fff0;
-  border: 2px solid #2e8b57;
+  border: 3px solid #2e8b57;
   border-radius: 8px;
-  padding: 20px;
-  margin-top: 30px;
-}
 
+}
 
 .event-item {
   display: flex;
@@ -138,4 +143,160 @@
 
 .event-bet-button:hover {
   background-color: #1c7430;
+}
+
+/* betting slip section */
+
+/* Style for the betting slip section */
+.betting-slip {
+  background-color: #f6e3e3;
+  border: 1px solid #d9b7b7;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* Style for the open bets list */
+.open-bets ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open-bets li {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9dada;
+  border: 1px solid #090101;
+}
+
+/* Style for the current bet */
+.open-bets li.current-bet {
+  background-color: #ffc1c1;
+  border: 1px solid #090101;
+}
+
+/* account info section */
+
+/* Style for the account information section */
+.account-info {
+  background-color: #f6e3e3;
+  border: 1px solid #080000;
+  padding: 15px 20px;
+  margin-top: 20px;
+}
+
+.account-info p {
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px 0;
+}
+
+/* Style for the username */
+.account-info p.username {
+  font-weight: bold;
+}
+
+/* Style for the balance */
+.account-info p.balance {
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+
+/* Style for the leaderboard part */
+.leaderboard-entries {
+  background-image: url('images/background_topbet.png');
+  background-color: rgba(255, 255, 255, 0.5);
+  background-position: center center;
+  padding: 200px 20px;
+  border-radius: 20px;
+  margin: 40px auto;
+  max-width: 10000px;
+  color: white;
+  ;
+  background-size: auto;
+
+}
+
+.leaderboard-entries table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-entries th,
+.leaderboard-entries td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.leaderboard-entries th {
+  font-weight: bold;
+}
+
+
+
+
+/* adding space between sections */
+
+
+.headertext {
+  margin-bottom: 50px;
+}
+
+.upcoming-events-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.leaderboard-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.open-bets-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.account-info-section {
+  padding-top: 20px;
+  margin-bottom: 50px;
+}
+
+.buttom-text {
+  padding-top: 20px;
+}
+
+
+/* logo in css */
+
+
+.logo {
+  background: linear-gradient(to right, #9B1B30, #E20030);
+  padding: 8px 25px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  font-family: Helvetica;
+}
+
+
+
+/* set styles for all titles (not working without !important) */
+
+h2 {
+  font-family: Arial !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
 }

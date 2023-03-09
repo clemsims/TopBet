@@ -243,8 +243,8 @@ class Header extends Component {
                           </Link>
                         </li>
                         <li className="nav-item ml-2">
-                          <Link className="nav-link" to="/registro">
-                            Registro
+                          <Link className="nav-link" to="/registration">
+                            registration
                           </Link>
                         </li>
                       </>

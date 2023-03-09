@@ -49,7 +49,7 @@ export default class Main extends Component {
                                 <h5 class="card-title text-center">{i.nameRodada}</h5>
                             </div>
                             <div className="card-footer">
-                                <button className="btn btn-primary btn-block" name="/rodada/jogar_rodada" onClick={(event) => {
+                                <button className="btn btn-primary btn-block" name="/rodada/play_rolled" onClick={(event) => {
                                     sessionStorage.setItem("nameRodada", i.nameRodada);
                                     this.handleGoPage(event);
                                 }
@@ -88,7 +88,7 @@ export default class Main extends Component {
                                 <h5 class="card-title text-center">{i.nameRodada}</h5>
                             </div>
                             <div className="card-footer">
-                                <button className="btn btn-primary btn-block" name="/rodada/jogar_rodada" onClick={(event) => {
+                                <button className="btn btn-primary btn-block" name="/rodada/play_rolled" onClick={(event) => {
                                     sessionStorage.setItem("nameRodada", i.nameRodada);
                                     this.handleGoPage(event);
                                 }

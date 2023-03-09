@@ -9,7 +9,7 @@ import 'react-table/react-table.css'
 import api from "../../services/api"
 import $ from "jquery";
 
-export default class JogarRodada extends Component {
+export default class PlayRolled extends Component {
     state = {
         data: [],
         teams: [],
@@ -140,11 +140,9 @@ export default class JogarRodada extends Component {
 
             for (const i of rodadas.data.tableAdmin) {
                 for (const j of data) {
-                    if (i.name === j.team) {
-                        pontos += 1;
-                        if (i.points === parseInt(j.points)) pontos += 1;
-                    }
-                    //if (i.position === j.position) pontos += 1;
+                    if (i.name === j.team) pontos += 1;
+                    if (i.points === j.points) pontos += 1;
+                    if (i.position === j.position) pontos += 1;
                 }
             }
 
@@ -156,12 +154,12 @@ export default class JogarRodada extends Component {
             this.setState({ data: [] });
             sessionStorage.removeItem("nameRodada");
 
-            setTimeout(() => {
+            setTimeout(function () {
                 $("#alert-admin-rodada").removeClass("alert alert-success").text("");
                 $(".modal-backdrop").remove();
+                this.props.history.push("/main");
             }, 3000);
 
-            await this.props.history.push("/main");
             await console.log(response);
         } catch (error) {
             $("#alert-admin-rodada").addClass("alert alert-danger").text("Ocorreu um erro ao jogar a rodada!");
@@ -247,8 +245,8 @@ export default class JogarRodada extends Component {
                                     </button>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTable}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTable}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </div>
                         </div>
