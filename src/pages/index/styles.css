@@ -1,53 +1,31 @@
-.navbar-dark .navbar-nav .nav-link,
+/* set styles for all titles (not working without !important) */
 
 
-.link-pointer {
-  cursor: pointer;
-}
-
-#carouselExampleIndicators {
-  height: auto;
-}
-
-.buttom-text {
-  color: rgb(4, 0, 0);
-  font-size: 16px;
-  text-align: center;
-  padding: 100px;
-  background-color: #f2f2f2;
-
-}
-
-.button-wrapper {
-  text-align: center;
-}
-
-/* button for home */
-
-
-.nav-item-home {
-  display: inline-block;
-  padding: 15px 25px;
-  background-image: linear-gradient(to right, #509b1b, #00e2da);
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-right: 20px;
-  font-weight: bold;
-
-}
-
-.nav-item-home:active {
-  transform: translateY(2px);
-  box-shadow: none;
+h2 {
+  font-family: Arial !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
 }
 
 
+
+/* Style for the header */
 /* button for bet now */
+
+
+/* logo in css */
+.logo {
+  background: linear-gradient(to right, #9B1B30, #E20030);
+  padding: 8px 25px;
+  border-radius: 5px;
+  color: #FFFFFF;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  justify-content: center;
+  font-family: Helvetica;
+}
 
 
 .nav-item-betnow {
@@ -73,7 +51,6 @@
 
 /* button for best rate */
 
-
 .nav-item-bestrates {
   display: inline-block;
   padding: 15px 25px;
@@ -94,6 +71,68 @@
   transform: translateY(2px);
   box-shadow: none;
 }
+
+/* adding space between sections */
+
+.headertext {
+  margin-bottom: 50px;
+}
+
+/* body */
+
+/* Grid for body */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 0.5fr 0.5fr 1.5fr 3fr;
+  gap: 1px;
+}
+
+.grid-item {
+  background-color: #f5f5f5;
+  padding: 1px;
+}
+
+/* Style for the open bets list */
+.open-bets ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.open-bets li {
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f9dada;
+  border: 1px solid #090101;
+}
+
+/* Style for the current bet */
+.open-bets li.current-bet {
+  background-color: #ffc1c1;
+  border: 1px solid #090101;
+}
+
+
+/* account info section */
+
+/* Style for the account information section */
+.account-info {
+  background-color: #f6e3e3;
+  border: 1px solid #080000;
+  padding: 15px 20px;
+  margin-top: 20px;
+}
+
+.account-info p {
+  color: #555;
+  font-size: 16px;
+  margin: 0;
+  padding: 5px 0;
+}
+
 
 
 
@@ -145,6 +184,8 @@
   background-color: #1c7430;
 }
 
+
+
 /* betting slip section */
 
 /* Style for the betting slip section */
@@ -155,44 +196,7 @@
   margin-top: 20px;
 }
 
-/* Style for the open bets list */
-.open-bets ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
-.open-bets li {
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9dada;
-  border: 1px solid #090101;
-}
-
-/* Style for the current bet */
-.open-bets li.current-bet {
-  background-color: #ffc1c1;
-  border: 1px solid #090101;
-}
-
-/* account info section */
-
-/* Style for the account information section */
-.account-info {
-  background-color: #f6e3e3;
-  border: 1px solid #080000;
-  padding: 15px 20px;
-  margin-top: 20px;
-}
-
-.account-info p {
-  color: #555;
-  font-size: 16px;
-  margin: 0;
-  padding: 5px 0;
-}
 
 /* Style for the username */
 .account-info p.username {
@@ -240,63 +244,19 @@
 
 
 
-/* adding space between sections */
 
 
-.headertext {
-  margin-bottom: 50px;
-}
 
-.upcoming-events-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.leaderboard-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.open-bets-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.account-info-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-}
-
+/* footer */
 .buttom-text {
-  padding-top: 20px;
-}
-
-
-/* logo in css */
-
-
-.logo {
-  background: linear-gradient(to right, #9B1B30, #E20030);
-  padding: 8px 25px;
-  border-radius: 5px;
-  color: #FFFFFF;
-  font-size: 24px;
-  font-weight: bold;
+  color: rgb(4, 0, 0);
+  font-size: 16px;
   text-align: center;
-  justify-content: center;
-  font-family: Helvetica;
+  padding: 100px;
+  background-color: #f2f2f2;
+
 }
 
-
-
-/* set styles for all titles (not working without !important) */
-
-h2 {
-  font-family: Arial !important;
-  font-size: 20px !important;
-  font-weight: bold !important;
-  color: #000000 !important;
+.button-wrapper {
+  text-align: center;
 }

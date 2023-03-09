@@ -1,107 +1,6 @@
 import React, { Component } from "react";
-
-import $ from "jquery";
-
 import "./styles.css";
-
-// Define an array of upcoming events
-const upcomingEvents = [
-  {
-    id: 1,
-    title: "Manchester United vs. Liverpool",
-    date: "March 5, 2023",
-    time: "9:00 AM EST"
-  },
-  {
-    id: 2,
-    title: "Los Angeles Lakers vs. Brooklyn Nets",
-    date: "March 6, 2023",
-    time: "8:30 PM EST"
-  },
-  {
-    id: 3,
-    title: "Boston Red Sox vs. New York Yankees",
-    date: "March 7, 2023",
-    time: "1:05 PM EST"
-  }
-];
-
-// Define an array of open bets
-const openBets = [
-  {
-    id: 1,
-    team: "Manchester United",
-    odds: 2.0,
-    stake: 10
-  },
-  {
-    id: 2,
-    team: "Los Angeles Lakers",
-    odds: 1.5,
-    stake: 5
-  }
-];
-
-// Define account information
-const accountInfo = {
-  username: "johnsmith",
-  balance: 100,
-  currency: "USD"
-};
-
-// Define an array of leaderboard entries
-const leaderboardEntries = [
-  {
-    id: 1,
-    username: "JennaSmith",
-    score: 450
-  },
-  {
-    id: 2,
-    username: "AlexJohnson",
-    score: 320
-  },
-  {
-    id: 3,
-    username: "ChrisAnderson",
-    score: 280
-  },
-  {
-    id: 4,
-    username: "LaurenWilliams",
-    score: 210
-  },
-  {
-    id: 5,
-    username: "SamThompson",
-    score: 180
-  },
-  {
-    id: 6,
-    username: "RyanClark",
-    score: 150
-  },
-  {
-    id: 7,
-    username: "GraceMiller",
-    score: 120
-  },
-  {
-    id: 8,
-    username: "HenryWhite",
-    score: 90
-  },
-  {
-    id: 9,
-    username: "DaisyWilson",
-    score: 60
-  },
-  {
-    id: 10,
-    username: "BenJackson",
-    score: 30
-  }
-];
+import { upcomingEvents, openBets, accountInfo, leaderboardEntries } from "./constant";
 
 export default class Index extends Component {
   renderleaderboardEntries() {
@@ -238,14 +137,15 @@ export default class Index extends Component {
           </nav>
         </div>
         // sections of the page:
-        <div className="open-bets-section">{this.renderOpenBets()}</div>
-        <div className="account-info-section">{this.renderAccountInfo()}</div>
-        <div className="upcoming-events-section">
-          {this.renderUpcomingEvents()}
+        <div className="body">
+          <div className="grid-container">
+            <div className="open-bets-section">{this.renderOpenBets()}</div>
+            <div className="account-info-section">{this.renderAccountInfo()}</div>
+            <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>
+            <div className="leaderboard-section"> {this.renderleaderboardEntries()} </div>
+          </div>
         </div>
-        <div className="leaderboard-section">
-          {this.renderleaderboardEntries()}
-        </div>
+
         <div className="buttom-text">
           At Top Bet, we're committed to promoting responsible and ethical
           sports betting practices. <br />
