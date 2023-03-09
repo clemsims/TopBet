@@ -31,10 +31,10 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">No rounds available</h5>
                         </div>
                         <div className="card-footer">
-                            <button className="btn btn-primary w-100" disabled>Indisponível</button>
+                            <button className="btn btn-primary w-100" disabled>Unavailable</button>
                         </div>
                     </div>
                 );
@@ -70,10 +70,10 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">No rounds available</h5>
                         </div>
                         <div className="card-footer">
-                            <button className="btn btn-primary btn-block" disabled>Indisponível</button>
+                            <button className="btn btn-primary btn-block" disabled>Unavailable</button>
                         </div>
                     </div>
                 );
@@ -92,7 +92,7 @@ export default class Main extends Component {
                                     sessionStorage.setItem("nameRodada", i.nameRodada);
                                     this.handleGoPage(event);
                                 }
-                                }>Jogar</button>
+                                }>Play</button>
                             </div>
                         </div>
                     );
@@ -104,10 +104,10 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-thumbnail img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">No rounds available</h5>
                         </div>
                         <div className="card-footer">
-                            <button className="btn btn-primary btn-block" disabled>Indisponível</button>
+                            <button className="btn btn-primary btn-block" disabled>Unavailable</button>
                         </div>
                     </div>
                 );
@@ -136,14 +136,14 @@ export default class Main extends Component {
                     bgColor='#1E1E1E'
                     spinnerColor='#318E58'
                     textColor='white'
-                    text={`Seja bem vindo ${sessionStorage.getItem("username")}`}
+                    text={`Welcome ${sessionStorage.getItem("username")}`}
                 >
                     <Header />
                     <main role="main" className="container-fluid w-100">
                         <div class="row jumbotron jumbotron">
                             <div class="container-fluid">
                                 <h1 class="display-3">Football Betting</h1>
-                                <p className="lead">Abaixo está algumas rodadas disponíveis para jogar, para iniciar suas apostas, escolha uma delas e aperte em "jogar".<br />
+                                <p className="lead">Below are some available rolls to play, to start your bets, choose one of them and click on "play".<br />
                                 </p>
                             </div>
                         </div>
