@@ -75,9 +75,16 @@ export default class Login extends Component {
     $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
     try {
-      let retriveUser = await api.post("/login", {
-        username: username,
-        password: password,
+      const requestBody = new URLSearchParams();
+      requestBody.append('username', username);
+      requestBody.append('password', password);
+      requestBody.append('grant_type', 'password');
+      requestBody.append('client_id', 'client');
+      
+      let retriveUser = await api.post("/login", requestBody, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
       });
 
       if (retriveUser.data === "Invalid credentials") {

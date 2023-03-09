@@ -24,8 +24,7 @@ export default class registration extends Component {
     handleOnChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
-        console.log(name, value)
-
+    
         this.setState({
             [name]: value
         });
@@ -79,8 +78,11 @@ export default class registration extends Component {
         if (!username || !name || !password || !email) return;
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
-        let verifyEmail = await api.get(`users/email/${email}`); // Verify if the email is already in use
-        let verifyUser = await api.get(`users/username/${username}`);
+        // let verifyEmail = await api.get(`users/email/${email}`); // Verify if the email is already in use
+        // let verifyUser = await api.get(`users/username/${username}`);
+        
+        let verifyEmail = false; // TODO: use API validation instead of some front-end validation bullshit
+        let verifyUser = false;
 
         // /usrs/email/:email returns a 404 if the email is not in use and a JSON with user data if the email is in use
         // /usrs/username/:username returns a 404 if the username is not in use and a JSON with user data if the username is in use
