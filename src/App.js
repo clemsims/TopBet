@@ -10,7 +10,7 @@ import Ranking from "./pages/ranking/Ranking";
 import AdminRaisingRotation from "./pages/admin/AdminRaisingRotation";
 import AdminLockRound from "./pages/admin/AdminLockRound";
 import AdminEditUser from "./pages/admin/AdminEditUser";
-import PlayRolled from "./pages/play_rolled/PlayRolled";
+import PlayRound from "./pages/play_round/PlayRound";
 import BestRates from "./pages/rates/BestRates";
 
 export default class App extends Component {
@@ -24,24 +24,24 @@ export default class App extends Component {
           <Route path="/main" exact component={Main} />
           <Route path="/ranking" exact component={Ranking} />
           <Route
-            path="/admin/criar_rodada" // in english: create_round
+            path="/admin/create_round"
             exact
             component={AdminRaisingRotation}
           />
           <Route
-            path="/admin/encerrar_rodada" // in english: close_round
+            path="/admin/close_round"
             exact
             component={AdminLockRound}
           />
           <Route
-            path="/admin/editar_usuario" // in english: edit_user
+            path="/admin/edit_user"
             exact
             component={AdminEditUser}
           />
           <Route
-            path="/rodada/play_rolled" // in english: play_round
+            path="/round/play_round"
             exact
-            component={PlayRolled}
+            component={PlayRound}
           />
           <Route path="/bestrates" exact component={BestRates} />
           <Route path="*" component={Error404} />
