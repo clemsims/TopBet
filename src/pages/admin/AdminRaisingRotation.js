@@ -15,7 +15,7 @@ export default class Admin extends Component {
         competitions: [],
         select: [],
         teams: [],
-        nameRodada: ""
+        nameRound: ""
     }
 
     componentWillMount() {
@@ -124,39 +124,39 @@ export default class Admin extends Component {
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
         if (this.state.teams.length < 1) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
         } else if (!this.state.competition) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("O nome da rodada não pode ser vazio!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("O nome da round não pode ser vazio!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
         }
 
         try {
-            let response = await api.post('/admin/criar/rodada', { users: [], tableAdmin: this.state.teams, nameRodada: `${this.state.competition}`.replace('2013', "Brasileirão Série A").replace('2021', "Premier League").replace('2016', "Championship").replace('2015', "Ligue 1").replace('2002', "Bundesliga").replace('2019', "Serie A").replace('2003', "Eredivise").replace('2017', "Primeira Liga").replace('2014', "Primera Divison") });
+            let response = await api.post('/admin/create/round', { users: [], tableAdmin: this.state.teams, nameRound: `${this.state.competition}`.replace('2013', "Brasileirão Série A").replace('2021', "Premier League").replace('2016', "Championship").replace('2015', "Ligue 1").replace('2002', "Bundesliga").replace('2019', "Serie A").replace('2003', "Eredivise").replace('2017', "Primeira Liga").replace('2014', "Primera Divison") });
 
             if (response.data === false) {
-                $("#alert-admin-rodada").addClass("alert alert-danger").text("A rodada já foi criada, crie uma rodada de outra liga!");
+                $("#alert-admin-round").addClass("alert alert-danger").text("A round já foi criada, crie uma round de outra liga!");
                 $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
                 setTimeout(function () {
-                    $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                    $("#alert-admin-round").removeClass("alert alert-danger").text("");
                 }, 3000);
                 return;
             }
 
-            $("#alert-admin-rodada").addClass("alert alert-success").text("Rodada criada com sucesso!");
+            $("#alert-admin-round").addClass("alert alert-success").text("Round criada com sucesso!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-success").text("");
+                $("#alert-admin-round").removeClass("alert alert-success").text("");
             }, 3000);
 
             await this.setState({ teams: [] });
@@ -164,10 +164,10 @@ export default class Admin extends Component {
 
             await console.log(response);
         } catch (error) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("Ocorreu um erro ao criar a rodada!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("Ocorreu um erro ao create a round!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
         }
 
@@ -180,7 +180,7 @@ export default class Admin extends Component {
                 <Header />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
-                    <div className="container"><p className="h2">Criação de rodadas</p></div>
+                    <div className="container"><p className="h2">Criação de rounds</p></div>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <select className="form-control" name="competition" onChange={(event) => { this.handleOnChange(event) }}>
@@ -190,7 +190,7 @@ export default class Admin extends Component {
                     </form>
 
                     <div className="container">
-                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Criar rodada</button>
+                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Create round</button>
                     </div>
 
                     <div className="container mt-5">
@@ -228,17 +228,17 @@ export default class Admin extends Component {
 
                     <div class="modal fade" id="modalSalvarTabela" role="dialog" aria-labelledby="modalSalvarTabelaLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                            <div class="" role="alert" id="alert-admin-rodada" data-dismiss="alert"></div>
+                            <div class="" role="alert" id="alert-admin-round" data-dismiss="alert"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja criar a rodada</h5>
+                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja create a round</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTableAdmin}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRound" onClick={this.saveTableAdmin}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </div>
                         </div>
