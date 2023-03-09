@@ -10,6 +10,13 @@ const currentRates = [
   { team: 'Team C', odds: 3.2, stake: 15 },
 ];
 
+// // API version:
+
+// let currentRates = [];
+
+// await api.get("/rates").then(response => {
+//   currentRates = response.data;
+// });
 
 export default class Index extends Component {
 

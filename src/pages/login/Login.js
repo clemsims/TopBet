@@ -3,6 +3,22 @@ import api from "../../services/api";
 import $ from "jquery";
 import "./styles.css";
 
+
+// Here is the /login endpoint in the Fast API Backend:
+// @app.post("/login", tags=["Authentication"], summary="Create access and refresh tokens for user")
+// async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+//     user = get_user(form_data.username, form_data.password)
+//     if not user:
+//         raise HTTPException(status_code=400, detailF="Invalid credentials")
+
+//     email = user[2]
+//     access_token = create_token(email, JWT_SECRET_KEY, timedelta(
+//         minutes=ACCESS_TOKEN_EXPIRE_MINUTES))
+//     refresh_token = create_token(email, JWT_REFRESH_SECRET_KEY, timedelta(
+//         minutes=REFRESH_TOKEN_EXPIRE_MINUTES))
+
+//     return {"access_token": access_token, "refresh_token": refresh_token}
+
 export default class Login extends Component {
 
   // Redirects to the right pages for the header buttons
@@ -23,9 +39,9 @@ export default class Login extends Component {
   // Defines the initial state for this component
 
   state = {
-    user: "",
+    username: "",
     password: "",
-    changeEmail: ""
+    changeEmail: "" // This is the state for the email change
   };
 
   // Lifecycle method that gets called before the component is mounted ("mounted" refers to the point at which a component is initialized and added to the UI.)
@@ -39,12 +55,9 @@ export default class Login extends Component {
 
   handleLogin = async e => {
     e.preventDefault();
-    const { user, password } = this.state;
+    const { username, password } = this.state;
 
-    let test = await api.get(`/db`);
-    console.log(test);
-
-    if (!user) {
+    if (!username) {
       $("#input-login").css("border-color", "blue");
       setTimeout(function () {
         $("#input-login").css("border-color", "");
@@ -58,34 +71,50 @@ export default class Login extends Component {
       }, 3000);
     }
 
-    if (!user || !password) return;
+    if (!username || !password) return;
     $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
     try {
-      let retriveUsername = await api.get(`/users/username/${user}`);
+      const requestBody = new URLSearchParams();
+      requestBody.append('username', username);
+      requestBody.append('password', password);
+      requestBody.append('grant_type', 'password');
+      requestBody.append('client_id', 'client');
 
-      if (!retriveUsername.data) {
-        // $("#alert-login").addClass("alert alert-danger").text("The username entered is invalid!");
-        $("#icon-loading").removeClass(
-          "fas fa-sync-alt loading-refresh-animate"
-        );
+      let retriveUser = await api.post("/login", requestBody, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
+
+      if (retriveUser.data === "Invalid credentials") {
+        $("#alert-login")
+          .addClass("alert alert-danger")
+          .text("Invalid credentials");
+        $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
         setTimeout(function () {
-          $("#alert-login").removeClass("alert alert-danger");
-        }, 5000);
-      } else if (password !== retriveUsername.data.password) {
-        // $("#alert-login").addClass("alert alert-danger").text("The password entered is incorrect!");
-        $("#icon-loading").removeClass(
-          "fas fa-sync-alt loading-refresh-animate"
-        );
-        setTimeout(function () {
-          $("#alert-login").removeClass("alert alert-danger");
-        }, 5000);
+          $("#alert-login")
+            .removeClass("alert alert-danger")
+            .text("");
+        }
+          , 3000);
       } else {
-        sessionStorage.setItem("name", retriveUsername.data.name);
-        sessionStorage.setItem("email", retriveUsername.data.email);
-        sessionStorage.setItem("username", retriveUsername.data.username);
-        sessionStorage.setItem("admin", retriveUsername.data.admin);
-        sessionStorage.setItem("loading", true);
+        let access_token = retriveUser.data.access_token;
+        let refresh_token = retriveUser.data.refresh_token;
+        sessionStorage.setItem("token", access_token); // This is the access token that will be used to authenticate the user in the API calls.
+        sessionStorage.setItem("refresh_token", refresh_token); // This is the refresh token that will be used to get a new access token when the current one expires
+
+        let retriveUserInfo = await api.get("/me", {
+          headers: {
+            Authorization: `Bearer ${access_token}`
+          }
+        });
+
+        // Here we are storing the user info in the sessionStorage so that we can use it in the main page
+        sessionStorage.setItem("username", retriveUserInfo.data.username);
+        sessionStorage.setItem("email", retriveUserInfo.data.email);
+
+        // Redirects to the main page
         this.props.history.push("/main");
       }
     } catch (error) {
@@ -99,7 +128,6 @@ export default class Login extends Component {
   handleOnChange = e => {
     let name = e.target.name;
     let value = e.target.value;
-    console.log(name, value);
 
     this.setState({
       [name]: value
@@ -110,10 +138,10 @@ export default class Login extends Component {
     this.setState({ changeEmail: "" });
   };
 
-  handleRecuperarSenha = async e => {
+  handlePasswordRecovery = async e => {
     e.preventDefault();
 
-    let response = await api.get(`/users/email/${this.state.changeEmail}`);
+    let response = await api.get(`/users/email/${this.state.changeEmail}`); // TODO
 
     $("#icon-loading-confirmar").addClass(
       "fas fa-sync-alt loading-refresh-animate"
@@ -123,7 +151,7 @@ export default class Login extends Component {
       $("#inputEmailChange").css("border-color", "blue");
       $("#alert-recuperar-senha")
         .addClass("alert alert-danger")
-        .text("O e-mail informado não existe!");
+        .text("Email not found!");
       $("#icon-loading-confirmar").removeClass(
         "fas fa-sync-alt loading-refresh-animate"
       );
@@ -135,13 +163,12 @@ export default class Login extends Component {
       }, 3000);
     } else {
       let retrivePassword = await api.post(
-        `/recuperar/senha/${this.state.changeEmail}`
-      );
+        `/recover/password/${this.state.changeEmail}`
+      ); // TODO
 
       let sendEmail = await api.get(
-        `/enviar/email/${this.state.changeEmail}/${retrivePassword.data.password
-        }`
-      );
+        `/send/email/${this.state.changeEmail}/${retrivePassword.data.password}`
+      ); // TODO
       $("#alert-recuperar-senha")
         .addClass("alert alert-success")
         .text("The password has been successfully reset, check your email!");
@@ -232,7 +259,7 @@ export default class Login extends Component {
                   id="input-login"
                   className="fadeIn second"
                   placeholder="Login"
-                  name="user"
+                  name="username"
                   onChange={event => this.handleOnChange(event)}
                   required={true}
                 />
@@ -321,7 +348,7 @@ export default class Login extends Component {
                     type="submit"
                     class="btn btn-primary"
                     id="btn-confimarRecuperar"
-                    onClick={this.handleRecuperarSenha}
+                    onClick={this.handlePasswordRecovery}
                   >
                     Confirm &nbsp;
                     <i className="" id="icon-loading-confirmar" />

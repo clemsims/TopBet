@@ -8,7 +8,7 @@ import './styles.css';
 export default class registration extends Component {
     componentWillMount() {
         if (sessionStorage.getItem("username")) this.props.history.push('/main');
-    }
+    } // This will redirect the user to the main page if he is already logged in
 
     state = {
         name: "",
@@ -18,14 +18,13 @@ export default class registration extends Component {
     }
 
     handleLogin = () => {
-        this.props.history.push("/login");
+        this.props.history.push("/login"); // Redirect to login page when the user clicks on the login button
     }
 
     handleOnChange = (e) => {
         let name = e.target.name;
         let value = e.target.value;
-        console.log(name, value)
-
+    
         this.setState({
             [name]: value
         });
@@ -79,8 +78,14 @@ export default class registration extends Component {
         if (!username || !name || !password || !email) return;
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
-        let verifyEmail = await api.get(`users/email/${email}`);
-        let verifyUser = await api.get(`users/username/${username}`);
+        // let verifyEmail = await api.get(`users/email/${email}`); // Verify if the email is already in use
+        // let verifyUser = await api.get(`users/username/${username}`);
+        
+        let verifyEmail = false; // TODO: use API validation instead of some front-end validation bullshit
+        let verifyUser = false;
+
+        // /usrs/email/:email returns a 404 if the email is not in use and a JSON with user data if the email is in use
+        // /usrs/username/:username returns a 404 if the username is not in use and a JSON with user data if the username is in use
 
         if (verifyEmail.data && verifyUser.data) {
             $("#alert-register").addClass("alert alert-danger").text("The username and email entered are already in use!");
@@ -117,7 +122,17 @@ export default class registration extends Component {
                 $("#alert-register").removeClass("alert alert-danger");
             }, 5000)
         } else {
-            await api.post('registration', { name, username, email, password });
+            // Here is the FAST API Pydantic model:
+            // class UserRegister(BaseModel):
+            //     username: str
+            //     email: str
+            //     password: str
+            // TODO: Add name to the model
+            let response = await api.post('register', {
+                username: username,
+                email: email,
+                password: password,
+            });
             $("#alert-register").addClass("alert alert-success").text("Registration successfully completed. Redirecting to login ...");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
