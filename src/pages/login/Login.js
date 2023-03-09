@@ -186,6 +186,7 @@ export default class Login extends Component {
     }
   };
 
+
   render() {
     return (
       <div className="div-panel">
@@ -194,10 +195,6 @@ export default class Login extends Component {
             <a className="navbar-brand h4 mb-0" href="#">
               <button className="logo" type="button" onClick={this.handlehome}
               >TopBet
-
-
-
-
 
               </button>
             </a>

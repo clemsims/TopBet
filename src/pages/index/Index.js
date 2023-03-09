@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./styles.css";
-import { upcomingEvents, openBets, accountInfo, leaderboardEntries } from "./constant";
+import { upcomingEvents, leaderboardEntries } from "./constant";
 
 export default class Index extends Component {
   renderleaderboardEntries() {
@@ -48,32 +48,6 @@ export default class Index extends Component {
     );
   }
 
-  renderOpenBets() {
-    return (
-      <div className="open-bets">
-        <h2>Open Bets</h2>
-        <ul>
-          {openBets.map(bet => (
-            <li kexy={bet.id}>
-              {bet.team} ({bet.odds}) - ${bet.stake}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
-
-  renderAccountInfo() {
-    return (
-      <div className="account-info">
-        <h2>Account Information</h2>
-        <p>Username: {accountInfo.username}</p>
-        <p>
-          Balance: {accountInfo.balance} {accountInfo.currency}
-        </p>
-      </div>
-    );
-  }
 
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -139,33 +113,32 @@ export default class Index extends Component {
         // sections of the page:
         <div className="body">
           <div className="grid-container">
-            <div className="open-bets-section">{this.renderOpenBets()}</div>
-            <div className="account-info-section">{this.renderAccountInfo()}</div>
             <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>
             <div className="leaderboard-section"> {this.renderleaderboardEntries()} </div>
-          </div>
-        </div>
 
-        <div className="buttom-text">
-          At Top Bet, we're committed to promoting responsible and ethical
-          sports betting practices. <br />
-          That's why we offer rewards for watching ads, rather than requiring
-          users to bet money.
-          <br />
-          This ensures that users can enjoy the thrill of sports betting without
-          taking unnecessary risks <br />
-          or engaging in behavior that is harmful to themselves or others.
-          <br />
-          Our rewards program is designed to be fair, transparent, and easy to
-          use. <br />
-          Simply watch ads and earn rewards that you can use to place bets on
-          your favorite sports teams and events.
-          <br />
-          We provide clear and upfront information on the terms and conditions
-          of our rewards program,
-          <br />
-          so you can make informed decisions about your betting and avoid any
-          potential risks or issues.
+
+            <div className="buttom-text">
+              At Top Bet, we're committed to promoting responsible and ethical
+              sports betting practices. <br />
+              That's why we offer rewards for watching ads, rather than requiring
+              users to bet money.
+              <br />
+              This ensures that users can enjoy the thrill of sports betting without
+              taking unnecessary risks <br />
+              or engaging in behavior that is harmful to themselves or others.
+              <br />
+              Our rewards program is designed to be fair, transparent, and easy to
+              use. <br />
+              Simply watch ads and earn rewards that you can use to place bets on
+              your favorite sports teams and events.
+              <br />
+              We provide clear and upfront information on the terms and conditions
+              of our rewards program,
+              <br />
+              so you can make informed decisions about your betting and avoid any
+              potential risks or issues.
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -84,7 +84,7 @@ h2 {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 0.5fr 0.5fr 1.5fr 3fr;
+  grid-template-rows: 0.5fr 1.5fr 0.5fr;
   gap: 1px;
 }
 

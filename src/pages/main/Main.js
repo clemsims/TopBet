@@ -8,6 +8,8 @@ import api from "../../services/api"
 
 import img from "../index/images/img-1.png";
 
+import { openBets, accountInfo } from "../index/constant";
+
 export default class Main extends Component {
     state = {
         loading: false,
@@ -127,6 +129,38 @@ export default class Main extends Component {
         this.closeLoading();
     }
 
+
+    /* render account info and open bets*/
+
+    renderOpenBets() {
+        return (
+            <div className="open-bets">
+                <h2>Open Bets</h2>
+                <ul>
+                    {openBets.map(bet => (
+                        <li kexy={bet.id}>
+                            {bet.team} ({bet.odds}) - ${bet.stake}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    }
+
+    renderAccountInfo() {
+        return (
+            <div className="account-info">
+                <h2>Account Information</h2>
+                <p>Username: {accountInfo.username}</p>
+                <p>
+                    Balance: {accountInfo.balance} {accountInfo.currency}
+                </p>
+            </div>
+        );
+    }
+
+
+
     render() {
 
         return (
@@ -139,20 +173,27 @@ export default class Main extends Component {
                     text={`Welcome ${sessionStorage.getItem("username")}`}
                 >
                     <Header />
-                    <main role="main" className="container-fluid w-100">
-                        <div class="row jumbotron jumbotron">
-                            <div class="container-fluid">
-                                <h1 class="display-3">Football Betting</h1>
-                                <p className="lead">Below are some available rolls to play, to start your bets, choose one of them and click on "play".<br />
-                                </p>
+                    <div className="grid-container">
+                        <main role="main" className="container-fluid w-100">
+                            <div class="row jumbotron jumbotron">
+                                <div class="container-fluid">
+                                    <h1 class="display-3">Football Betting</h1>
+                                    <p className="lead">Below are some available rolls to play, to start your bets, choose one of them and click on "play".<br />
+                                    </p>
+                                </div>
                             </div>
-                        </div>
 
-                        {/* Looping com as rodadas */}
-                        <div class="card-deck">
-                            {this.state.card.map((key, i) => key)}
+                            {/* Looping with the rounds */}
+                            <div class="card-deck">
+                                {this.state.card.map((key, i) => key)}
+                            </div>
+                        </main>
+
+                        <div className="body">
+                            <div className="open-bets-section">{this.renderOpenBets()}</div>
+                            <div className="account-info-section">{this.renderAccountInfo()}</div>
                         </div>
-                    </main>
+                    </div>
                     <Footer />
                 </LoadingScreen>
             </div>
