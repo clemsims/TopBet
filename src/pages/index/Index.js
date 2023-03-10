@@ -115,8 +115,6 @@ export default class Index extends Component {
           <div className="grid-container">
             <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>
             <div className="leaderboard-section"> {this.renderleaderboardEntries()} </div>
-
-
             <div className="buttom-text">
               At Top Bet, we're committed to promoting responsible and ethical
               sports betting practices. <br />
