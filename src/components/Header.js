@@ -18,12 +18,16 @@ class Header extends Component {
   };
 
   async componentWillMount() {
-    let response = await api.get(`users/username/${sessionStorage.getItem("username")}`);
-    sessionStorage.setItem("admin", response.data.admin);
-    if (response.data.admin) {
-      this.setState({ admin: true });
-      $("#admin").removeClass("invisible");
-    }
+    // let response = await api.get(`users/username/${sessionStorage.getItem("username")}`);
+    // sessionStorage.setItem("admin", response.data.admin);
+    // if (response.data.admin) {
+    //     this.setState({ admin: true });
+    //     $("#admin").removeClass("invisible");
+    // } // TODO: REMOVE THIS AND CREATE OUR OWN ADMIN PANEL
+
+    // TMP : EVERYONE IS ADMIN
+    this.setState({ admin: true });
+    $("#admin").removeClass("invisible");
   }
 
   handleGoPage(e) {
@@ -31,12 +35,13 @@ class Header extends Component {
   }
 
   handleLogout = (e) => {
-    sessionStorage.removeItem("name");
-    sessionStorage.removeItem("email");
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("refresh_token");
     sessionStorage.removeItem("username");
-    sessionStorage.removeItem("admin");
+    sessionStorage.removeItem("email");
     $(".modal-backdrop").remove();
-    this.props.history.push("/login");
+    // TODO: send some request to the server to invalidate the token!!!!!
+    this.props.history.push("/");
   };
 
   handleDeleteAccount = async (e) => {
@@ -198,7 +203,7 @@ class Header extends Component {
                 </li>
                 {this.state.admin ? (
                   <li className="nav-item" id="admin">
-                    <Link className="nav-link" to="/admin/criar_rodada">
+                    <Link className="nav-link" to="/admin/create_round">
                       Admin
                     </Link>
                   </li>
@@ -222,7 +227,8 @@ class Header extends Component {
                         data-toggle="modal"
                         data-target="#modal-alterar-senha"
                       >
-                        Change Password                      </button>
+                        Change Password
+                      </button>
                     </li>
                     <li className="nav-item ml-2">
                       <button
@@ -230,7 +236,7 @@ class Header extends Component {
                         className="btn btn-outline-danger btn-sm mt-2"
                         onClick={this.handleLogout}
                       >
-                        Go to
+                        Logout
                       </button>
                     </li>
                   </>
@@ -243,7 +249,7 @@ class Header extends Component {
                     </li>
                     <li className="nav-item ml-2">
                       <Link className="nav-link" to="/registration">
-                        registration
+                        Register
                       </Link>
                     </li>
                   </>

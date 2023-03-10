@@ -12,7 +12,7 @@ import $ from "jquery";
 export default class Admin extends Component {
     state = {
         data: [],
-        nameRodada: ""
+        nameRound: ""
     }
 
     handleOnChange = (e) => {
@@ -26,7 +26,7 @@ export default class Admin extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        const { team, position, points, data, nameRodada } = this.state;
+        const { team, position, points, data, nameRound } = this.state;
 
         for (let index = 0; index < data.length; index++) {
             const element = data[index];
@@ -45,7 +45,7 @@ export default class Admin extends Component {
             }
         }
 
-        if (!team || !position || !points || !nameRodada) {
+        if (!team || !position || !points || !nameRound) {
             $("#alert-admin").addClass("alert alert-danger").text("Os campos não podem estar vazio!");
             setTimeout(function () {
                 $("#alert-admin").removeClass("alert alert-danger").text("");
@@ -106,58 +106,58 @@ export default class Admin extends Component {
     }
 
     saveTableAdmin = async () => {
-        const { data, nameRodada } = this.state;
+        const { data, nameRound } = this.state;
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
         if (data.length < 1) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
-        } else if (!nameRodada) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("O nome da rodada não pode ser vazio!");
+        } else if (!nameRound) {
+            $("#alert-admin-round").addClass("alert alert-danger").text("O nome da round não pode ser vazio!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
         }
 
         try {
-            let response = await api.post('/admin/criar/rodada', { users: [], tableAdmin: this.state.data, nameRodada: this.state.nameRodada });
+            let response = await api.post('/admin/create/round', { users: [], tableAdmin: this.state.data, nameRound: this.state.nameRound });
 
             if (response.data === false) {
-                $("#alert-admin-rodada").addClass("alert alert-danger").text("O nome da rodada já está em uso!");
+                $("#alert-admin-round").addClass("alert alert-danger").text("O nome da round já está em uso!");
                 $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
                 setTimeout(function () {
-                    $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                    $("#alert-admin-round").removeClass("alert alert-danger").text("");
                 }, 3000);
                 return;
             }
 
-            $("#alert-admin-rodada").addClass("alert alert-success").text("Rodada criada com sucesso!");
+            $("#alert-admin-round").addClass("alert alert-success").text("Round criada com sucesso!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-success").text("");
+                $("#alert-admin-round").removeClass("alert alert-success").text("");
             }, 3000);
 
             await this.setState({ data: [] });
-            await this.setState({ nameRodada: "" });
+            await this.setState({ nameRound: "" });
 
-            $("#nameRodada").val(this.setState.name)
+            $("#nameRound").val(this.setState.name)
             $("#team").val(this.setState.team)
             $("#points").val(this.setState.points)
             $("#position").val(this.setState.position)
 
             await console.log(response);
         } catch (error) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("Ocorreu um erro ao criar a rodada!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("Ocorreu um erro ao create a round!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
         }
 
@@ -171,14 +171,14 @@ export default class Admin extends Component {
                 <Header />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
-                    <div className="container"><p className="h2">Criação de rodadas</p></div>
+                    <div className="container"><p className="h2">Criação de rounds</p></div>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <input
                                 type="text"
-                                name="nameRodada"
-                                id="nameRodada"
-                                placeholder="Nome da Rodada"
+                                name="nameRound"
+                                id="nameRound"
+                                placeholder="Nome da Round"
                                 onChange={(event) => this.handleOnChange(event)}
                             />
                         </label>
@@ -213,7 +213,7 @@ export default class Admin extends Component {
 
                     <div className="container">
                         <button className="btn btn-primary" id="btn-add" onClick={this.handleSubmit}>Adicionar time</button>&nbsp;
-                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Criar rodada</button>
+                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Create round</button>
                     </div>
 
                     <div className="container mt-5">
@@ -247,17 +247,17 @@ export default class Admin extends Component {
 
                     <div class="modal fade" id="modalSalvarTabela" role="dialog" aria-labelledby="modalSalvarTabelaLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                            <div class="" role="alert" id="alert-admin-rodada" data-dismiss="alert"></div>
+                            <div class="" role="alert" id="alert-admin-round" data-dismiss="alert"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja criar a rodada</h5>
+                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja create a round</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTableAdmin}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRound" onClick={this.saveTableAdmin}>Confirmar &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </div>
                         </div>

@@ -22,7 +22,7 @@ export default class Main extends Component {
         if (!sessionStorage.getItem("username")) this.props.history.push("/login");
         else if (sessionStorage.getItem("loading")) {
             this.setState({ loading: true });
-            let response = await api.get("/rodada");
+            let response = await api.get("/round");
 
             const { card } = this.state;
 
@@ -31,7 +31,7 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">Não há rounds disponíveis</h5>
                         </div>
                         <div className="card-footer">
                             <button className="btn btn-primary w-100" disabled>Indisponível</button>
@@ -45,11 +45,11 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">{i.nameRodada}</h5>
+                            <h5 class="card-title text-center">{i.nameRound}</h5>
                         </div>
                         <div className="card-footer">
-                            <button className="btn btn-primary w-100" name="/rodada/play_rolled" onClick={(event) => {
-                                sessionStorage.setItem("nameRodada", i.nameRodada);
+                            <button className="btn btn-primary w-100" name="/round/play_round" onClick={(event) => {
+                                sessionStorage.setItem("nameRound", i.nameRound);
                                 this.handleGoPage(event);
                             }
                             }>Jogar agora</button>
@@ -59,7 +59,7 @@ export default class Main extends Component {
             }
         }
         else if (!sessionStorage.getItem("loading")) {
-            let response = await api.get("/rodada");
+            let response = await api.get("/round");
 
             const { card } = this.state;
 
@@ -68,7 +68,7 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">Não há rounds disponíveis</h5>
                         </div>
                         <div className="card-footer">
                             <button className="btn btn-primary w-100" disabled>Indisponível</button>
@@ -83,11 +83,11 @@ export default class Main extends Component {
                         <div class="card">
                             <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                             <div class="card-body">
-                                <h5 class="card-title text-center">{i.nameRodada}</h5>
+                                <h5 class="card-title text-center">{i.nameRound}</h5>
                             </div>
                             <div className="card-footer">
-                                <button className="btn btn-primary w-100" name="/rodada/play_rolled" onClick={(event) => {
-                                    sessionStorage.setItem("nameRodada", i.nameRodada);
+                                <button className="btn btn-primary w-100" name="/round/play_round" onClick={(event) => {
+                                    sessionStorage.setItem("nameRound", i.nameRound);
                                     this.handleGoPage(event);
                                 }
                                 }>Jogar agora</button>
@@ -102,7 +102,7 @@ export default class Main extends Component {
                     <div class="card">
                         <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
-                            <h5 class="card-title text-center">Não há rodadas disponíveis</h5>
+                            <h5 class="card-title text-center">Não há rounds disponíveis</h5>
                         </div>
                         <div className="card-footer">
                             <button className="btn btn-primary w-100" disabled>Indisponível</button>
@@ -140,12 +140,12 @@ export default class Main extends Component {
                         <div class="row jumbotron jumbotron">
                             <div class="container-fluid">
                                 <h1 class="display-3">Football Betting</h1>
-                                <p className="lead">Abaixo está algumas rodadas disponíveis para jogar, para iniciar suas apostas, escolha uma delas e aperte em "jogar agora".<br />
+                                <p className="lead">Abaixo está algumas rounds disponíveis para jogar, para iniciar suas apostas, escolha uma delas e aperte em "jogar agora".<br />
                                 </p>
                             </div>
                         </div>
 
-                        {/* Looping com as rodadas */}
+                        {/* Looping com as rounds */}
                         <div class="card-deck">
                             {this.state.card.map((key, i) => key)}
                         </div>
