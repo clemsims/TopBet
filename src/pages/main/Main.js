@@ -9,6 +9,7 @@ import api from "../../services/api"
 import img from "../index/images/img-1.png";
 
 import { openBets, accountInfo } from "../index/constant";
+import "./styles.css";
 
 export default class Main extends Component {
     state = {
@@ -151,7 +152,7 @@ export default class Main extends Component {
         return (
             <div className="account-info">
                 <h2>Account Information</h2>
-                <p>Username: {accountInfo.username}</p>
+                <p>Username: {sessionStorage.getItem("username")}</p>
                 <p>
                     Balance: {accountInfo.balance} {accountInfo.currency}
                 </p>
@@ -176,7 +177,7 @@ export default class Main extends Component {
                     <div className="grid-container">
                         <main role="main" className="container-fluid w-100">
                             <div class="row jumbotron jumbotron">
-                                <div class="container-fluid">
+                                <div class="container">
                                     <h1 class="display-3">Football Betting</h1>
                                     <p className="lead">Below are some available rolls to play, to start your bets, choose one of them and click on "play".<br />
                                     </p>
