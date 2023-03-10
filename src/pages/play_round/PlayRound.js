@@ -9,17 +9,17 @@ import 'react-table/react-table.css'
 import api from "../../services/api"
 import $ from "jquery";
 
-export default class JogarRodada extends Component {
+export default class PlayRound extends Component {
     state = {
         data: [],
         teams: [],
         select: [],
-        nameRodada: ""
+        nameRound: ""
     }
 
     async componentWillMount() {
-        if (!sessionStorage.getItem("username") || !sessionStorage.getItem("nameRodada")) return this.props.history.push("/main");
-        let response = await api.get(`rodada/name/${sessionStorage.getItem("nameRodada")}`);
+        if (!sessionStorage.getItem("username") || !sessionStorage.getItem("nameRound")) return this.props.history.push("/main");
+        let response = await api.get(`round/name/${sessionStorage.getItem("nameRound")}`);
         response.data.tableAdmin.map(element => {
             this.state.teams.push(element.name);
         });
@@ -115,30 +115,30 @@ export default class JogarRodada extends Component {
         const { data } = this.state;
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
         if (data.length < 1) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
         } else if (data.length < this.state.teams.length) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("Você precisa adicionar todos os times na tabela!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("Você precisa adicionar todos os times na tabela!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             return;
         }
 
         try {
-            let response = await api.post('users/enviar/rodada', { user: sessionStorage.getItem("username"), tableUser: this.state.data, nameRodada: sessionStorage.getItem("nameRodada") });
-            let updateRodada = await api.post(`rodada/update/${sessionStorage.getItem("nameRodada")}/${sessionStorage.getItem("username")}`);
+            let response = await api.post('users/enviar/round', { user: sessionStorage.getItem("username"), tableUser: this.state.data, nameRound: sessionStorage.getItem("nameRound") });
+            let updateRound = await api.post(`round/update/${sessionStorage.getItem("nameRound")}/${sessionStorage.getItem("username")}`);
 
-            let rodadas = await api.get(`rodada/name/${sessionStorage.getItem("nameRodada")}`);
+            let rounds = await api.get(`round/name/${sessionStorage.getItem("nameRound")}`);
 
             let pontos = 0;
 
-            for (const i of rodadas.data.tableAdmin) {
+            for (const i of rounds.data.tableAdmin) {
                 for (const j of data) {
                     if (i.name === j.team) {
                         pontos += 1;
@@ -150,24 +150,24 @@ export default class JogarRodada extends Component {
 
             let ranking = await api.post("ranking/create", { username: sessionStorage.getItem("username"), name: sessionStorage.getItem("name"), points: pontos });
 
-            $("#alert-admin-rodada").addClass("alert alert-success").text("Rodada jogada com sucesso! Visualize sua pontuação no ranking.");
+            $("#alert-admin-round").addClass("alert alert-success").text("Round jogada com sucesso! Visualize sua pontuação no ranking.");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
             this.setState({ data: [] });
-            sessionStorage.removeItem("nameRodada");
+            sessionStorage.removeItem("nameRound");
 
             setTimeout(() => {
-                $("#alert-admin-rodada").removeClass("alert alert-success").text("");
+                $("#alert-admin-round").removeClass("alert alert-success").text("");
                 $(".modal-backdrop").remove();
             }, 3000);
 
             await this.props.history.push("/main");
             await console.log(response);
         } catch (error) {
-            $("#alert-admin-rodada").addClass("alert alert-danger").text("Ocorreu um erro ao jogar a rodada!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("Ocorreu um erro ao jogar a round!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
-                $("#alert-admin-rodada").removeClass("alert alert-danger").text("");
+                $("#alert-admin-round").removeClass("alert alert-danger").text("");
             }, 3000);
             console.log(error);
         }
@@ -182,7 +182,7 @@ export default class JogarRodada extends Component {
                 <Header />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
-                    <div className="container"><p className="h2">{sessionStorage.getItem("nameRodada")}</p></div>
+                    <div className="container"><p className="h2">{sessionStorage.getItem("nameRound")}</p></div>
                     <form onSubmit={this.handleSubmit}>
 
                         <label>
@@ -203,7 +203,7 @@ export default class JogarRodada extends Component {
 
                     <div className="container">
                         <button className="btn btn-primary" id="btn-add" onClick={this.handleSubmit}>Adicionar time</button>&nbsp;
-                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Criar rodada</button>
+                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Create round</button>
                     </div>
 
                     <div className="container mt-5">
@@ -238,7 +238,7 @@ export default class JogarRodada extends Component {
 
                     <div class="modal fade" id="modalSalvarTabela" role="dialog" aria-labelledby="modalSalvarTabelaLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                            <div class="" role="alert" id="alert-admin-rodada" data-dismiss="alert"></div>
+                            <div class="" role="alert" id="alert-admin-round" data-dismiss="alert"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja enviar sua tabela</h5>
@@ -248,7 +248,7 @@ export default class JogarRodada extends Component {
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-primary" id="btn-confimarRodada" onClick={this.saveTable}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
+                                    <button type="submit" class="btn btn-primary" id="btn-confimarRound" onClick={this.saveTable}>Confirm &nbsp;<i className="" id="icon-loading"></i></button>
                                 </div>
                             </div>
                         </div>

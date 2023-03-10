@@ -9,10 +9,10 @@ import "react-table/react-table.css";
 import api from "../../services/api";
 import $ from "jquery";
 
-export default class AdminEncerrarRodada extends Component {
+export default class AdminLockRound extends Component {
   state = {
     data: [],
-    nameRodada: "",
+    nameRound: "",
     rowAtual: "",
     rowValue: "",
     button: "btn btn-block btn-default"
@@ -24,12 +24,12 @@ export default class AdminEncerrarRodada extends Component {
       !sessionStorage.getItem("username")
     )
       return this.props.history.push("/main");
-    let response = await api.get(`rodada`);
+    let response = await api.get(`round`);
 
     let obj = await response.data.map(function(data, i) {
       return {
         _id: data._id,
-        nameRodada: data.nameRodada,
+        nameRound: data.nameRound,
         active: `${data.active}`
           .replace("true", "Ativada")
           .replace("false", "Desativada")
@@ -67,30 +67,30 @@ export default class AdminEncerrarRodada extends Component {
             //console.log(row)
           }}
         >
-          Encerrar rodada
+          Close round
         </button>
       </div>
     );
   };
 
-  enable_disableRodada = row => {
+  enable_disableRound = row => {
     return (
       <div className="container">
         <button
           className={this.state.button}
           onClick={async e => {
-            let response = await api.get(`rodada/${row.original._id}`);
+            let response = await api.get(`round/${row.original._id}`);
 
             response.data.active
-              ? await api.post(`admin/desativar/rodada/${row.original._id}`)
-              : await api.post(`admin/ativar/rodada/${row.original._id}`);
+              ? await api.post(`admin/desativar/round/${row.original._id}`)
+              : await api.post(`admin/ativar/round/${row.original._id}`);
 
-            let responseMap = await api.get(`rodada`);
+            let responseMap = await api.get(`round`);
 
             let obj = await responseMap.data.map(function(data, i) {
               return {
                 _id: data._id,
-                nameRodada: data.nameRodada,
+                nameRound: data.nameRound,
                 active: `${data.active}`
                   .replace("true", "Ativada")
                   .replace("false", "Desativada")
@@ -111,7 +111,7 @@ export default class AdminEncerrarRodada extends Component {
     $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
     try {
-      let response = await api.delete(`admin/deletar/rodada/${rowValue}`);
+      let response = await api.delete(`admin/deletar/round/${rowValue}`);
 
       await data.splice(rowAtual, 1);
 
@@ -127,22 +127,22 @@ export default class AdminEncerrarRodada extends Component {
         rowValue: ""
       });
 
-      $("#alert-admin-encerrar-rodada")
+      $("#alert-admin-close-rounds")
         .addClass("alert alert-success")
-        .text("A rodada foi finalizada com sucesso!");
+        .text("A round foi finalizada com sucesso!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
       setTimeout(function() {
-        $("#alert-admin-encerrar-rodada")
+        $("#alert-admin-close-rounds")
           .removeClass("alert alert-success")
           .text("");
       }, 3000);
     } catch (error) {
-      $("#alert-admin-encerrar-rodada")
+      $("#alert-admin-close-rounds")
         .addClass("alert alert-danger")
         .text("Ocorreu um erro na sua requisição!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
       setTimeout(function() {
-        $("#alert-admin-encerrar-rodada")
+        $("#alert-admin-close-rounds")
           .removeClass("alert alert-danger")
           .text("");
       }, 3000);
@@ -159,7 +159,7 @@ export default class AdminEncerrarRodada extends Component {
         <div className="container text-center p-2">
           <div class="" role="alert" id="alert-admin" data-dismiss="alert" />
           <div className="container">
-            <p className="h2">Rodadas Disponíveis</p>
+            <p className="h2">Rounds Disponíveis</p>
           </div>
 
           <div className="container mt-5">
@@ -175,19 +175,19 @@ export default class AdminEncerrarRodada extends Component {
                   accessor: "_id"
                 },
                 {
-                  Header: "Nome da rodada",
-                  accessor: "nameRodada"
+                  Header: "Nome da round",
+                  accessor: "nameRound"
                 },
                 {
                   Header: "Status",
                   accessor: "active"
                 },
                 {
-                  Header: "Ativar/Desativar rodada",
-                  Cell: this.enable_disableRodada
+                  Header: "Ativar/Desativar round",
+                  Cell: this.enable_disableRound
                 },
                 {
-                  Header: "Encerrar",
+                  Header: "Close round",
                   Cell: this.removeRow
                 }
               ]}
@@ -207,13 +207,13 @@ export default class AdminEncerrarRodada extends Component {
               <div
                 class=""
                 role="alert"
-                id="alert-admin-encerrar-rodada"
+                id="alert-admin-close-rounds"
                 data-dismiss="alert"
               />
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="modalEncerrarTabelaLabel">
-                    Confirme se você deseja criar a rodada
+                    Confirme se você deseja create a round
                   </h5>
                   <button
                     type="button"
@@ -235,7 +235,7 @@ export default class AdminEncerrarRodada extends Component {
                   <button
                     type="submit"
                     class="btn btn-primary"
-                    id="btn-encerrarRodada"
+                    id="btn-closeRound"
                     onClick={this.saveTableAdmin}
                   >
                     Confirm &nbsp;<i className="" id="icon-loading" />

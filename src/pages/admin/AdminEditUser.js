@@ -9,10 +9,10 @@ import 'react-table/react-table.css'
 import api from "../../services/api"
 import $ from "jquery";
 
-export default class AdminEncerrarRodada extends Component {
+export default class AdminLockRound extends Component {
     state = {
         data: [],
-        nameRodada: "",
+        nameRound: "",
         rowAtual: "",
         rowValue: "",
         button: "btn btn-block btn-default"

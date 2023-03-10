@@ -3,14 +3,14 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Index from "./pages/index/Index";
 import Login from "./pages/login/Login";
-import Registro from "./pages/registro/Registro";
+import registration from "./pages/registration/registration";
 import Main from "./pages/main/Main";
 import Error404 from "./pages/error_404/Error";
 import Ranking from "./pages/ranking/Ranking";
 import AdminRaisingRotation from "./pages/admin/AdminRaisingRotation";
-import AdminEncerrarRodada from "./pages/admin/AdminEncerrarRodada";
-import AdminEditarUsuario from "./pages/admin/AdminEditarUsuario";
-import JogarRodada from "./pages/jogar_rodada/JogarRodada";
+import AdminLockRound from "./pages/admin/AdminLockRound";
+import AdminEditUser from "./pages/admin/AdminEditUser";
+import PlayRound from "./pages/play_round/PlayRound";
 import BestRates from "./pages/rates/BestRates";
 
 export default class App extends Component {
@@ -20,30 +20,30 @@ export default class App extends Component {
         <Switch>
           <Route path="/" exact component={Index} />
           <Route path="/login" exact component={Login} />
-          <Route path="/registro" exact component={Registro} />
+          <Route path="/registration" exact component={registration} />
           <Route path="/main" exact component={Main} />
           <Route path="/ranking" exact component={Ranking} />
           <Route
-            path="/admin/criar_rodada" // in english: create_round
+            path="/admin/create_round"
             exact
             component={AdminRaisingRotation}
           />
           <Route
-            path="/admin/encerrar_rodada" // in english: close_round
+            path="/admin/close_round"
             exact
-            component={AdminEncerrarRodada}
+            component={AdminLockRound}
           />
           <Route
-            path="/admin/editar_usuario" // in english: edit_user
+            path="/admin/edit_user"
             exact
-            component={AdminEditarUsuario}
+            component={AdminEditUser}
           />
           <Route
-            path="/rodada/jogar_rodada" // in english: play_round
+            path="/round/play_round"
             exact
-            component={JogarRodada}
+            component={PlayRound}
           />
-          <Route path="/best_rates" exact component={BestRates} />
+          <Route path="/bestrates" exact component={BestRates} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>
