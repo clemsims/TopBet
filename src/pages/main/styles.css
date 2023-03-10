@@ -1,0 +1,92 @@
+h1 {
+  font-family: Arial !important;
+  font-size: 30px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+}
+
+h2 {
+  font-family: Arial !important;
+  font-size: 20px !important;
+  font-weight: bold !important;
+  color: #000000 !important;
+}
+
+
+
+/* Grid for body */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  grid-template-rows: repeat(4fr);
+  grid-gap: 0px;
+}
+
+.container {
+  grid-row: 1/2;
+}
+
+.open-bets-section {
+  grid-row: 3;
+}
+
+.account-info-section {
+  grid-row: 4;
+}
+
+/* logo in css */
+/* .logo {
+    background: linear-gradient(to right, #9B1B30, #E20030);
+    padding: 8px 25px;
+    border-radius: 5px;
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    font-family: Helvetica;
+  }
+  
+  
+  .nav-item-betnow {
+    display: inline-block;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #9B1B30, #E20030);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-item-betnow:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  .nav-item-bestrates {
+    display: inline-block;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #9B1B30, #E20030);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: bold;
+  
+  }
+  
+  .nav-item-bestrates:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  */
