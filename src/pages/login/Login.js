@@ -193,9 +193,9 @@ export default class Login extends Component {
         <div className="headertext">
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <a className="navbar-brand h4 mb-0" href="#">
+
               <button className="logo" type="button" onClick={this.handlehome}
               >TopBet
-
               </button>
             </a>
             <button
@@ -207,7 +207,6 @@ export default class Login extends Component {
               aria-expanded="false"
               aria-label="Open navigation"
             />
-
             <div className="collapse navbar-collapse" id="navbar-side">
               <ul className="navbar-nav ml-auto">
                 <li className="button-wrapper">
@@ -234,13 +233,11 @@ export default class Login extends Component {
             </div>
           </nav>
         </div>
-        // sections of the page:
         <div className="wrapper fadeInDown">
           <div class="" role="alert" id="alert-login" data-dismiss="alert" />
           <div id="formContent">
             <div id="formHeader">
               <h2 className="h2-login active">Login</h2>
-
               <h2
                 className="h2-login inactive underlineHover"
                 onClick={this.handleregistration}

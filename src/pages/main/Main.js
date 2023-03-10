@@ -6,8 +6,6 @@ import Footer from "../../components/Footer";
 
 import api from "../../services/api"
 
-import img from "../index/images/img-1.png";
-
 import { openBets, accountInfo } from "../index/constant";
 import "./styles.css";
 
@@ -32,7 +30,6 @@ export default class Main extends Component {
             if (response.data.length === 0) {
                 card.push(
                     <div class="card">
-                        <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
                             <h5 class="card-title text-center">No round available</h5> //
                         </div>
@@ -47,7 +44,6 @@ export default class Main extends Component {
                 if (i.active) {
                     card.push(
                         <div class="card">
-                            <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                             <div class="card-body">
                                 <h5 class="card-title text-center">{i.nameRound}</h5>
                             </div>
@@ -71,7 +67,6 @@ export default class Main extends Component {
             if (response.data.length === 0) {
                 card.push(
                     <div class="card">
-                        <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
                             <h5 class="card-title text-center">No round available</h5>
                         </div>
@@ -86,7 +81,6 @@ export default class Main extends Component {
                 if (i.active) {
                     card.push(
                         <div class="card">
-                            <img class="card-img-top img-fluid" src={img} alt="discordpy.png" />
                             <div class="card-body">
                                 <h5 class="card-title text-center">{i.nameRound}</h5>
                             </div>
@@ -105,7 +99,6 @@ export default class Main extends Component {
             if (card.length === 0) {
                 card.push(
                     <div class="card">
-                        <img class="card-img-top img-thumbnail img-fluid" src={img} alt="discordpy.png" />
                         <div class="card-body">
                             <h5 class="card-title text-center">No round available</h5>
                         </div>

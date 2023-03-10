@@ -110,7 +110,6 @@ export default class Index extends Component {
             </div>
           </nav>
         </div>
-        // sections of the page:
         <div className="body">
           <div className="grid-container">
             <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>

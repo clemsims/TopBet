@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-
 /* BASIC */
 
 .div-panel {
-  background: url('../index/images/img-1.png');
+  background-color: #080808;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -15,7 +13,7 @@ body {
 }
 
 a {
-  color: #dd9292;
+  color: #D50000;
   display: inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -28,18 +26,16 @@ a {
   text-transform: uppercase;
   display: inline-block;
   margin: 20px 8px 10px 8px;
-  color: #cccccc;
+  color: #FFFFFF;
   cursor: pointer;
 }
-
-
 
 /* STRUCTURE */
 
 .wrapper {
   display: flex;
   align-items: center;
-  P flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -49,20 +45,20 @@ a {
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
-  background: #fff;
+  background: #FFFFFF;
   padding: 30px;
   width: 90%;
   max-width: 450px;
   position: relative;
   padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-  box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 0 30px 60px 0 #080808;
+  box-shadow: 0 30px 60px 0 #080808;
   text-align: center;
 }
 
 #formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
+  background-color: #FFFFFF;
+  border-top: 1px solid #FFFFFF;
   padding: 25px;
   text-align: center;
   -webkit-border-radius: 0 0 10px 10px;
@@ -70,7 +66,7 @@ a {
 }
 
 #formHeader {
-  background-color: #f6f6f6;
+  background-color: #FFFFFF;
   text-align: center;
   -webkit-border-radius: 10px 10px 0px 0px;
   border-radius: 10px 10px 0px 0px;
@@ -81,32 +77,30 @@ a {
 /* TABS */
 
 .h2-login.inactive {
-  color: #cccccc;
+  color: #FFFFFF;
 }
 
 .h2-login.active {
   color: #0d0d0d;
-  border-bottom: 2px solid #5fbae9;
+  border-bottom: 2px solid #D50000;
 }
-
-
 
 /* FORM TYPOGRAPHY*/
 
 input[type=button],
 .btn-login,
 input[type=reset] {
-  background-color: #56baed;
+  background-color: #D50000;
   border: none;
-  color: white;
+  color: #FFFFFF;
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-  box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+  -webkit-box-shadow: 0 10px 30px 0 #D50000;
+  box-shadow: 0 10px 30px 0 #D50000;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   margin: 5px 20px 40px 20px;
@@ -120,7 +114,7 @@ input[type=reset] {
 input[type=button]:hover,
 .btn-login:hover,
 input[type=reset]:hover {
-  background-color: #39ace7;
+  background-color: #D50000;
 }
 
 input[type=button]:active,
@@ -137,7 +131,7 @@ input[type=text],
 input[type=password],
 input[type=number],
 select {
-  background-color: #f6f6f6;
+  background-color: #FFFFFF;
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -147,7 +141,7 @@ select {
   font-size: 16px;
   margin: 5px;
   width: 85%;
-  border: 2px solid #f6f6f6;
+  border: 2px solid #FFFFFF;
   -webkit-transition: all 0.5s ease-in-out;
   -moz-transition: all 0.5s ease-in-out;
   -ms-transition: all 0.5s ease-in-out;
@@ -161,17 +155,16 @@ input[type=text]:focus,
 input[type=password]:focus,
 input[type=number]:focus,
 select:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  background-color: #FFFFFF;
+  border-bottom: 2px solid #D50000;
 }
 
-input[type=text]: :placeholder,
+input[type=text]:placeholder,
 input[type=password]::placeholder,
 input[type=number]::placeholder,
 select::placeholder {
-  color: #cccccc;
+  color: #FFFFFF;
 }
-
 
 
 /* ANIMATIONS */
@@ -291,13 +284,13 @@ select::placeholder {
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #D50000;
   content: "";
   transition: width 0.2s;
 }
 
 .underlineHover:hover {
-  color: #0d0d0d;
+  color: #080808;
 }
 
 .underlineHover:hover:after {

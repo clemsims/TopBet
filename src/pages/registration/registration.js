@@ -6,6 +6,20 @@ import api from "../../services/api";
 import "./styles.css";
 
 export default class registration extends Component {
+
+  handleLogin = () => {
+    if (sessionStorage.getItem("username")) this.props.history.push("/main");
+    this.props.history.push("/login");
+  };
+
+  handleBestRates = () => {
+    this.props.history.push("/bestrates");
+  };
+
+  handlehome = () => {
+    this.props.history.push("/");
+  };
+
   componentWillMount() {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
   } // This will redirect the user to the main page if he is already logged in
@@ -35,42 +49,42 @@ export default class registration extends Component {
     const { name, username, password, email } = this.state;
     if (!username) {
       $("#user").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#user").css("border-color", "");
       }, 3000);
     }
 
     if (username.length > 20) {
       $("#user").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#user").css("border-color", "");
       }, 3000);
     }
 
     if (!name) {
       $("#name").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#name").css("border-color", "");
       }, 3000);
     }
 
     if (!password) {
       $("#password").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#password").css("border-color", "");
       }, 3000);
     }
 
     if (password.length < 6) {
       $("#password").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#password").css("border-color", "");
       }, 3000);
     }
 
     if (!email) {
       $("#email").css("border-color", "red");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#email").css("border-color", "");
       }, 3000);
     }
@@ -92,7 +106,7 @@ export default class registration extends Component {
         .addClass("alert alert-danger")
         .text("The username and email entered are already in use!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-register").removeClass("alert alert-danger");
       }, 5000);
     } else if (verifyUser.data) {
@@ -100,7 +114,7 @@ export default class registration extends Component {
         .addClass("alert alert-danger")
         .text("The username is already in use!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-register").removeClass("alert alert-danger");
       }, 5000);
     } else if (verifyEmail.data) {
@@ -108,7 +122,7 @@ export default class registration extends Component {
         .addClass("alert alert-danger")
         .text("The email is already in use!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-register").removeClass("alert alert-danger");
       }, 5000);
     } else if (password.length < 6) {
@@ -116,7 +130,7 @@ export default class registration extends Component {
         .addClass("alert alert-danger")
         .text("The password has less than 6 characters!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-register").removeClass("alert alert-danger");
       }, 5000);
     } else if (username.length > 20) {
@@ -124,7 +138,7 @@ export default class registration extends Component {
         .addClass("alert alert-danger")
         .text("The username can not exceed 20 characters!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-register").removeClass("alert alert-danger");
       }, 5000);
     } else {
@@ -145,7 +159,7 @@ export default class registration extends Component {
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
 
       let props = this.props;
-      setTimeout(function() {
+      setTimeout(function () {
         props.history.push("/login");
       }, 3000);
     }
@@ -154,6 +168,50 @@ export default class registration extends Component {
   render() {
     return (
       <div className="div-panel">
+        <div className="headertext">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a className="navbar-brand h4 mb-0" href="#">
+
+              <button className="logo" type="button" onClick={this.handlehome}
+              >TopBet
+              </button>
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-side"
+              aria-controls="navbar-side"
+              aria-expanded="false"
+              aria-label="Open navigation"
+            />
+            <div className="collapse navbar-collapse" id="navbar-side">
+              <ul className="navbar-nav ml-auto">
+                <li className="button-wrapper">
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-betnow"
+                    onClick={this.handleLogin}
+                  >
+                    Bet now (Login)
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    className="nav-item-bestrates"
+                    onClick={this.handleBestRates}
+                  >
+                    Best Rates
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+
         <div className="wrapper fadeInDown">
           <div class="" role="alert" id="alert-register" data-dismiss="alert" />
           <div id="formContent">
