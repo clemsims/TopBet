@@ -64,7 +64,7 @@ export default class PlayRound extends Component {
         }
 
         if (!points) {
-            $("#alert-admin").addClass("alert alert-danger").text("Você precisa adicionar os pontos!");
+            $("#alert-admin").addClass("alert alert-danger").text("Você precisa adicionar os Points!");
             setTimeout(function () {
                 $("#alert-admin").removeClass("alert alert-danger").text("");
             }, 3000);
@@ -115,7 +115,7 @@ export default class PlayRound extends Component {
         const { data } = this.state;
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
         if (data.length < 1) {
-            $("#alert-admin-round").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("The team table cannot be empty!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-admin-round").removeClass("alert alert-danger").text("");
@@ -136,19 +136,19 @@ export default class PlayRound extends Component {
 
             let rounds = await api.get(`round/name/${sessionStorage.getItem("nameRound")}`);
 
-            let pontos = 0;
+            let Points = 0;
 
             for (const i of rounds.data.tableAdmin) {
                 for (const j of data) {
                     if (i.name === j.team) {
-                        pontos += 1;
-                        if (i.points === parseInt(j.points)) pontos += 1;
+                        Points += 1;
+                        if (i.points === parseInt(j.points)) Points += 1;
                     }
-                    //if (i.position === j.position) pontos += 1;
+                    //if (i.position === j.position) Points += 1;
                 }
             }
 
-            let ranking = await api.post("ranking/create", { username: sessionStorage.getItem("username"), name: sessionStorage.getItem("name"), points: pontos });
+            let ranking = await api.post("ranking/create", { username: sessionStorage.getItem("username"), name: sessionStorage.getItem("name"), points: Points });
 
             $("#alert-admin-round").addClass("alert alert-success").text("Round jogada com sucesso! Visualize sua pontuação no ranking.");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
@@ -195,7 +195,7 @@ export default class PlayRound extends Component {
                                 type="number"
                                 name="points"
                                 id="points"
-                                placeholder="Pontos"
+                                placeholder="Points"
                                 onChange={(event) => this.handleOnChange(event)}
                             />
                         </label>
@@ -223,7 +223,7 @@ export default class PlayRound extends Component {
                                     accessor: "team",
                                 },
                                 {
-                                    Header: "Pontos",
+                                    Header: "Points",
                                     accessor: "points",
                                 },
                                 {

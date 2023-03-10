@@ -29,7 +29,7 @@ export default class Admin extends Component {
             for (const i of response.competitions) {
                 this.state.competitions.push(i);
             }
-            
+
             this.state.select.push(<option>Selecione uma liga</option>)
             this.state.competitions.map((data) =>
                 this.state.select.push(<option value={data.id} id={data.name}>{data.name}</option>)
@@ -124,7 +124,7 @@ export default class Admin extends Component {
         $("#icon-loading").addClass("fas fa-sync-alt loading-refresh-animate");
 
         if (this.state.teams.length < 1) {
-            $("#alert-admin-round").addClass("alert alert-danger").text("A tabela de times não pode ser vazia!");
+            $("#alert-admin-round").addClass("alert alert-danger").text("The team table cannot be empty!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-admin-round").removeClass("alert alert-danger").text("");
@@ -180,7 +180,7 @@ export default class Admin extends Component {
                 <Header />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
-                    <div className="container"><p className="h2">Criação de rounds</p></div>
+                    <div className="container"><p className="h2">Creating Rounds</p></div>
                     <form onSubmit={this.handleSubmit}>
                         <label>
                             <select className="form-control" name="competition" onChange={(event) => { this.handleOnChange(event) }}>
@@ -209,15 +209,15 @@ export default class Admin extends Component {
                                     accessor: "name",
                                 },
                                 {
-                                    Header: "Pontos",
+                                    Header: "Points",
                                     accessor: "points",
                                 },
                                 {
-                                    Header: "Vitórias",
+                                    Header: "Victories",
                                     accessor: "won"
                                 },
                                 {
-                                    Header: "Derrotas",
+                                    Header: "Defeats",
                                     accessor: "lost"
                                 }
                             ]}
@@ -231,7 +231,7 @@ export default class Admin extends Component {
                             <div class="" role="alert" id="alert-admin-round" data-dismiss="alert"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirme se você deseja create a round</h5>
+                                    <h5 class="modal-title" id="modalSalvarTabelaLabel">Confirm that you want to create the round</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>

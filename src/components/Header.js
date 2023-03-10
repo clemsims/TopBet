@@ -142,7 +142,7 @@ class Header extends Component {
     try {
       let ranking = await api.get("ranking");
       if (ranking.data.length === 0) {
-        $("#alert-reset-ranking").addClass("alert alert-danger").text("Ainda não há usuários rankeados, não é possível resetar o ranking!");
+        $("#alert-reset-ranking").addClass("alert alert-danger").text("Ainda não há users rankeados, não é possível resetar o ranking!");
         $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
         setTimeout(() => {
           $("#alert-reset-ranking").removeClass("alert alert-danger").text("");
@@ -171,7 +171,7 @@ class Header extends Component {
         <nav className="navbar navbar-expand-md navbar-dark">
           <div className="container">
             <Link className="navbar-brand" to="/">
-              Trivia Rates
+              TopBet
             </Link>
             <button
               className="navbar-toggler"
@@ -197,7 +197,7 @@ class Header extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link" to="/best_Rates">
+                  <Link className="nav-link" to="/bestrates">
                     Here are the top Rates
                   </Link>
                 </li>

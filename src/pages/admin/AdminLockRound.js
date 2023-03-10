@@ -26,7 +26,7 @@ export default class AdminLockRound extends Component {
       return this.props.history.push("/main");
     let response = await api.get(`round`);
 
-    let obj = await response.data.map(function(data, i) {
+    let obj = await response.data.map(function (data, i) {
       return {
         _id: data._id,
         nameRound: data.nameRound,
@@ -87,7 +87,7 @@ export default class AdminLockRound extends Component {
 
             let responseMap = await api.get(`round`);
 
-            let obj = await responseMap.data.map(function(data, i) {
+            let obj = await responseMap.data.map(function (data, i) {
               return {
                 _id: data._id,
                 nameRound: data.nameRound,
@@ -131,7 +131,7 @@ export default class AdminLockRound extends Component {
         .addClass("alert alert-success")
         .text("A round foi finalizada com sucesso!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-admin-close-rounds")
           .removeClass("alert alert-success")
           .text("");
@@ -141,7 +141,7 @@ export default class AdminLockRound extends Component {
         .addClass("alert alert-danger")
         .text("Ocorreu um erro na sua requisição!");
       $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
-      setTimeout(function() {
+      setTimeout(function () {
         $("#alert-admin-close-rounds")
           .removeClass("alert alert-danger")
           .text("");
@@ -213,7 +213,7 @@ export default class AdminLockRound extends Component {
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="modalEncerrarTabelaLabel">
-                    Confirme se você deseja create a round
+                    Confirm that you want to create the round
                   </h5>
                   <button
                     type="button"

@@ -14,7 +14,7 @@ export default class TableRanking extends Component {
     // DOCSTRING:
     let result = await api.get("ranking");
 
-    let obj = await result.data.map(function(data, i) {
+    let obj = await result.data.map(function (data, i) {
       return {
         name: data.name,
         username: data.username,
@@ -38,11 +38,11 @@ export default class TableRanking extends Component {
         accessor: "name"
       },
       {
-        Header: "Usuário",
+        Header: "user",
         accessor: "username"
       },
       {
-        Header: "Pontos",
+        Header: "Points",
         accessor: "points",
         width: 80,
         Cell: props => <span className="number">{props.value}</span>
@@ -51,7 +51,7 @@ export default class TableRanking extends Component {
 
     return (
       <ReactTable
-        noDataText="Ainda não há usuários no ranking"
+        noDataText="There are no users in the ranking yet"
         data={this.state.data}
         columns={columns}
       />

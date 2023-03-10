@@ -167,15 +167,15 @@ export default class Main extends Component {
                     text={`Welcome ${sessionStorage.getItem("username")}`}
                 >
                     <Header />
-                    <main role="main" className="container-fluid w-100">
-                        <div class="row jumbotron jumbotron">
-                            <div class="container-fluid">
-                                <h1 class="display-3">Football Betting</h1>
-                                <p className="lead"> Below are some rounds available to play, to start your bets, choose one of them and press "play".</p>
+                    <main role="main" className="container">
+                        <div className="grid-item">
+                            <div className="main_text">
+                                <h1> Football Betting</h1>
+                                <p> Below are some rounds available to play, to start your bets, choose one of them and press "play".</p>
                             </div>
                         </div>
-                        <div> {this.renderAccountInfo()} </div>
-                        <div> {this.renderOpenBets()} </div>
+                        <div className="grid-item" > {this.renderAccountInfo()} </div>
+                        <div className="grid-item"> {this.renderOpenBets()} </div>
                         {/* Looping com as rounds */}
                         <div class="card-deck">
                             {this.state.card.map((key, i) => key)}
@@ -187,3 +187,4 @@ export default class Main extends Component {
         );
     }
 }
+

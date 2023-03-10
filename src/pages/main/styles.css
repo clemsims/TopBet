@@ -1,9 +1,4 @@
-h1 {
-  font-family: Arial !important;
-  font-size: 30px !important;
-  font-weight: bold !important;
-  color: #000000 !important;
-}
+/* General rules */
 
 h2 {
   font-family: Arial !important;
@@ -13,28 +8,47 @@ h2 {
 }
 
 
-
-/* Grid for body */
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(1fr);
-  grid-template-rows: repeat(4fr);
-  grid-gap: 0px;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px;
 }
+
+.grid-item {
+  background-color: #FFFFFF;
+  padding: 10px;
+}
+
+
+/* Class Rules */
+
 
 .container {
-  grid-row: 1/2;
+  background-color: #000000;
 }
 
-.open-bets-section {
-  grid-row: 3;
-}
 
-.account-info-section {
-  grid-row: 4;
+
+.main_text {
+  font-family: Arial;
+  font-size: 20px;
+  color: #FFFFFF;
+  background-color: #000000;
 }
 
 .account-info {
+  background-color: #FFFFFF;
+  border: 1px solid #D50000;
+  border-radius: 5px;
+  box-sizing: border-box;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  width: 100%;
+}
+
+.open-bets {
   background-color: #FFFFFF;
   border: 1px solid #D50000;
   border-radius: 5px;

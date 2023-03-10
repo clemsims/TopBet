@@ -56,7 +56,7 @@ export default class AdminLockRound extends Component {
                     });
 
                     //console.log(row)
-                }}>Deletar usuário</button>
+                }}>Deletar user</button>
             </div>
         )
     }
@@ -107,7 +107,7 @@ export default class AdminLockRound extends Component {
                 rowValue: ""
             });
 
-            $("#alert-admin-users").addClass("alert alert-success").text("O usuário foi deletado com sucesso!");
+            $("#alert-admin-users").addClass("alert alert-success").text("O user foi deletado com sucesso!");
             $("#icon-loading").removeClass("fas fa-sync-alt loading-refresh-animate");
             setTimeout(function () {
                 $("#alert-admin-users").removeClass("alert alert-success").text("");
@@ -130,7 +130,7 @@ export default class AdminLockRound extends Component {
                 <Header />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
-                    <div className="container"><p className="h2">Lista de usuários</p></div>
+                    <div className="container"><p className="h2">Lista de users</p></div>
 
                     <div className="container mt-5">
                         <ReactTable
@@ -150,7 +150,7 @@ export default class AdminLockRound extends Component {
                                     accessor: "name",
                                 },
                                 {
-                                    Header: "Usuário",
+                                    Header: "user",
                                     accessor: "username"
                                 },
                                 {
@@ -163,7 +163,7 @@ export default class AdminLockRound extends Component {
                                     width: 218
                                 },
                                 {
-                                    Header: "Deletar usuário",
+                                    Header: "Deletar user",
                                     Cell: this.removeRow,
                                     width: 218
                                 }
@@ -178,7 +178,7 @@ export default class AdminLockRound extends Component {
                             <div class="" role="alert" id="alert-admin-users" data-dismiss="alert"></div>
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modalDeletarUsuariosLabel">Confirme se você deseja deletar o usuário</h5>
+                                    <h5 class="modal-title" id="modalDeletarUsuariosLabel">Confirme se você deseja deletar o user</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
