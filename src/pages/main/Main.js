@@ -174,6 +174,8 @@ export default class Main extends Component {
                                 <p className="lead"> Below are some rounds available to play, to start your bets, choose one of them and press "play".</p>
                             </div>
                         </div>
+                        <div> {this.renderAccountInfo()} </div>
+                        <div> {this.renderOpenBets()} </div>
                         {/* Looping com as rounds */}
                         <div class="card-deck">
                             {this.state.card.map((key, i) => key)}
