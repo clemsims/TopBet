@@ -1,6 +1,3 @@
-/* Style for the header */
-/* button for bet now */
-/* logo in css */
 .nav-item-logo {
     display: inline-block;
     padding: 15px 25px;
@@ -16,6 +13,8 @@
     font-weight: bold;
 
 }
+
+/* button for bet now */
 
 .nav-item-betnow {
     display: inline-block;
@@ -66,5 +65,3 @@
 .headertext {
     margin-bottom: 50px;
 }
-
-/* body */
