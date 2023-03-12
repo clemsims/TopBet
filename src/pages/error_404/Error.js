@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import './style.css';
+import Header_no_login from "../../components/Header_before_login";
 
 export default class Error404 extends Component {
     componentDidMount() {
@@ -41,6 +42,7 @@ export default class Error404 extends Component {
     render() {
         return (
             <div>
+                <Header_no_login />
                 <div class="error">
                     <div class="container-floud">
                         <div class="col-xs-12 ground-color text-center">
