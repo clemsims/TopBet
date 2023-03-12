@@ -19,9 +19,9 @@ class Header_no_login extends Component {
 
     render() {
         return (
-            <div>
+            <div className="container">
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                    <button className="logo" type="button" onClick={this.handlehome}
+                    <button className="nav-item-betnow" type="button" onClick={this.handlehome}
                     >TopBet
                     </button>
                     <ul className="navbar-nav ml-auto">
@@ -33,7 +33,7 @@ class Header_no_login extends Component {
                                 className="nav-item-betnow"
                                 onClick={this.handleLogin}
                             >
-                                Bet now (Login)test
+                                Bet now (Login)
                             </button>
                         </li>
                         <li>
