@@ -1,0 +1,70 @@
+/* Style for the header */
+/* button for bet now */
+/* logo in css */
+.nav-item-logo {
+    display: inline-block;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #9B1B30, #E20030);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: bold;
+
+}
+
+.nav-item-betnow {
+    display: inline-block;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #9B1B30, #E20030);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: bold;
+
+}
+
+.nav-item-betnow:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+/* button for best rate */
+
+.nav-item-bestrates {
+    display: inline-block;
+    padding: 15px 25px;
+    background-image: linear-gradient(to right, #9B1B30, #E20030);
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    font-weight: bold;
+
+}
+
+.nav-item-bestrates:active {
+    transform: translateY(2px);
+    box-shadow: none;
+}
+
+/* adding space between sections */
+
+.headertext {
+    margin-bottom: 50px;
+}
+
+/* body */
