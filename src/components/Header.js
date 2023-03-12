@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import api from "../services/api";
 import $ from "jquery";
 
+import "./styles.css";
+
 class Header extends Component {
   state = {
     ranking: "",
@@ -186,11 +188,6 @@ class Header extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav ml-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/">
-                    Home
-                  </Link>
-                </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/ranking">
                     Ranking
