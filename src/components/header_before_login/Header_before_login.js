@@ -24,30 +24,28 @@ class Header_no_login extends Component {
                     <button className="logo" type="button" onClick={this.handlehome}
                     >TopBet
                     </button>
-                    <div className="collapse navbar-collapse" id="navbar-side">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="button-wrapper">
-                            </li>
-                            <li>
-                                <button
-                                    type="button"
-                                    className="nav-item-betnow"
-                                    onClick={this.handleLogin}
-                                >
-                                    Bet now (Login)
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    type="button"
-                                    className="nav-item-bestrates"
-                                    onClick={this.handleBestRates}
-                                >
-                                    Best Rates
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
+                    <ul className="navbar-nav ml-auto">
+                        <li className="button-wrapper">
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="nav-item-betnow"
+                                onClick={this.handleLogin}
+                            >
+                                Bet now (Login)rekj
+                            </button>
+                        </li>
+                        <li>
+                            <button
+                                type="button"
+                                className="nav-item-bestrates"
+                                onClick={this.handleBestRates}
+                            >
+                                Best Rates
+                            </button>
+                        </li>
+                    </ul>
                 </nav>
             </div>
         );
