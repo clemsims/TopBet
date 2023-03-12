@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LoadingScreen from 'react-loading-screen';
 
-import Header from "../../components/Header";
+import Header_logged from "../../components/header_after_login/Header_after_login";
 import Footer from "../../components/Footer";
 
 import api from "../../services/api"
@@ -153,8 +153,6 @@ export default class Main extends Component {
         );
     }
 
-
-
     render() {
 
         return (
@@ -166,7 +164,7 @@ export default class Main extends Component {
                     textColor='white'
                     text={`Welcome ${sessionStorage.getItem("username")}`}
                 >
-                    <Header />
+                    <Header_logged />
                     <main role="main" className="container">
                         <div className="grid-item">
                             <div className="main_text">

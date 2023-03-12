@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactTable from "react-table";
 
-import Header from "../../components/Header";
+import Header_logged from "../../components/header_after_login/Header_after_login";
 import Footer from "../../components/Footer";
 
 import 'react-table/react-table.css'
@@ -177,7 +177,7 @@ export default class Admin extends Component {
 
         return (
             <div>
-                <Header />
+                <Header_logged />
                 <div className="container text-center p-2">
                     <div class="" role="alert" id="alert-admin" data-dismiss="alert"></div>
                     <div className="container"><p className="h2">Creating Rounds</p></div>

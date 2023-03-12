@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from "../../components/Header";
 import Table from "../../components/TableRanking";
+import Header_logged from "../../components/header_after_login/Header_after_login";
 
 export default class Ranking extends Component {
     componentWillMount() {
@@ -10,7 +10,7 @@ export default class Ranking extends Component {
     render() {
         return (
             <div>
-                <Header />
+                <Header_logged />
                 <Table />
             </div>
         )

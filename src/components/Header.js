@@ -72,7 +72,6 @@ class Header extends Component {
         $("#inputPasswordChange").css("border-color", "");
       }, 3000);
     }
-
   }
 
   handleChangePassword = async (e) => {
