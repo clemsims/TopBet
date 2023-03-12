@@ -33,7 +33,7 @@ class Header_no_login extends Component {
                                 className="nav-item-betnow"
                                 onClick={this.handleLogin}
                             >
-                                Bet now (Login)rekj
+                                Bet now (Login)test
                             </button>
                         </li>
                         <li>

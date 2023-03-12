@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import $ from "jquery";
 import "./styles.css";
-import Header_no_login from "../../components/Header_before_login";
+import Header_no_login from "../../components/header_before_login/Header_before_login";
 
 
 // Here is the /login endpoint in the Fast API Backend:
