@@ -42,7 +42,8 @@ export default class Index extends Component {
                 {event.date} - {event.time}
               </div>
             </div>
-            <button className="event-bet-button">Bet Now</button>
+            <button className="event-bet-button" onClick={this.handleLogin}
+            >Bet Now</button>
           </div>
         ))}
       </div>
@@ -53,14 +54,6 @@ export default class Index extends Component {
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
     this.props.history.push("/login");
-  };
-
-  handleBestRates = () => {
-    this.props.history.push("/bestrates");
-  };
-
-  handlehome = () => {
-    this.props.history.push("/");
   };
 
   render() {

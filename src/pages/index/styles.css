@@ -71,17 +71,6 @@
   background-color: #ff0000;
 }
 
-
-/* betting slip section */
-
-/* Style for the betting slip section */
-.betting-slip {
-  background-color: #FFFFFF;
-  border: 1px solid #FFFFFF;
-  padding: 20px;
-  margin-top: 20px;
-}
-
 /* Style for the leaderboard part */
 .leaderboard-entries {
   background-color: #080808;

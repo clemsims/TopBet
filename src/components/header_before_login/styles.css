@@ -61,7 +61,7 @@
 }
 
 /* adding space between sections */
-
 .container {
     margin-bottom: 100px;
+    background-color: black;
 }

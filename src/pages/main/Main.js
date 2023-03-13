@@ -156,8 +156,8 @@ export default class Main extends Component {
     render() {
 
         return (
-            <div>
-                <LoadingScreen
+            <div className="div-panel">
+            <LoadingScreen
                     loading={this.state.loading}
                     bgColor='#1E1E1E'
                     spinnerColor='#318E58'
