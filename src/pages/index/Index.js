@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import "./styles.css";
 import { upcomingEvents, leaderboardEntries } from "./constant";
 import Header_no_login from "../../components/header_before_login/Header_before_login";
+import Footer from "../../components/Footer";
+
 
 export default class Index extends Component {
   renderleaderboardEntries() {
@@ -50,22 +52,16 @@ export default class Index extends Component {
     );
   }
 
-
-  handleLogin = () => {
-    if (sessionStorage.getItem("username")) this.props.history.push("/main");
-    this.props.history.push("/login");
-  };
-
   render() {
     return (
       <div>
         <Header_no_login />
         <div className="body">
           <div className="grid-container">
-            <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>
-            <div className="leaderboard-section"> {this.renderleaderboardEntries()} </div>
+            <div className="upcoming-events-section gird-element-1"> {this.renderUpcomingEvents()} </div>
+            <div className="leaderboard-section grid-element-2"> {this.renderleaderboardEntries()} </div>
             <div className="footer">
-              <div className="buttom-text">
+              <div className="buttom-text grid-element-3 ">
                 At Top Bet, we're committed to promoting responsible and ethical
                 sports betting practices. <br />
                 That's why we offer rewards for watching ads, rather than requiring
@@ -86,6 +82,7 @@ export default class Index extends Component {
                 so you can make informed decisions about your betting and avoid any
                 potential risks or issues.
               </div>
+              <Footer />
             </div>
           </div>
         </div>

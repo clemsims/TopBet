@@ -12,6 +12,7 @@ import AdminLockRound from "./pages/admin/AdminLockRound";
 import AdminEditUser from "./pages/admin/AdminEditUser";
 import PlayRound from "./pages/play_round/PlayRound";
 import BestRates from "./pages/rates/BestRates";
+import Account_info from "./pages/account_infos/account_infos";
 
 export default class App extends Component {
   render() {
@@ -44,6 +45,7 @@ export default class App extends Component {
             component={PlayRound}
           />
           <Route path="/bestrates" exact component={BestRates} />
+          <Route path="/account_infos" exact component={Account_info} />
           <Route path="*" component={Error404} />
         </Switch>
       </BrowserRouter>

@@ -2,23 +2,11 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import api from "../../services/api";
+import Header_no_login from "../../components/header_before_login/Header_before_login";
 
 import "./styles.css";
 
 export default class registration extends Component {
-
-  handleLogin = () => {
-    if (sessionStorage.getItem("username")) this.props.history.push("/main");
-    this.props.history.push("/login");
-  };
-
-  handleBestRates = () => {
-    this.props.history.push("/bestrates");
-  };
-
-  handlehome = () => {
-    this.props.history.push("/");
-  };
 
   componentWillMount() {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
@@ -168,50 +156,7 @@ export default class registration extends Component {
   render() {
     return (
       <div className="div-panel">
-        <div className="headertext">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a className="navbar-brand h4 mb-0" href="#">
-
-              <button className="logo" type="button" onClick={this.handlehome}
-              >TopBet
-              </button>
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbar-side"
-              aria-controls="navbar-side"
-              aria-expanded="false"
-              aria-label="Open navigation"
-            />
-            <div className="collapse navbar-collapse" id="navbar-side">
-              <ul className="navbar-nav ml-auto">
-                <li className="button-wrapper">
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="nav-item-betnow"
-                    onClick={this.handleLogin}
-                  >
-                    Bet now (Login)
-                  </button>
-                </li>
-                <li>
-                  <button
-                    type="button"
-                    className="nav-item-bestrates"
-                    onClick={this.handleBestRates}
-                  >
-                    Best Rates
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        </div>
-
+        <Header_no_login />
         <div className="wrapper fadeInDown">
           <div class="" role="alert" id="alert-register" data-dismiss="alert" />
           <div id="formContent">

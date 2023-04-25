@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router";
 import "./styles.css";
+import Header from "./Header_before_login";
+
 
 class Header_no_login extends Component {
 
@@ -19,39 +21,42 @@ class Header_no_login extends Component {
 
     render() {
         return (
-            <div className="container">
-                <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <button className="nav-item-betnow" type="button" onClick={this.handlehome}
-                    >TopBet
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ml-auto">
-                            <li className="button-wrapper">
-                            </li>
-                            <li>
-                                <button
-                                    type="button"
-                                    className="nav-item-betnow"
-                                    onClick={this.handleLogin}
-                                >
-                                    Login
-                                </button>
-                            </li>
-                            <li>
-                                <button
-                                    type="button"
-                                    className="nav-item-bestrates"
-                                    onClick={this.handleBestRates}
-                                >
-                                    Best Rates
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+            <div>
+                <Header />
+                <div className="container">
+                    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <button className="nav-item-betnow" type="button" onClick={this.handlehome}
+                        >TopBet
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <ul className="navbar-nav ml-auto">
+                                <li className="button-wrapper">
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        className="nav-item-betnow"
+                                        onClick={this.handleLogin}
+                                    >
+                                        Login
+                                    </button>
+                                </li>
+                                <li>
+                                    <button
+                                        type="button"
+                                        className="nav-item-bestrates"
+                                        onClick={this.handleBestRates}
+                                    >
+                                        Best Rates
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
             </div>
         );
     }

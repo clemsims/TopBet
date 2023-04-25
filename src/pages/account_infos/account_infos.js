@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import LoadingScreen from 'react-loading-screen';
-
 import Header_logged from "../../components/header_after_login/Header_after_login";
 import Footer from "../../components/Footer";
-
 import api from "../../services/api"
-
-import { openBets, accountInfo } from "../index/constant";
+import { accountInfo } from "../index/constant";
 import "./styles.css";
+import $ from "jquery";
 
-export default class Main extends Component {
+export default class Account_info extends Component {
 
     async componentWillMount() {
         // let response = await api.get(`users/username/${sessionStorage.getItem("username")}`);

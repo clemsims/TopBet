@@ -1,20 +1,32 @@
 /* Style for the header */
 /* button for bet now */
 
-
-/* logo in css */
-
-
-.body {
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   background-color: #080808;
 }
 
-/* Grid for body */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 0.5fr 1.5fr 0.5fr;
-  gap: 1px;
+.grid-element-1 {
+  background-color: #080808;
+  padding: 10px;
+}
+
+.grid-element-2 {
+  background-color: #080808;
+  padding: 20px;
+}
+
+.grid-element-3 {
+  background-color: #080808;
+  padding: 20px;
+}
+
+
+/* logo in css */
+
+.body {
+  background-color: #080808;
 }
 
 
@@ -27,8 +39,6 @@
 
 
 .upcoming-events {
-  margin-top: 100px;
-  padding: 20px 15px;
   background-color: #FFFFFF;
   border: 3px solid #D50000;
   border-radius: 8px;
@@ -75,7 +85,6 @@
 .leaderboard-entries {
   background-color: #080808;
   background-position: center center;
-  padding: 200px 20px;
   border-radius: 20px;
   margin: 40px auto;
   max-width: 10000px;
