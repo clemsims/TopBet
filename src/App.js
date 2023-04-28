@@ -13,6 +13,7 @@ import AdminEditUser from "./pages/admin/AdminEditUser";
 import PlayRound from "./pages/play_round/PlayRound";
 import BestRates from "./pages/rates/BestRates";
 import AccountInfosFigma from "./pages/account_infos/AccountInfosFigma";
+import AccountInfos from "./pages/account_infos/AccountInfos";
 
 export default class App extends Component {
   render() {
