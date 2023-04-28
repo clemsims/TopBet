@@ -23,6 +23,11 @@ class Header_logged extends Component {
         this.props.history.push("/admin/create_round");
     };
 
+
+    handleaccount_infos = () => {
+        this.props.history.push("/admin/account_infos");
+    };
+
     render() {
         return (
             <div className="container">
@@ -64,7 +69,7 @@ class Header_logged extends Component {
                             <button
                                 type="button"
                                 className="nav-item-bestrates"
-                                onClick={this.handleBestRates}
+                                onClick={this.handleaccount_infos}
                             >
                                 Account
                             </button>

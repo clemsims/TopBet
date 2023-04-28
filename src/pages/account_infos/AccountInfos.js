@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LoadingScreen from 'react-loading-screen';
+import $ from 'jquery';
+
 
 import Header_logged from "../../components/header_after_login/Header_after_login";
 import Footer from "../../components/Footer";
