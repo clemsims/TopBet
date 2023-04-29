@@ -14,6 +14,8 @@ import PlayRound from "./pages/play_round/PlayRound";
 import BestRates from "./pages/rates/BestRates";
 import AccountInfosFigma from "./pages/account_infos/AccountInfosFigma";
 import AccountInfos from "./pages/account_infos/AccountInfos";
+import AccountInfosFigmaV0 from "./pages/account_infos/AccountInfosFigmaV0";
+import BetPlaced from "./pages/bet_placed/BetPlaced";
 
 export default class App extends Component {
   render() {
@@ -47,6 +49,8 @@ export default class App extends Component {
           />
           <Route path="/admin/account_infos" exact component={AccountInfos} />
           <Route path="/admin/account_infos_figma" exact component={AccountInfosFigma} />
+          <Route path="/admin/account_infos_figma_V0" exact component={AccountInfosFigmaV0} />
+          <Route path="/admin/bet_placed" exact component={BetPlaced} />
           <Route path="/bestrates" exact component={BestRates} />
           <Route path="*" component={Error404} />
         </Switch>

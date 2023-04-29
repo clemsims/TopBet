@@ -8,86 +8,112 @@ const TopBetAccountsettingsRootRootRoot = styled.div`
 // Add all other styled-components declarations here
 
 export default class Main extends Component {
-  render() {
-    return (
-      <TopBetAccountsettingsRootStyled>
-        {<TopBetAccountsettingsRootRootRoot>
-          <SegmentedPicker>
-            <SegmentedPickeroption>
-              <Label>Account</Label>
-              <Vector src="https://file.rendit.io/n/nAP18lV0q0DL4uBkF0mY.svg" />
-              <Vector1 src="https://file.rendit.io/n/ji257SygOGz3ImtDRXQD.svg" />
-            </SegmentedPickeroption>
-            <SegmentedPickeroption1>
-              <Label1>My bets</Label1>
-            </SegmentedPickeroption1>
-          </SegmentedPicker>
-          <Line>
-            <Line1 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          </Line>
-          <Line2 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line3 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line4 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line5 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line6 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line7 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line8 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line9 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line10 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line11 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Line12 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
-          <Group1>
-            <Group5>
-              <Balance>Balance</Balance>
-              <Adbets>Adbets</Adbets>
-            </Group5>
-            <Group6>
-              <Ellipse1>
-                <Element2>32.4 €</Element2>
-                <Ellipse4 src="https://file.rendit.io/n/FaVAmyRHCfeFXWwBsPVV.svg" />
-              </Ellipse1>
-              <Ellipse2>
-                <Element3>15 €</Element3>
-              </Ellipse2>
-              <Ellipse3 src="https://file.rendit.io/n/jsD1vjaRL13c0o60BegY.svg" />
-              <Ellipse5 src="https://file.rendit.io/n/D1xQRD6ROUeOBG1abUAu.svg" />
-            </Group6>
-          </Group1>
-          <Group2>
-            <DefaultRegularCaption>Information générales</DefaultRegularCaption>
-            <DefaultRegularCaption1>Information générales</DefaultRegularCaption1>
-          </Group2>
-          <DefaultRegularCaption2>Parrainage</DefaultRegularCaption2>
-          <DefaultRegularCaption2>
-            Informations légales et limites
-          </DefaultRegularCaption2>
-          <DefaultRegularCaption4>Certification du compte</DefaultRegularCaption4>
-          <DefaultRegularCaption2>Entrer un RIB</DefaultRegularCaption2>
-          <DefaultRegularCaption2>
-            Ajouter un mode de paiement
-          </DefaultRegularCaption2>
-          <DefaultRegularCaption2>
-            Informations légales et limites
-          </DefaultRegularCaption2>
-          <DefaultRegularCaption4>Certification du compte</DefaultRegularCaption4>
-          <DefaultRegularCaption9>Entrer un RIB</DefaultRegularCaption9>
-          <Group4>
-            <ExplicationModeBlack>
-              <Ellipse>
-                <I>i</I>
-              </Ellipse>
-            </ExplicationModeBlack>
-            <ActivezLeModeBlackPourGagnerDesFreebetsEtObtenirLesMeilleuresQuotesDuMarchDansCeModeVousChoisissezLaQuantitDePubsQueVousSouhaitezRegarderEnChangeVousRecevezUnePartieDeLargentDesPubsEtVosQuotesSontBoostes>
-              Activez le mode Black pour gagner des freebets et obtenir les
-              meilleures quotes du marché ! Dans ce mode, vous choisissez la
-              quantité de pubs que vous souhaitez regarder. En échange, vous recevez
-              une partie de l’argent des pubs et vos quotes sont boostées
-            </ActivezLeModeBlackPourGagnerDesFreebetsEtObtenirLesMeilleuresQuotesDuMarchDansCeModeVousChoisissezLaQuantitDePubsQueVousSouhaitezRegarderEnChangeVousRecevezUnePartieDeLargentDesPubsEtVosQuotesSontBoostes>
-          </Group4>
-        </TopBetAccountsettingsRootRootRoot>}
-      </TopBetAccountsettingsRootStyled>
-    );
-  }
+    render() {
+        return (
+            <TopBetAccountsettingsRootStyled>
+                {<TopBetAccountsettingsRootRootRoot>
+                    <Group>
+                        <Element1>9:41</Element1>
+                        <Notch src="https://file.rendit.io/n/Og9SYt7oHm5ruTwNkRKd.svg" />
+                        <IconMobileSignal src="https://file.rendit.io/n/xdHTwB6IDVWWosay2rsk.svg" />
+                        <Wifi src="https://file.rendit.io/n/A6uII4vDi5OaAtr7Q5D7.svg" />
+                        <Outline>
+                            <Fill src="https://file.rendit.io/n/zA4XNtsNdzDcI2sXBi7a.svg" />
+                        </Outline>
+                        <BatteryEnd src="https://file.rendit.io/n/Iy4HeHVHlAB1736IgigJ.svg" />
+                    </Group>
+                    <SegmentedPicker>
+                        <SegmentedPickeroption>
+                            <Label>Account</Label>
+                            <Vector src="https://file.rendit.io/n/nAP18lV0q0DL4uBkF0mY.svg" />
+                            <Vector1 src="https://file.rendit.io/n/ji257SygOGz3ImtDRXQD.svg" />
+                        </SegmentedPickeroption>
+                        <SegmentedPickeroption1>
+                            <Label1>My bets</Label1>
+                        </SegmentedPickeroption1>
+                    </SegmentedPicker>
+                    <Line>
+                        <Line1 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    </Line>
+                    <Line2 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line3 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line4 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line5 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line6 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line7 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line8 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line9 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line10 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line11 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Line12 src="https://file.rendit.io/n/ZiE5DTPbiuwEZTDCuE5p.png" />
+                    <Group1>
+                        <Group5>
+                            <Balance>Balance</Balance>
+                            <Adbets>Adbets</Adbets>
+                        </Group5>
+                        <Group6>
+                            <Ellipse1>
+                                <Element2>32.4 €</Element2>
+                                <Ellipse4 src="https://file.rendit.io/n/FaVAmyRHCfeFXWwBsPVV.svg" />
+                            </Ellipse1>
+                            <Ellipse2>
+                                <Element3>15 €</Element3>
+                            </Ellipse2>
+                            <Ellipse3 src="https://file.rendit.io/n/jsD1vjaRL13c0o60BegY.svg" />
+                            <Ellipse5 src="https://file.rendit.io/n/D1xQRD6ROUeOBG1abUAu.svg" />
+                        </Group6>
+                    </Group1>
+                    <Group2>
+                        <DefaultRegularCaption>Information générales</DefaultRegularCaption>
+                        <DefaultRegularCaption1>Information générales</DefaultRegularCaption1>
+                    </Group2>
+                    <DefaultRegularCaption2>Parrainage</DefaultRegularCaption2>
+                    <DefaultRegularCaption2>
+                        Informations légales et limites
+                    </DefaultRegularCaption2>
+                    <DefaultRegularCaption4>Certification du compte</DefaultRegularCaption4>
+                    <DefaultRegularCaption2>Entrer un RIB</DefaultRegularCaption2>
+                    <DefaultRegularCaption2>
+                        Ajouter un mode de paiement
+                    </DefaultRegularCaption2>
+                    <DefaultRegularCaption2>
+                        Informations légales et limites
+                    </DefaultRegularCaption2>
+                    <DefaultRegularCaption4>Certification du compte</DefaultRegularCaption4>
+                    <DefaultRegularCaption9>Entrer un RIB</DefaultRegularCaption9>
+                    <Group3>
+                        <DefaultRegularCaption10>
+                            Passer en{" "}
+                            <DefaultRegularCaption11>mode Black</DefaultRegularCaption11>
+                        </DefaultRegularCaption10>
+                        <Group7>
+                            <Vector2 src="https://file.rendit.io/n/Ls2uMLOWBRqbEnYMu0r4.svg" />
+                            <Vector3 src="https://file.rendit.io/n/HucNwoxvxteuVOfB7Ut0.svg" />
+                        </Group7>
+                        <SegmentedPicker1>
+                            <SegmentedPickeroption2>
+                                <Label2>Off</Label2>
+                            </SegmentedPickeroption2>
+                            <Label3>On</Label3>
+                        </SegmentedPicker1>
+                    </Group3>
+                    <Group4>
+                        <ExplicationModeBlack>
+                            <Ellipse>
+                                <I>i</I>
+                            </Ellipse>
+                        </ExplicationModeBlack>
+                        <ActivezLeModeBlackPourGagnerDesFreebetsEtObtenirLesMeilleuresQuotesDuMarchDansCeModeVousChoisissezLaQuantitDePubsQueVousSouhaitezRegarderEnChangeVousRecevezUnePartieDeLargentDesPubsEtVosQuotesSontBoostes>
+                            Activez le mode Black pour gagner des freebets et obtenir les
+                            meilleures quotes du marché ! Dans ce mode, vous choisissez la
+                            quantité de pubs que vous souhaitez regarder. En échange, vous recevez
+                            une partie de l’argent des pubs et vos quotes sont boostées
+                        </ActivezLeModeBlackPourGagnerDesFreebetsEtObtenirLesMeilleuresQuotesDuMarchDansCeModeVousChoisissezLaQuantitDePubsQueVousSouhaitezRegarderEnChangeVousRecevezUnePartieDeLargentDesPubsEtVosQuotesSontBoostes>
+                    </Group4>
+                </TopBetAccountsettingsRootRootRoot>}
+            </TopBetAccountsettingsRootStyled>
+        );
+    }
 }
 
 
