@@ -1,100 +1,102 @@
-import React from "react";
+import React, { Component } from "react";
 import styled from "styled-components";
 
-export const BetPageRootRoot1 = ({ }) => {
-    return (
-        <BetPageRootRoot>
-            <Group>
-                <Clock>9:41</Clock>
-                <NotificationIcon src="https://file.rendit.io/n/cmMxA03HXJyjkYxvirnf.svg" />
-                <MobileSignalIcon src="https://file.rendit.io/n/N1ECnKmHB4kGYmaLJNjT.svg" />
-                <WifiIcon src="https://file.rendit.io/n/7tszPJD1hbJNOOKHB5k6.svg" />
-                <PhoneOutline>
-                    <PhoneFill src="https://file.rendit.io/n/c0Mp1aMjOwbmeMkHg6BY.svg" />
-                </PhoneOutline>
-                <BatteryIcon src="https://file.rendit.io/n/5bubcXm9NJqofPC4oQmv.svg" />
-            </Group>
-            <BetTypesPicker>
-                <UserAccountGroup>
-                    <AccountLabel>Account</AccountLabel>
-                    <ArrowDownIcon src="https://file.rendit.io/n/B0Ky85vslkLhodNIfyBX.svg" />
-                    <ArrowUpIcon src="https://file.rendit.io/n/h9SOoeXxirNh0xSQGUyl.svg" />
-                </UserAccountGroup>
-                <PickerSeparator />
-                <MyBetsOption>
-                    <MyBetsLabel>My bets</MyBetsLabel>
-                </MyBetsOption>
-            </BetTypesPicker>
-            <BetCard>
-                <BetCardWidgets>
-                    <BetCardTopWidgetGroup>
-                        <TopLabel>
-                            Top<Label1>Bet</Label1>
-                        </TopLabel>
-                        <BookmakerTextField>
-                            <BookmakerLabel>Betclic</BookmakerLabel>
-                            <TextFieldLine src="https://file.rendit.io/n/2D0vd9qdRXD5lrvG0Jh7.png" />
-                            <TextFieldLineImage src="https://file.rendit.io/n/phlsRcmyRHVqZODZgo2G.svg" />
-                        </BookmakerTextField>
-                    </BetCardTopWidgetGroup>
-                    <BetCardMiddleWidgetGroup>
-                        <BetTitleLabel>Gane par soumission</BetTitleLabel>
-                        <OddsWidget>
-                            <OddsElement>2.2</OddsElement>
-                        </OddsWidget>
-                        <OddsWidget1>
-                            <OddsElement>2.17</OddsElement>
-                        </OddsWidget1>
-                    </BetCardMiddleWidgetGroup>
-                    <BetCardBottomWidgetGroup>
-                        <AmountCaption>Montant</AmountCaption>
-                        <AmountCaption>Gains potentiels</AmountCaption>
-                    </BetCardBottomWidgetGroup>
-                    <TextFieldGroup>
-                        <BetAmountTextField>
-                            <AmountLabel>20</AmountLabel>
-                            <XCircleIcon src="https://file.rendit.io/n/WSpkRhmT2faMAYkXrkpQ.svg" />
-                        </BetAmountTextField>
-                        <PotentialGainTextField>
-                            <PotentialGainLabel>44</PotentialGainLabel>
-                            <EuroSymbol>€</EuroSymbol>
-                        </PotentialGainTextField>
-                    </TextFieldGroup>
-                </BetCardWidgets>
-                <PlaceBetWidgets>
-                    <PlaceBetHeadline>Place this bet!</PlaceBetHeadline>
-                    <PlaceBetLine src="https://file.rendit.io/n/GJQ0sBvQSEjP04aih05w.svg" />
-                    <PlaceBetLine1 src="https://file.rendit.io/n/ysT95xvhYh6sM3EJ3RXc.svg" />
-                </PlaceBetWidgets>
-            </BetCard>
-            <SeeOldBetsWidgets>
-                <SeeOldBetsHeadline>See old bets</SeeOldBetsHeadline>
-                <SeeOldBetsLine src="https://file.rendit.io/n/nKZFEQeAjnfurPahHf0t.svg" />
-                <SeeOldBetsLine1 src="https://file.rendit.io/n/FMSjxjzme9yOE7qYCqq7.svg" />
-            </SeeOldBetsWidgets>
-            <ScoreBoardWidgets>
-                <SeeOldBetsHeadline>Score on the board</SeeOldBetsHeadline>
-                <SeeOldBetsLine src="https://file.rendit.io/n/aLH419WRQSeR4cCzTtvK.svg" />
-                <SeeOldBetsLine1 src="https://file.rendit.io/n/xNK3CMiumJ2StafwTmnE.svg" />
-            </ScoreBoardWidgets>
-            <BetPageWidgets>
-                <TopBetMenuGroup>
-                    <TopBetLive>
-                        <LiveLabel>Live</LiveLabel>
-                    </TopBetLive>
-                    <TopBetMenuIcon>
-                        <TopBetMenuIconImage src="https://file.rendit.io/n/VtNHQ6Z3Co18P83krz76.svg" />
-                    </TopBetMenuIcon>
-                    <TopBetBlackVersion>Black version</TopBetBlackVersion>
-                    <TopBetBlackVersionImage src="https://file.rendit.io/n/BoWKi76KRD6uyoscOEA0.svg" />
-                </TopBetMenuGroup>
-                <TopBetSports>
-                    <LiveLabel>Sports</LiveLabel>
-                </TopBetSports>
-            </BetPageWidgets>
-        </BetPageRootRoot>
-    );
-};
+export default class Main extends Component {
+    render() {
+        return (
+            <BetPageRootRoot>
+                <Group>
+                    <Clock>9:41</Clock>
+                    <NotificationIcon src="https://file.rendit.io/n/cmMxA03HXJyjkYxvirnf.svg" />
+                    <MobileSignalIcon src="https://file.rendit.io/n/N1ECnKmHB4kGYmaLJNjT.svg" />
+                    <WifiIcon src="https://file.rendit.io/n/7tszPJD1hbJNOOKHB5k6.svg" />
+                    <PhoneOutline>
+                        <PhoneFill src="https://file.rendit.io/n/c0Mp1aMjOwbmeMkHg6BY.svg" />
+                    </PhoneOutline>
+                    <BatteryIcon src="https://file.rendit.io/n/5bubcXm9NJqofPC4oQmv.svg" />
+                </Group>
+                <BetTypesPicker>
+                    <UserAccountGroup>
+                        <AccountLabel>Account</AccountLabel>
+                        <ArrowDownIcon src="https://file.rendit.io/n/B0Ky85vslkLhodNIfyBX.svg" />
+                        <ArrowUpIcon src="https://file.rendit.io/n/h9SOoeXxirNh0xSQGUyl.svg" />
+                    </UserAccountGroup>
+                    <PickerSeparator />
+                    <MyBetsOption>
+                        <MyBetsLabel>My bets</MyBetsLabel>
+                    </MyBetsOption>
+                </BetTypesPicker>
+                <BetCard>
+                    <BetCardWidgets>
+                        <BetCardTopWidgetGroup>
+                            <TopLabel>
+                                Top<Label1>Bet</Label1>
+                            </TopLabel>
+                            <BookmakerTextField>
+                                <BookmakerLabel>Betclic</BookmakerLabel>
+                                <TextFieldLine src="https://file.rendit.io/n/2D0vd9qdRXD5lrvG0Jh7.png" />
+                                <TextFieldLineImage src="https://file.rendit.io/n/phlsRcmyRHVqZODZgo2G.svg" />
+                            </BookmakerTextField>
+                        </BetCardTopWidgetGroup>
+                        <BetCardMiddleWidgetGroup>
+                            <BetTitleLabel>Gane par soumission</BetTitleLabel>
+                            <OddsWidget>
+                                <OddsElement>2.2</OddsElement>
+                            </OddsWidget>
+                            <OddsWidget1>
+                                <OddsElement>2.17</OddsElement>
+                            </OddsWidget1>
+                        </BetCardMiddleWidgetGroup>
+                        <BetCardBottomWidgetGroup>
+                            <AmountCaption>Montant</AmountCaption>
+                            <AmountCaption>Gains potentiels</AmountCaption>
+                        </BetCardBottomWidgetGroup>
+                        <TextFieldGroup>
+                            <BetAmountTextField>
+                                <AmountLabel>20</AmountLabel>
+                                <XCircleIcon src="https://file.rendit.io/n/WSpkRhmT2faMAYkXrkpQ.svg" />
+                            </BetAmountTextField>
+                            <PotentialGainTextField>
+                                <PotentialGainLabel>44</PotentialGainLabel>
+                                <EuroSymbol>€</EuroSymbol>
+                            </PotentialGainTextField>
+                        </TextFieldGroup>
+                    </BetCardWidgets>
+                    <PlaceBetWidgets>
+                        <PlaceBetHeadline>Place this bet!</PlaceBetHeadline>
+                        <PlaceBetLine src="https://file.rendit.io/n/GJQ0sBvQSEjP04aih05w.svg" />
+                        <PlaceBetLine1 src="https://file.rendit.io/n/ysT95xvhYh6sM3EJ3RXc.svg" />
+                    </PlaceBetWidgets>
+                </BetCard>
+                <SeeOldBetsWidgets>
+                    <SeeOldBetsHeadline>See old bets</SeeOldBetsHeadline>
+                    <SeeOldBetsLine src="https://file.rendit.io/n/nKZFEQeAjnfurPahHf0t.svg" />
+                    <SeeOldBetsLine1 src="https://file.rendit.io/n/FMSjxjzme9yOE7qYCqq7.svg" />
+                </SeeOldBetsWidgets>
+                <ScoreBoardWidgets>
+                    <SeeOldBetsHeadline>Score on the board</SeeOldBetsHeadline>
+                    <SeeOldBetsLine src="https://file.rendit.io/n/aLH419WRQSeR4cCzTtvK.svg" />
+                    <SeeOldBetsLine1 src="https://file.rendit.io/n/xNK3CMiumJ2StafwTmnE.svg" />
+                </ScoreBoardWidgets>
+                <BetPageWidgets>
+                    <TopBetMenuGroup>
+                        <TopBetLive>
+                            <LiveLabel>Live</LiveLabel>
+                        </TopBetLive>
+                        <TopBetMenuIcon>
+                            <TopBetMenuIconImage src="https://file.rendit.io/n/VtNHQ6Z3Co18P83krz76.svg" />
+                        </TopBetMenuIcon>
+                        <TopBetBlackVersion>Black version</TopBetBlackVersion>
+                        <TopBetBlackVersionImage src="https://file.rendit.io/n/BoWKi76KRD6uyoscOEA0.svg" />
+                    </TopBetMenuGroup>
+                    <TopBetSports>
+                        <LiveLabel>Sports</LiveLabel>
+                    </TopBetSports>
+                </BetPageWidgets>
+            </BetPageRootRoot>
+        );
+    };
+}
 
 const OddsElement = styled.div`
   color: #ffffff;

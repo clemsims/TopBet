@@ -190,7 +190,7 @@ export default class Admin extends Component {
                     </form>
 
                     <div className="container">
-                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Create round</button>
+                        <button className="btn btn-success" id="btn-add" data-toggle="modal" data-target="#modalSalvarTabela">Bet Here</button>
                     </div>
 
                     <div className="container mt-5">
