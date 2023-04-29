@@ -7,7 +7,7 @@ import "./styles.css";
 class Header_logged extends Component {
 
     handleBestRates = () => {
-        this.props.history.push("/bestrates");
+        this.props.history.push("/admin/create_round");
     };
 
 

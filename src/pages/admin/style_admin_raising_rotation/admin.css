@@ -1,0 +1,36 @@
+/* admin.css */
+
+/* Set the background color for the entire page */
+body {
+    background-color: red;
+    color: white;
+}
+
+/* Set the font color for the text inside the ReactTable */
+.ReactTable .rt-tbody .rt-tr-group .rt-td {
+    color: white;
+}
+
+/* Set the font color for the text inside the table header */
+.ReactTable .rt-thead .rt-th {
+    color: white;
+}
+
+/* Set the font color for the text inside the table footer */
+.ReactTable .-pagination .rt-td {
+    color: white;
+}
+
+/* Set the background color and font color for the "Bet Now" button */
+.btn-primary {
+    background-color: white;
+    color: red;
+    border-color: white;
+}
+
+/* Set the background color and font color for the "Bet Now" button on hover */
+.btn-primary:hover {
+    background-color: #f2f2f2;
+    color: red;
+    border-color: #f2f2f2;
+}

@@ -1,0 +1,26 @@
+/* BetPlaced.css */
+@import url("../admin/style_admin_raising_rotation/admin.css");
+
+.bet-placed {
+    background-image: url("https://file.rendit.io/n/mhZQsK0QW6XVrMdBLc4P.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bet-placed-text {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
