@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import api from "../../services/api";
-
 import "./styles.css";
+import backgroundImage from '/project/TopBet/src/pages/registration/images/Backgr.jpg';
 
 export default class registration extends Component {
   componentWillMount() {
@@ -150,71 +150,53 @@ export default class registration extends Component {
       }, 3000);
     }
   };
-
-  render() {
+  /* ajout de Mark */
+  handlehome = () => {
+    this.props.history.push("/");
+  };
+  renderlogin() {
     return (
-      <div className="div-panel">
-        <div className="wrapper fadeInDown">
-          <div class="" role="alert" id="alert-register" data-dismiss="alert" />
-          <div id="formContent">
+      <div className="container">
+        <img src={backgroundImage} alt='background image' />
+        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
+        <h1 className="moto">The highest odds in the market</h1>
+        <div id="formContent">
             <div id="formHeader">
-              <h2
-                className="h2-login inactive underlineHover"
-                id="loginButton"
-                onClick={this.handleLogin}
-              >
-                Login
-              </h2>
 
               <h2 className="h2-login active">Register</h2>
             </div>
 
-            <div className="form-padding">
-              <form>
-                <input
-                  type="text"
-                  id="name"
-                  className="fadeIn second"
-                  placeholder="Full Name"
-                  name="name"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
-                  type="text"
-                  id="user"
-                  className="fadeIn third"
-                  placeholder="Username"
-                  name="username"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
-                  type="email"
-                  id="email"
-                  className="fadeIn fourth"
-                  placeholder="E-mail"
-                  name="email"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
-                  type="password"
-                  id="password"
-                  className="fadeIn five"
-                  placeholder="Password"
-                  name="password"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <button
-                  type="submit"
-                  className="fadeIn six btn-register"
-                  value="Register"
-                  id="btn-cadastrar"
-                  onClick={this.handleRegisterUser}
-                >
-                  Register &nbsp;<i className="" id="icon-loading" />
-                </button>
-              </form>
-            </div>
+            
           </div>
+      </div>
+    );
+  }
+  render() {
+    return (
+      <div className="div-panel">
+        
+        <div className="overlay"></div>
+        <div className="headertext aboveOverlay">
+          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a className="navbar-brand h4 mb-0" href="#">
+              <div className="logo" onClick={this.handlehome}>TopBet</div>
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-toggle="collapse"
+              data-target="#navbar-side"
+              aria-controls="navbar-side"
+              aria-expanded="false"
+              aria-label="Open navigation"
+            />
+          </nav>
+        </div>
+        
+        <div className="wrapper fadeInDown">
+          <div class="" role="alert" id="alert-register" data-dismiss="alert" />
+          <div className="background">{this.renderlogin()}</div>
+          
         </div>
       </div>
     );

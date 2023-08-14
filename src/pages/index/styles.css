@@ -1,6 +1,5 @@
 .navbar-dark .navbar-nav .nav-link,
 
-
 .link-pointer {
   cursor: pointer;
 }
@@ -14,7 +13,7 @@
   font-size: 16px;
   text-align: center;
   padding: 100px;
-  background-color: #f2f2f2;
+  background-color: #D50000;
 
 }
 
@@ -46,7 +45,9 @@
   box-shadow: none;
 }
 
-
+body, html {
+  background-color: #D50000;
+}
 /* button for bet now */
 
 
@@ -97,53 +98,7 @@
 
 
 
-/* upcoming event section */
 
-.upcoming-events {
-  margin-top: 100px;
-  padding: 20px 15px;
-  background-color: #f0fff0;
-  border: 3px solid #2e8b57;
-  border-radius: 8px;
-
-}
-
-.event-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.event-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.event-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2e8b57;
-}
-
-.event-time {
-  font-size: 16px;
-  color: #666;
-}
-
-.event-bet-button {
-  background-color: #2e8b57;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.event-bet-button:hover {
-  background-color: #1c7430;
-}
 
 /* betting slip section */
 
@@ -154,27 +109,168 @@
   padding: 20px;
   margin-top: 20px;
 }
-
-/* Style for the open bets list */
-.open-bets ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.connexion {
+  display: flex; /* Using flexbox for centering */
+  flex-direction: column; /* Arranging children (inputs) vertically */
+  align-items: center; /* Centering the children horizontally */
+  justify-content: center; /* Centering the children vertically (if there's extra space) */
+  padding: 20px; /* Some padding for aesthetics */
+  width: 100%; /* Taking the full width available */
+  font-size: 2rem;
+  box-sizing:content-box;
+}
+.connexion .Log-in {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  color: #FFFFFF; /* Setting the input text color */
+  border: 0px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 10px;
+  background-color: #000000
+}
+.connexion .Get-started {
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  color: #000000; /* Setting the input text color */
+  border: 1px solid #000000; /* Giving a border to make the input visible */
+  border-radius: 10px;
+  background-color: #D50000
+}
+/* Style for the odds comparere */
+.odds-comparer {
+  background-color: #D50000; /* Setting the background color */
+  color: #FFFFFF; /* Setting the text color */
+  display: flex; /* Using flexbox for centering */
+  flex-direction: column; /* Arranging children (inputs) vertically */
+  align-items: center; /* Centering the children horizontally */
+  justify-content: center; /* Centering the children vertically (if there's extra space) */
+  padding: 20px; /* Some padding for aesthetics */
+  width: 100%; /* Taking the full width available */
+  font-size: 1rem;
+  box-sizing:content-box; /* Making sure padding and border don't increase the div's total width */
 }
 
-.open-bets li {
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 10px;
+/* Additional styles for input elements */
+.odds-comparer input[type="text"] {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  background-color: #3A3A3C; /* Setting input background color to match the div */
+  color: #6F6F70; /* Setting the input text color */
+  border: 1px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 15px; /* Rounding the borders for aesthetics */
+}
+.odds-comparer button[type="submit"] {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  background-color: #000000; /* Setting input background color to match the div */
+  color: #FFFFFF; /* Setting the input text color */
+  border: 0px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 15px; /* Rounding the borders for aesthetics */
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+}
+
+.error-message {
+  color: white;
+  margin-top: 10px;
+}
+
+label {
+  margin-right: 10px;
+  color: #6F6F70;
+}
+
+.dropdown-toggle {
+  background-color: #3A3A3C;
+  border: none;
+  color: #6F6F70;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #3A3A3C;
+  color: #6F6F70;
+  width: 200px; /* or whatever width you want */
+  max-height: 100px; /* control the maximum height */
+  overflow-y: auto; /* make it scrollable if content overflows */
+  border: 1px solid #6F6F70;
+  border-radius: 5px;
+}
+
+.dropdown-item {
   padding: 10px;
-  background-color: #f9dada;
-  border: 1px solid #090101;
+  cursor: pointer;
 }
 
-/* Style for the current bet */
-.open-bets li.current-bet {
-  background-color: #ffc1c1;
-  border: 1px solid #090101;
+.container {
+  position: relative;
+  width: 100vw; /* 100% of the viewport width */
+  height: 40vh; /* 40% of the viewport height */
+  overflow: hidden; /* Ensure no spillover from the container */
+  color: #D50000 ;
+  font-style: italic;
+  background-image: url('./images/Backgr.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* This creates a dark overlay. Adjust the 0.3 as needed. */
+  z-index: 0;
+}
+
+.container h1 .red {
+  color: #D50000; /* For "Bet" */
+  font-style: italic;
+}
+.topbet-title {
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem; /* Adjust as needed for desired font size */
+  z-index: 1;
+  color: white;
+}
+
+.topbet-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Adjust this value to change the distance from the text */
+  height: 2px;
+  background-color:white; /* Change to desired color */
+}
+
+.moto {
+  position: relatieve;
+  display: inline-block;
+  position: absolute;
+  top: 74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem; /* Adjust as needed for desired font size */
+  z-index: 1;
+  color: white;
+}
+
+.dropdown-item:hover {
+  background-color: #6F6F70;
+  color: #3A3A3C;
 }
 
 /* account info section */

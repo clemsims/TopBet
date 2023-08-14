@@ -4,7 +4,6 @@ import $ from "jquery";
 import "./styles.css";
 
 
-
 // Here is the /login endpoint in the Fast API Backend:
 // @app.post("/login", tags=["Authentication"], summary="Create access and refresh tokens for user")
 // async def login(form_data: OAuth2PasswordRequestForm = Depends()):
@@ -29,6 +28,9 @@ export default class Login extends Component {
     this.props.history.push("/login");
   };
 
+  handleBestRates = () => {
+    this.props.history.push("/bestrates");
+  };
 
   handlehome = () => {
     this.props.history.push("/");
@@ -208,7 +210,7 @@ export default class Login extends Component {
           <div class="" role="alert" id="alert-login" data-dismiss="alert" />
           <div id="formContent">
             <div id="formHeader">
-              <h2 className="h2-login-active">Welcome back!</h2>
+              <h2 className="h2-login active">Welcome back!</h2>
             </div>
 
             <div className="form-padding">
