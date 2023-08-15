@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import api from "../../services/api";
 import $ from "jquery";
 import "./styles.css";
+import backgroundImage from '/project/TopBet/src/pages/registration/images/Backgr.jpg';
+import Navbar from '../../components/comp_Navbar/navbar.js';
 
 
 
@@ -183,76 +185,57 @@ export default class Login extends Component {
       }, 3000);
     }
   };
-
+  renderimgfond() {
+    return (
+      <div className="container2">
+        <img src={backgroundImage} alt='background image' />
+        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
+        <h1 className="moto">The highest odds in the market</h1>
+      </div>
+    );
+  }
   render() {
     return (
       <div className="div-panel">
-        <div className="headertext">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a className="navbar-brand h4 mb-0" href="#">
-              <div className="logo" onClick={this.handlehome}>TopBet</div>
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbar-side"
-              aria-controls="navbar-side"
-              aria-expanded="false"
-              aria-label="Open navigation"
-            />
-          </nav>
-        </div>
-        
-        <div className="wrapper fadeInDown">
-          <div class="" role="alert" id="alert-login" data-dismiss="alert" />
-          <div id="formContent">
-            <div id="formHeader">
-              <h2 className="h2-login-active">Welcome back!</h2>
-            </div>
 
-            <div className="form-padding">
-              <form>
-                <input
-                  type="text"
-                  id="input-login"
-                  className="fadeIn second"
-                  placeholder="Login"
-                  name="username"
-                  onChange={event => this.handleOnChange(event)}
-                  required={true}
-                />
-                <input
+        <div className="headertext">
+          <div className="headertext aboveOverlay">
+            <Navbar />
+          </div>
+        </div>
+        <div className="background">{this.renderimgfond()}</div>
+        <div className="overlay">
+        <div className="registration-widget">
+          <h1 className="welcome">
+          Welcome back!
+          </h1 >
+          <form onSubmit={this.handleRegisterUser}>
+              <input 
+                  type="email"
+                  placeholder="Email or phone number"
+                  name="email or phone number"
+                  onChange={this.handleOnChange}
+                  value={this.state.email}
+              />
+              <input 
                   type="password"
-                  id="input-password"
-                  className="fadeIn third"
                   placeholder="Password"
                   name="password"
-                  onChange={event => this.handleOnChange(event)}
-                  required
-                />
-                <button
-                  type="submit"
-                  className="fadeIn fourth btn-login"
-                  value="Enter"
-                  onClick={this.handleLogin}
-                >
-                  Log in &nbsp;
-                  <i className="" id="icon-loading" />
-                </button>
-              </form>
-            </div>
-
-            <div id="formFooter">
-              <a
-                className="underlineHover link-pointer"
+                  onChange={this.handleOnChange}
+                  value={this.state.password}
+              />
+              <div>
+              <span
+                className="underlineHover-link-pointer"
                 data-toggle="modal"
                 data-target="#modalRecuperarSenha"
               >
                 Forgot password?
-              </a>
+              </span>
+              <button type="submit" onClick={this.handleLogin}>Sign in</button>
             </div>
-          </div>
+          </form>
+        </div>
         </div>
 
         <div
@@ -262,11 +245,11 @@ export default class Login extends Component {
           aria-labelledby="modalRecuperarSenhaLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog" role="document">
+          <div className="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="modalRecuperarSenhaLabel">
-                  Enter your email and password below
+                <h5 className="modal-title" id="modalRecuperarSenhaLabel">
+                  Enter your email below
                 </h5>
                 <button
                   type="button"
@@ -294,9 +277,10 @@ export default class Login extends Component {
                     onChange={this.handleOnChange}
                   />
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                   <button
                     type="button"
+                    className="cancelbutton"
                     class="btn btn-secondary"
                     data-dismiss="modal"
                     onClick={this.handleClearEmail}
@@ -310,7 +294,7 @@ export default class Login extends Component {
                     onClick={this.handlePasswordRecovery}
                   >
                     Confirm &nbsp;
-                    <i className="" id="icon-loading-confirmar" />
+                    
                   </button>
                 </div>
               </form>

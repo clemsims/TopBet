@@ -2,8 +2,10 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import api from "../../services/api";
-import "./styles.css";
+import "/project/TopBet/src/pages/registration/styles.css";
 import backgroundImage from '/project/TopBet/src/pages/registration/images/Backgr.jpg';
+import Navbar from '../../components/comp_Navbar/navbar.js';
+
 
 export default class registration extends Component {
   componentWillMount() {
@@ -20,7 +22,9 @@ export default class registration extends Component {
   handleLogin = () => {
     this.props.history.push("/login"); // Redirect to login page when the user clicks on the login button
   };
-
+  handleregistered = () => {
+    this.props.history.push("/ranking"); // Redirect to 
+  };
   handleOnChange = e => {
     let name = e.target.name;
     let value = e.target.value;
@@ -151,53 +155,60 @@ export default class registration extends Component {
     }
   };
   /* ajout de Mark */
-  handlehome = () => {
-    this.props.history.push("/");
-  };
-  renderlogin() {
+  renderimgfond() {
     return (
-      <div className="container">
+      <div className="container2">
         <img src={backgroundImage} alt='background image' />
         <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
         <h1 className="moto">The highest odds in the market</h1>
-        <div id="formContent">
-            <div id="formHeader">
-
-              <h2 className="h2-login active">Register</h2>
-            </div>
-
-            
-          </div>
       </div>
     );
-  }
+  };
   render() {
     return (
       <div className="div-panel">
-        
-        <div className="overlay"></div>
+        <div className="background">{this.renderimgfond()}</div>
+        <div className="overlay">
+        <div className="registration-widget">
+          <h1 className="welcome">
+          Welcome!
+          </h1 >
+          <form onSubmit={this.handleRegisterUser}>
+              <input 
+                  type="text"
+                  placeholder="Name or pseudo"
+                  name="name or pseudo"
+                  onChange={this.handleOnChange}
+                  value={this.state.name}
+              />
+              <input 
+                  type="email"
+                  placeholder="Email or phone number"
+                  name="email or phone number"
+                  onChange={this.handleOnChange}
+                  value={this.state.email}
+              />
+              <input 
+                  type="password"
+                  placeholder="Password"
+                  name="password"
+                  onChange={this.handleOnChange}
+                  value={this.state.password}
+              />
+              <button type="submit" onClick={this.handleregistered}>Sign in</button>
+          </form>
+        </div>
+        </div>
         <div className="headertext aboveOverlay">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a className="navbar-brand h4 mb-0" href="#">
-              <div className="logo" onClick={this.handlehome}>TopBet</div>
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbar-side"
-              aria-controls="navbar-side"
-              aria-expanded="false"
-              aria-label="Open navigation"
-            />
-          </nav>
+          <Navbar />
         </div>
         
         <div className="wrapper fadeInDown">
           <div class="" role="alert" id="alert-register" data-dismiss="alert" />
-          <div className="background">{this.renderlogin()}</div>
+          
           
         </div>
+
       </div>
     );
   }

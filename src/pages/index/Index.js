@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import backgroundImage from './images/Backgr.jpg';
-
+import Navbar from '../../components/comp_Navbar/navbar.js';
 import "./styles.css";
 
 //import logo from '../index/images/TOPBET.png';
@@ -24,7 +24,21 @@ export default class Index extends Component {
       [name]: value
     });
   };
-
+  handleLogin = () => {
+    if (sessionStorage.getItem("username")) this.props.history.push("/main");
+    this.props.history.push("/login");
+  };
+  toggleDropdown = (dropdownName) => {
+    this.setState(prevState => ({
+      isDropdownVisible: {
+        ...prevState.isDropdownVisible,
+        [dropdownName]: !prevState.isDropdownVisible[dropdownName]
+      }
+    }));
+  };
+  handleregistration = () => {
+    this.props.history.push("/registration");
+  };
   state = {
     isDropdownVisible: {
       team1: false,
@@ -34,16 +48,17 @@ export default class Index extends Component {
     errorMessage: ''
   };
   
-  toggleDropdown = (dropdownName) => {
-    this.setState(prevState => ({
-      isDropdownVisible: {
-        ...prevState.isDropdownVisible,
-        [dropdownName]: !prevState.isDropdownVisible[dropdownName]
-      }
-    }));
-  }
-  handleregistration = () => {
-    this.props.history.push("/registration");
+  
+  
+
+  renderimgfond() {
+    return (
+      <div className="container2">
+        <img src={backgroundImage} alt='background image' />
+        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
+        <h1 className="moto">The highest odds in the market</h1>
+      </div>
+    );
   };
   renderoddsComparer() {
     return (
@@ -109,18 +124,7 @@ export default class Index extends Component {
         </button>
       </div>
     );
-  }
-  
-  renderbackground() {
-    return (
-      <div className="container">
-        <img src={backgroundImage} alt='background image' />
-        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
-        <h1 className="moto">The highest odds in the market</h1>
-      </div>
-    );
-  }
-  
+  };
   renderconnexion() {
     return(
       <div className="connexion">
@@ -136,36 +140,20 @@ export default class Index extends Component {
         </div>
       </div>
     );
-  }
-
-  handleLogin = () => {
-    if (sessionStorage.getItem("username")) this.props.history.push("/main");
-    this.props.history.push("/login");
   };
+  
+
 
 
   render() {
     return (
-      <div>
+      <div className="div-panel">
         <div className="headertext">
-          <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-            <a className="navbar-brand h4 mb-0" href="#">
-              <div className="logo">TopBet</div>
-            </a>
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbar-side"
-              aria-controls="navbar-side"
-              aria-expanded="false"
-              aria-label="Open navigation"
-            />
-          </nav>
+        <Navbar history={this.props.history}  />
         </div>
-        <div className="background">{this.renderbackground()}</div>
-        <div className="open-bets-section">{this.renderoddsComparer()}</div>
-        <div className="background">{this.renderconnexion()}</div>
+        <div className="background-section">{this.renderimgfond()}</div>
+        <div className="odds-comparer-section">{this.renderoddsComparer()}</div>
+        <div className="connexion-session">{this.renderconnexion()}</div>
         
         
       </div>
