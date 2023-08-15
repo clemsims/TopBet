@@ -22,8 +22,6 @@
 - Partie inscription (connexion / base de données)
     Voir plus tard avec FreeMySQLhosting
 
-
-
 - Partie Juridique
     Pays dans lesquels on peut lancer l'appli ?? Ex Singapore pas possible
     Règles propres à chaque pays ( Reglementation anti-addiction )
@@ -33,3 +31,10 @@
 
 - ajouter des elements interactifs sur les côtes pour maximiser le temps passer sur l'app
 lien logo: https://i.imgur.com/HvVE2nr.png
+
+
+## MAJ du 15/08/2023
+
+- les front de la page d'accueil et de connexion ont été changés
+
+- Il faut maintenant pouvoir se connecter avec MySQLworkbench pour avoir accès aux compte et pouvoir enregistrer ce qui se connectent pour la première fois. 
