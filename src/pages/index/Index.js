@@ -1,12 +1,13 @@
 import React, { Component } from "react";
-import backgroundImage from './images/Backgr.jpg';
 import Navbar from '../../components/comp_Navbar/navbar.js';
 import "./styles.css";
 
 //import logo from '../index/images/TOPBET.png';
 
 // Define an array of upcoming events
-
+// ces deux constantes servent piocher l'image aléatoire utilisée dans le
+const imageContext = require.context('./images', false, /\.(jpg|jpeg|png|gif)$/);
+const images = imageContext.keys().map(imageContext);
 
 export default class Index extends Component {
   handleOnChange = e => {
@@ -49,12 +50,11 @@ export default class Index extends Component {
   };
   
   
-  
-
   renderimgfond() {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
     return (
       <div className="container2">
-        <img src={backgroundImage} alt='background image' />
+        <img src={randomImage} alt='background image' />
         <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
         <h1 className="moto">The highest odds in the market</h1>
       </div>
