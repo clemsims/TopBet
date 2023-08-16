@@ -9,7 +9,7 @@ import "./styles.css";
 const imageContext = require.context('./images', false, /\.(jpg|jpeg|png|gif)$/);
 const images = imageContext.keys().map(imageContext);
 
-export default class homepage extends Component {
+export default class Homepage extends Component {
   handleOnChange = e => {
     let name = e.target.name;
     let value = e.target.value;

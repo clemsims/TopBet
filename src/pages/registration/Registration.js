@@ -7,7 +7,7 @@ import backgroundImage from '/project/TopBet/src/pages/registration/images/Backg
 import Navbar from '../../components/comp_Navbar/navbar.js';
 
 
-export default class registration extends Component {
+export default class Registration extends Component {
   componentWillMount() {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
   } // This will redirect the user to the main page if he is already logged in
