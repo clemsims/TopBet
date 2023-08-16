@@ -26,7 +26,7 @@ export default class Registration extends Component {
     this.props.history.push("/ranking"); // Redirect to 
   };
   handlefornow = () => {
-    this.props.history.push("/homepage"); // Redirect to 
+    this.props.history.push("/customize"); // Redirect to 
   };
   handleOnChange = e => {
     let name = e.target.name;
