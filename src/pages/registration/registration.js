@@ -25,6 +25,9 @@ export default class registration extends Component {
   handleregistered = () => {
     this.props.history.push("/ranking"); // Redirect to 
   };
+  handlefornow = () => {
+    this.props.history.push("/homepage"); // Redirect to 
+  };
   handleOnChange = e => {
     let name = e.target.name;
     let value = e.target.value;
@@ -195,7 +198,7 @@ export default class registration extends Component {
                   onChange={this.handleOnChange}
                   value={this.state.password}
               />
-              <button type="submit" onClick={this.handleregistered}>Sign in</button>
+              <button type="submit" onClick={this.handlefornow}>Sign in</button>
           </form>
         </div>
         </div>
