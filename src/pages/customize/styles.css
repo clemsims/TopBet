@@ -1,0 +1,15 @@
+body, html {
+  background-color: #D50000;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  height: 100vh; /* Background color as you specified */
+}
+
+
+
+

@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Index from "./pages/index/Index";
 import Login from "./pages/login/Login";
-import registration from "./pages/registration/registration";
+import Registration from "./pages/registration/Registration";
+import Customize from "./pages/customize/Customize";
 import Main from "./pages/main/Main";
 import Error404 from "./pages/error_404/Error";
 import Ranking from "./pages/ranking/Ranking";
@@ -20,7 +21,8 @@ export default class App extends Component {
         <Switch>
           <Route path="/" exact component={Index} />
           <Route path="/login" exact component={Login} />
-          <Route path="/registration" exact component={registration} />
+          <Route path="/registration" exact component={Registration} />
+          <Route path="/customize" exact component={Customize} />
           <Route path="/main" exact component={Main} />
           <Route path="/ranking" exact component={Ranking} />
           <Route

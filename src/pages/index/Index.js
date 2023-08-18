@@ -1,94 +1,161 @@
 import React, { Component } from "react";
+import Navbar from '../../components/comp_Navbar/navbar.js';
 import "./styles.css";
-import { upcomingEvents, leaderboardEntries } from "./constant";
-import Header_no_login from "../../components/header_before_login/Header_before_login";
+
+//import logo from '../index/images/TOPBET.png';
+
+// Define an array of upcoming events
+// ces deux constantes servent piocher l'image aléatoire utilisée dans le
+const imageContext = require.context('./images', false, /\.(jpg|jpeg|png|gif)$/);
+const images = imageContext.keys().map(imageContext);
 
 export default class Index extends Component {
-  renderleaderboardEntries() {
-    return (
-      <div className="leaderboard-entries">
-        <h3>Global Ranking</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Rank</th>
-              <th>Username</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {leaderboardEntries.map((entry, index) => (
-              <tr key={entry.id}>
-                <td>{index + 1}</td>
-                <td>{entry.username}</td>
-                <td>{entry.score}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    );
-  }
-
-  renderUpcomingEvents() {
-    return (
-      <div className="upcoming-events">
-        <h2 id="upcoming_event_title"> Upcoming Events </h2>
-        {upcomingEvents.map(event => (
-          <div key={event.id} className="event-item">
-            <div className="event-details">
-              <div className="event-title">{event.title}</div>
-              <div className="event-time">
-                {event.date} - {event.time}
-              </div>
-            </div>
-            <button className="event-bet-button" onClick={this.handleLogin}
-            >Bet Now</button>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-
+  handleOnChange = e => {
+    let name = e.target.name;
+    let value = e.target.value;
+    // Check if the name is 'DD/MM' and validate the date format
+    if (name === 'DD/MM' && !/^\d{2}\/\d{2}$/.test(value)) {
+      this.setState({
+          errorMessage: 'Please enter a valid date in DD/MM format.'
+      });
+    } else {
+        this.setState({ errorMessage: '' }); // Reset error message if the date is valid or for other inputs
+    }
+    this.setState({
+      [name]: value
+    });
+  };
   handleLogin = () => {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
     this.props.history.push("/login");
   };
+  toggleDropdown = (dropdownName) => {
+    this.setState(prevState => ({
+      isDropdownVisible: {
+        ...prevState.isDropdownVisible,
+        [dropdownName]: !prevState.isDropdownVisible[dropdownName]
+      }
+    }));
+  };
+  handleregistration = () => {
+    this.props.history.push("/registration");
+  };
+  state = {
+    isDropdownVisible: {
+      team1: false,
+      team2: false,
+      date: false
+    },
+    errorMessage: ''
+  };
+  
+  
+  renderimgfond() {
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    return (
+      <div className="container2">
+        <img src={randomImage} alt='background image' />
+        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
+        <h1 className="moto">The highest odds in the market</h1>
+      </div>
+    );
+  };
+  renderoddsComparer() {
+    return (
+      <div className= "odds-comparer" >
+        Search any event and compare the odds !
+        <div className= "input-group" >
+          <input
+          type="text"
+          id="input-team-1"
+          className="fadeIn first"
+          placeholder="Team 1"
+          name="Team 1"
+          onChange={event => this.handleOnChange(event)}
+          required={true}
+          />
+          <button className="dropdown-toggle" onClick={() => this.toggleDropdown('team1')}>▼</button>
+          {this.state.isDropdownVisible.team1 && 
+            <div className="dropdown-menu">
+              <div className="dropdown-item">Example 1</div>
+              <div className="dropdown-item">Example 2</div>
+              
+            </div>
+          }
+          <input
+            type="text"
+            id="input-team-2"
+            className="fadeIn second"
+            placeholder="Team 2"
+            name="Team 2"
+            onChange={event => this.handleOnChange(event)}
+            required
+          />
+          <button className="dropdown-toggle" onClick={() => this.toggleDropdown('team2')}>▼</button>
+          {this.state.isDropdownVisible.team2 && 
+            <div className="dropdown-menu">
+              <div className="dropdown-item">Example 1</div>
+              <div className="dropdown-item">Example 2</div>
+              
+            </div>
+          }
+          <input
+            type="text"
+            id="input-date"
+            className="fadeIn third"
+            placeholder="DD/MM"
+            name="DD/MM"
+            onChange={event => this.handleOnChange(event)}
+            required
+          />
+          <button className="dropdown-toggle" onClick={() => this.toggleDropdown('date')}>▼</button>
+          {this.state.isDropdownVisible.date && 
+            <div className="dropdown-menu">
+              <div className="dropdown-item">Example 1</div>
+              <div className="dropdown-item">Example 2</div>
+              
+            </div>
+          }
+        </div>
+        {this.state.errorMessage && <div className="error-message">{this.state.errorMessage}</div>}
+
+        <button type="submit" className="handle-search-odds">
+          Search
+        </button>
+      </div>
+    );
+  };
+  renderconnexion() {
+    return(
+      <div className="connexion">
+        <div>
+          <button type="button" className="Log-in" onClick={this.handleLogin}>
+              Log in
+          </button>
+        </div>
+        <div>
+          <button type="button" className="Get-started" onClick={this.handleregistration}>
+            Get started
+          </button>
+        </div>
+      </div>
+    );
+  };
+  
+
+
 
   render() {
     return (
-      <div>
-        <Header_no_login />
-        <div className="body">
-          <div className="grid-container">
-            <div className="upcoming-events-section"> {this.renderUpcomingEvents()} </div>
-            <div className="leaderboard-section"> {this.renderleaderboardEntries()} </div>
-            <div className="footer">
-              <div className="buttom-text">
-                At Top Bet, we're committed to promoting responsible and ethical
-                sports betting practices. <br />
-                That's why we offer rewards for watching ads, rather than requiring
-                users to bet money.
-                <br />
-                This ensures that users can enjoy the thrill of sports betting without
-                taking unnecessary risks <br />
-                or engaging in behavior that is harmful to themselves or others.
-                <br />
-                Our rewards program is designed to be fair, transparent, and easy to
-                use. <br />
-                Simply watch ads and earn rewards that you can use to place bets on
-                your favorite sports teams and events.
-                <br />
-                We provide clear and upfront information on the terms and conditions
-                of our rewards program,
-                <br />
-                so you can make informed decisions about your betting and avoid any
-                potential risks or issues.
-              </div>
-            </div>
-          </div>
+      <div className="div-panel">
+        <div className="headertext">
+        <Navbar history={this.props.history}  />
         </div>
+        <div className="background-section">{this.renderimgfond()}</div>
+        <div className="odds-comparer-section">{this.renderoddsComparer()}</div>
+        <div className="connexion-session">{this.renderconnexion()}</div>
+        
+        
       </div>
     );
   }
