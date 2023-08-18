@@ -1,7 +1,10 @@
 * {
     font-family: 'PT Sans Caption', sans-serif, 'arial', 'Times New Roman';
 }
-
+body, html {
+    background-color: #D50000;
+  }
+  
 /* Error Page */
 .error .clip .shadow {
     height: 180px;

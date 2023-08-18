@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import $ from "jquery";
 import api from "../../services/api";
 import "/project/TopBet/src/pages/registration/styles.css";
-import backgroundImage from '/project/TopBet/src/pages/registration/images/Backgr.jpg';
 import Navbar from '../../components/comp_Navbar/navbar.js';
 
 
@@ -161,7 +160,7 @@ export default class Registration extends Component {
   renderimgfond() {
     return (
       <div className="container2">
-        <img src={backgroundImage} alt='background image' />
+        <img src="/images/Football.png" alt='background image' />
         <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
         <h1 className="moto">The highest odds in the market</h1>
       </div>
