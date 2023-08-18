@@ -28,7 +28,7 @@ export default class Customize extends Component {
       date: false
     },
     errorMessage: ''
-  };
+  }; 
   
 
 
