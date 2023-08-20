@@ -1,293 +1,175 @@
-.navbar-dark .navbar-nav .nav-link,
-
-
-.link-pointer {
-  cursor: pointer;
-}
-
-#carouselExampleIndicators {
-  height: auto;
-}
-
-.buttom-text {
-  color: rgb(4, 0, 0);
-  font-size: 16px;
-  text-align: center;
-  padding: 100px;
-  background-color: #f2f2f2;
-
-}
-
-.button-wrapper {
-  text-align: center;
-}
-
-/* button for home */
-
-
-.nav-item-home {
-  display: inline-block;
-  padding: 15px 25px;
-  background-image: linear-gradient(to right, #509b1b, #00e2da);
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-right: 20px;
-  font-weight: bold;
-
-}
-
-.nav-item-home:active {
-  transform: translateY(2px);
-  box-shadow: none;
+body, html {
+  background-color: #D50000;
 }
 
 
-/* button for bet now */
-
-
-.nav-item-betnow {
-  display: inline-block;
-  padding: 15px 25px;
-  background-image: linear-gradient(to right, #9B1B30, #E20030);
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-right: 20px;
-  font-weight: bold;
-
+.container2 {
+  position: absolute; /* Positionnement absolu par rapport à container2 */
+  top: 27%; /* Centre l'image verticalement */
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 80vw; /* 100% of the viewport width */
+  height: 40vh; /* 40% of the viewport height */
+  overflow: hidden; /* Ensure no spillover from the container */
+  color: #D50000 ;
+  font-style: italic;
+  border-radius: 25px;
 }
-
-.nav-item-betnow:active {
-  transform: translateY(2px);
-  box-shadow: none;
+.container2 h1 .red {
+  color: #D50000; /* For "Bet" */
+  font-style: italic;
 }
-
-/* button for best rate */
-
-
-.nav-item-bestrates {
-  display: inline-block;
-  padding: 15px 25px;
-  background-image: linear-gradient(to right, #9B1B30, #E20030);
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  margin-right: 20px;
-  font-weight: bold;
-
+.container2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* This creates a dark overlay. Adjust the 0.3 as needed. */
+  z-index: 0;
 }
-
-.nav-item-bestrates:active {
-  transform: translateY(2px);
-  box-shadow: none;
-}
-
-
-
-/* upcoming event section */
-
-.upcoming-events {
-  margin-top: 100px;
-  padding: 20px 15px;
-  background-color: #f0fff0;
-  border: 3px solid #2e8b57;
-  border-radius: 8px;
-
-}
-
-.event-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.event-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.event-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #2e8b57;
-}
-
-.event-time {
-  font-size: 16px;
-  color: #666;
-}
-
-.event-bet-button {
-  background-color: #2e8b57;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  padding: 10px 20px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.event-bet-button:hover {
-  background-color: #1c7430;
-}
-
-/* betting slip section */
-
-/* Style for the betting slip section */
-.betting-slip {
-  background-color: #f6e3e3;
-  border: 1px solid #d9b7b7;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-/* Style for the open bets list */
-.open-bets ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.open-bets li {
-  color: #555;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 10px;
-  background-color: #f9dada;
-  border: 1px solid #090101;
-}
-
-/* Style for the current bet */
-.open-bets li.current-bet {
-  background-color: #ffc1c1;
-  border: 1px solid #090101;
-}
-
-/* account info section */
-
-/* Style for the account information section */
-.account-info {
-  background-color: #f6e3e3;
-  border: 1px solid #080000;
-  padding: 15px 20px;
-  margin-top: 20px;
-}
-
-.account-info p {
-  color: #555;
-  font-size: 16px;
-  margin: 0;
-  padding: 5px 0;
-}
-
-/* Style for the username */
-.account-info p.username {
-  font-weight: bold;
-}
-
-/* Style for the balance */
-.account-info p.balance {
-  color: #0d6efd;
-  font-weight: bold;
-}
-
-
-/* Style for the leaderboard part */
-.leaderboard-entries {
-  background-image: url('images/background_topbet.png');
-  background-color: rgba(255, 255, 255, 0.5);
-  background-position: center center;
-  padding: 200px 20px;
-  border-radius: 20px;
-  margin: 40px auto;
-  max-width: 10000px;
+.topbet-title {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 8rem; /* Adjust as needed for desired font size */
+  z-index: 1;
   color: white;
-  ;
-  background-size: auto;
-
+}
+/* Pour faire apparaître une ligne blanche*/
+.topbet-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px; /* Adjust this value to change the distance from the text */
+  height: 2px;
+  background-color:white; /* Change to desired color */
 }
 
-.leaderboard-entries table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.leaderboard-entries th,
-.leaderboard-entries td {
-  text-align: center;
-  padding: 10px;
-  border: 1px solid #ddd;
-}
-
-.leaderboard-entries th {
-  font-weight: bold;
-}
-
-
-
-
-/* adding space between sections */
-
-
-.headertext {
-  margin-bottom: 50px;
-}
-
-.upcoming-events-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.leaderboard-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.open-bets-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-
-}
-
-.account-info-section {
-  padding-top: 20px;
-  margin-bottom: 50px;
-}
-
-.buttom-text {
-  padding-top: 20px;
+.moto {
+  position: relative;
+  display: inline-block;
+  position: absolute;
+  top: 74%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1rem; /* Adjust as needed for desired font size */
+  z-index: 1;
+  color: white;
 }
 
 
-/* logo in css */
+
+/* Style for the odds comparer */
+.odds-comparer {
+  background-color: #D50000; /* Setting the background color */
+  color: #FFFFFF; /* Setting the text color */
+  display: flex; /* Using flexbox for centering */
+  flex-direction: column; /* Arranging children (inputs) vertically */
+  align-items: center; /* Centering the children horizontally */
+  justify-content: center; /* Centering the children vertically (if there's extra space) */ /* Some padding for aesthetics */
+  width: 100%; /* Taking the full width available */
+  font-size: 1rem;
+  margin-top: 50vh;
+  position:relative;
+  box-sizing:content-box; /* Making sure padding and border don't increase the div's total width */
+}
+
+.odds-comparer input[type="text"] {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  width: 60%;
+  background-color: #3A3A3C; /* Setting input background color to match the div */
+  color: #6F6F70; /* Setting the input text color */
+  border: 1px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 15px; /* Rounding the borders for aesthetics */
+}
+.odds-comparer button[type="submit"] {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  background-color: #000000; /* Setting input background color to match the div */
+  color: #FFFFFF; /* Setting the input text color */
+  border: 0px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 15px; /* Rounding the borders for aesthetics */
+}
+
+.input-group {
+  display: flex;
+  justify-content: center; /* Horizontalement centrer */
+  align-items: center;     /* Verticalement centrer */
+}
 
 
-.logo {
-  background: linear-gradient(to right, #9B1B30, #E20030);
-  padding: 8px 25px;
+.error-message {
+  color: white;
+  margin-top: 10px;
+}
+
+label {
+  margin-right: 10px;
+  color: #6F6F70;
+}
+
+.dropdown-toggle {
+  background-color: #3A3A3C;
+  border: none;
+  color: #6F6F70;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #3A3A3C;
+  color: #6F6F70;
+  width: 200px; /* or whatever width you want */
+  max-height: 100px; /* control the maximum height */
+  overflow-y: auto; /* make it scrollable if content overflows */
+  border: 1px solid #6F6F70;
   border-radius: 5px;
-  color: #FFFFFF;
-  font-size: 24px;
-  font-weight: bold;
-  text-align: center;
-  justify-content: center;
-  font-family: Helvetica;
+}
+
+.dropdown-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background-color: #6F6F70;
+  color: #3A3A3C;
+}
+
+
+
+.connexion {
+  position:relative;
+  display: flex; /* Using flexbox for centering */
+  flex-direction: column; /* Arranging children (inputs) vertically */
+  align-items: center; /* Centering the children horizontally */
+  justify-content: center; /* Centering the children vertically (if there's extra space) */
+  padding: 20px; /* Some padding for aesthetics */
+  width: 100%; /* Taking the full width available */
+  font-size: 2rem;
+  box-sizing:content-box;
+}
+.connexion .Log-in {
+  margin: 10px 0; /* Adding some vertical spacing between inputs */
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  color: #FFFFFF; /* Setting the input text color */
+  border: 0px solid #6F6F70; /* Giving a border to make the input visible */
+  border-radius: 10px;
+  background-color: #000000
+}
+.connexion .Get-started {
+  padding: 5px 10px; /* Adding some padding inside inputs */
+  color: #000000; /* Setting the input text color */
+  border: 1px solid #000000; /* Giving a border to make the input visible */
+  border-radius: 10px;
+  background-color: #D50000
 }
 
 

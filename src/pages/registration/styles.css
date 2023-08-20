@@ -1,56 +1,104 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
-
-/* BASIC */
-
-.loading-refresh-animate {
-  -animation: spin .7s infinite linear;
-  -webkit-animation: spin2 .7s infinite linear;
+body, html {
+  background-color: #D50000;
 }
-
-@-webkit-keyframes spin2 {
-  from { -webkit-transform: rotate(0deg);}
-  to { -webkit-transform: rotate(360deg);}
-}
-
-@keyframes spin {
-  from { transform: scale(1) rotate(0deg);}
-  to { transform: scale(1) rotate(360deg);}
-}
-
-.div-panel {
-  background: url('../index/images/img-1.png');
-  width: 100%;
-  height: 100%;
-  position: absolute;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
+/* STRUCTURE pour le register*/
+/* */
+/* Ajout de l'overlay dark */
+.background {
+  position: absolute; /* pour positionner correctement les enfants absolus comme l'overlay */
+  z-index: 1;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat; /* Centrer verticalement */
+  width: 100vw;
   height: 100vh;
 }
-
-a {
-  color: #92badd;
-  display:inline-block;
-  text-decoration: none;
-  font-weight: 400;
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); /* Voile noir avec une opacité de 75% */
+  z-index: 2; /* Assurez-vous que l'overlay est au-dessus des autres éléments */
 }
 
-h2 {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display:inline-block;
-  margin: 20px 8px 10px 8px; 
-  color: #cccccc;
-  cursor: pointer;
+.registration-widget {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #CB4D4D;
+  color: white;
+  justify-content: space-between;
+  padding: 40px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10; /* Le widget d'inscription doit être au-dessus de l'overlay */
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  gap: 10px; /* Spacing between children */
 }
 
+.welcome {
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
 
+.registration-widget [type="submit"] {
+  color: white;
+  background-color: #1B1B1B;
+  border-radius: 20px;
+  border: none; /* Supprime la bordure par défaut */
+  font-size: larger;
+  cursor: pointer; /* Change le curseur lors du survol */
+  padding: 10px 20px; /* Ajoute un peu de rembourrage pour rendre le bouton plus grand */
+  width: 50%; /* Ajustez selon vos préférences */
+  margin: 20px 80px 0;
+}
 
-/* STRUCTURE */
+.registration-widget [type="text"],
+.registration-widget [type="email"],
+.registration-widget [type="password"] {
+  background-color: white;
+  border-radius: 15px;
+  font-size:small;
+  font-weight: bold;
+  color:#1B1B1B;
+  padding: 10px 20px; /* Ajoute un peu de rembourrage pour rendre les entrées plus grandes */
+  width: 100%; /* Prend toute la largeur du parent */
+  box-sizing: border-box; /* S'assure que la bordure et le rembourrage sont inclus dans la largeur totale */
+  border: 1px solid #ccc; /* Ajoute une bordure subtile */
+  margin: 6px 0;
+}
 
+/*Pour que le nav bar apparaisse au dessus de l'overlay*/
+.aboveOverlay {
+  position: relative;
+  z-index: 2;
+}
+
+.my-navbar {
+  background-color: #1B1B1B;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  color: white;
+  padding: 10px;
+  font-style: italic;
+}
+.red {
+  color: red;
+}
+.navbar-brand {
+  margin-left: 10px; /* Ajustez cette valeur pour augmenter/diminuer l'espace à gauche */
+}
+
+/* STRUCTURE pour le register*/
 .wrapper {
   display: flex;
   align-items: center;
@@ -105,7 +153,35 @@ h2.active {
   border-bottom: 2px solid #5fbae9;
 }
 
-
+.container2 {
+  position: absolute; /* Positionnement absolu par rapport à container2 */
+  top: 27%; /* Centre l'image verticalement */
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 80vw; /* 100% of the viewport width */
+  height: 40vh; /* 40% of the viewport height */
+  overflow: hidden; /* Ensure no spillover from the container */
+  color: #D50000 ;
+  font-style: italic;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  border-radius: 25px;
+}
+.container2 h1 .red {
+  color: #D50000; /* For "Bet" */
+  font-style: italic;
+}
+.container2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* This creates a dark overlay. Adjust the 0.3 as needed. */
+  z-index: 0;
+}
 
 /* FORM TYPOGRAPHY*/
 
@@ -119,7 +195,7 @@ input[type=button], .btn-register, input[type=reset]  {
   display: inline-block;
   text-transform: uppercase;
   font-size: 13px;
-  -webkit-box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
+  -webkit-box-shadow: 0 10px 30px 0 rgba(243, 246, 248, 0.4);
   box-shadow: 0 10px 30px 0 rgba(95,186,233,0.4);
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;

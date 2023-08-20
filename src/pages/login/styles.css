@@ -1,45 +1,124 @@
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 
-/* BASIC */
+body, html {
+  background-color: #D50000;
+}
 
-.div-panel {
-  background: url('../index/images/img-1.png');
-  width: 100%;
-  height: 100%;
+.overlay {
   position: absolute;
-}
-
-body {
-  font-family: "Poppins", sans-serif;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75); /* Voile noir avec une opacité de 75% */
+  z-index: 2; /* Assurez-vous que l'overlay est au-dessus des autres éléments */
 }
 
-a {
-  color: #dd9292;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 400;
+.registration-widget {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #CB4D4D;
+  color: white;
+  justify-content: space-between;
+  padding: 40px;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 10; /* Le widget d'inscription doit être au-dessus de l'overlay */
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  gap: 10px; /* Spacing between children */
 }
 
-.h2-login {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  display: inline-block;
-  margin: 20px 8px 10px 8px;
-  color: #cccccc;
-  cursor: pointer;
+.welcome {
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 40px;
 }
 
+.registration-widget [type="submit"] {
+  color: white;
+  background-color: #1B1B1B;
+  border-radius: 20px;
+  border: none; /* Supprime la bordure par défaut */
+  font-size: larger;
+  cursor: pointer; /* Change le curseur lors du survol */
+  padding: 10px 20px; /* Ajoute un peu de rembourrage pour rendre le bouton plus grand */
+  width: 50%; /* Ajustez selon vos préférences */
+  margin: 20px 80px 0;
+}
+
+.registration-widget [type="text"],
+.registration-widget [type="email"],
+.registration-widget [type="password"] {
+  background-color: white;
+  border-radius: 15px;
+  font-size:small;
+  font-weight: bold;
+  color:#1B1B1B;
+  padding: 10px 20px; /* Ajoute un peu de rembourrage pour rendre les entrées plus grandes */
+  width: 100%; /* Prend toute la largeur du parent */
+  box-sizing: border-box; /* S'assure que la bordure et le rembourrage sont inclus dans la largeur totale */
+  border: 1px solid #ccc; /* Ajoute une bordure subtile */
+  margin: 6px 0;
+}
+
+/*Pour que le nav bar apparaisse au dessus de l'overlay*/
+.aboveOverlay {
+  position: relative;
+  z-index: 2;
+}
+
+.modal-content {
+  border-radius: 20px;
+  background-color: #CB4D4D;
+}
+.modal-content [id="inputEmailChange"] {
+  font-size: small;
+  font-weight: bold;
+}
+.modal-content [type="button"],
+.modal-content [type="submit"] {
+  background-color: #1B1B1B;
+  border-color:#1B1B1B;
+  border-radius: 25px;
+}
+.modal-title {
+  position: absolute;
+  left: 30%;
+  color: white;
+}
+
+
+.my-navbar {
+  background-color: #1B1B1B;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  color: white;
+  padding: 10px;
+  font-style: italic;
+}
+.red {
+  color: red;
+}
+.navbar-brand {
+  margin-left: 10px; /* Ajustez cette valeur pour augmenter/diminuer l'espace à gauche */
+}
 
 
 /* STRUCTURE */
-
+.underlineHover-link-pointer {
+  color: black;
+  margin: 20px 95px 0;
+}
 .wrapper {
   display: flex;
   align-items: center;
-  P flex-direction: column;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   min-height: 100%;
@@ -58,15 +137,6 @@ a {
   -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
-}
-
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
 }
 
 #formHeader {
@@ -96,9 +166,9 @@ a {
 input[type=button],
 .btn-login,
 input[type=reset] {
-  background-color: #56baed;
+  background-color: #1B1B1B;
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
   padding: 15px 80px;
   text-align: center;
   text-decoration: none;
@@ -120,7 +190,7 @@ input[type=reset] {
 input[type=button]:hover,
 .btn-login:hover,
 input[type=reset]:hover {
-  background-color: #39ace7;
+  background-color: #1B1B1B;
 }
 
 input[type=button]:active,
@@ -161,11 +231,11 @@ input[type=text]:focus,
 input[type=password]:focus,
 input[type=number]:focus,
 select:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+  background-color:#0d0d0d;
+  border-bottom: 2px solid #1B1B1B;
 }
 
-input[type=text]: :placeholder,
+input[type=text]::placeholder,
 input[type=password]::placeholder,
 input[type=number]::placeholder,
 select::placeholder {

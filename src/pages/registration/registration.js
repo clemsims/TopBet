@@ -2,10 +2,12 @@
 import React, { Component } from "react";
 import $ from "jquery";
 import api from "../../services/api";
+import "/project/TopBet/src/pages/registration/styles.css";
+import backgroundImage from '/project/TopBet/src/pages/registration/images/Backgr.jpg';
+import Navbar from '../../components/comp_Navbar/navbar.js';
 
-import "./styles.css";
 
-export default class registration extends Component {
+export default class Registration extends Component {
   componentWillMount() {
     if (sessionStorage.getItem("username")) this.props.history.push("/main");
   } // This will redirect the user to the main page if he is already logged in
@@ -20,7 +22,12 @@ export default class registration extends Component {
   handleLogin = () => {
     this.props.history.push("/login"); // Redirect to login page when the user clicks on the login button
   };
-
+  handleregistered = () => {
+    this.props.history.push("/ranking"); // Redirect to 
+  };
+  handlefornow = () => {
+    this.props.history.push("/customize"); // Redirect to 
+  };
   handleOnChange = e => {
     let name = e.target.name;
     let value = e.target.value;
@@ -150,72 +157,61 @@ export default class registration extends Component {
       }, 3000);
     }
   };
-
+  /* ajout de Mark */
+  renderimgfond() {
+    return (
+      <div className="container2">
+        <img src={backgroundImage} alt='background image' />
+        <h1 className="topbet-title"><span>Top</span><span className="red">Bet</span></h1> 
+        <h1 className="moto">The highest odds in the market</h1>
+      </div>
+    );
+  };
   render() {
     return (
       <div className="div-panel">
-        <div className="wrapper fadeInDown">
-          <div class="" role="alert" id="alert-register" data-dismiss="alert" />
-          <div id="formContent">
-            <div id="formHeader">
-              <h2
-                className="h2-login inactive underlineHover"
-                id="loginButton"
-                onClick={this.handleLogin}
-              >
-                Login
-              </h2>
-
-              <h2 className="h2-login active">Register</h2>
-            </div>
-
-            <div className="form-padding">
-              <form>
-                <input
+        <div className="background">{this.renderimgfond()}</div>
+        <div className="overlay">
+        <div className="registration-widget">
+          <h1 className="welcome">
+          Welcome!
+          </h1 >
+          <form onSubmit={this.handleRegisterUser}>
+              <input 
                   type="text"
-                  id="name"
-                  className="fadeIn second"
-                  placeholder="Full Name"
-                  name="name"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
-                  type="text"
-                  id="user"
-                  className="fadeIn third"
-                  placeholder="Username"
-                  name="username"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
+                  placeholder="Name or pseudo"
+                  name="name or pseudo"
+                  onChange={this.handleOnChange}
+                  value={this.state.name}
+              />
+              <input 
                   type="email"
-                  id="email"
-                  className="fadeIn fourth"
-                  placeholder="E-mail"
-                  name="email"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <input
+                  placeholder="Email or phone number"
+                  name="email or phone number"
+                  onChange={this.handleOnChange}
+                  value={this.state.email}
+              />
+              <input 
                   type="password"
-                  id="password"
-                  className="fadeIn five"
                   placeholder="Password"
                   name="password"
-                  onChange={event => this.handleOnChange(event)}
-                />
-                <button
-                  type="submit"
-                  className="fadeIn six btn-register"
-                  value="Register"
-                  id="btn-cadastrar"
-                  onClick={this.handleRegisterUser}
-                >
-                  Register &nbsp;<i className="" id="icon-loading" />
-                </button>
-              </form>
-            </div>
-          </div>
+                  onChange={this.handleOnChange}
+                  value={this.state.password}
+              />
+              <button type="submit" onClick={this.handlefornow}>Sign in</button>
+          </form>
         </div>
+        </div>
+        <div className="headertext aboveOverlay">
+          <Navbar />
+        </div>
+        
+        <div className="wrapper fadeInDown">
+          <div class="" role="alert" id="alert-register" data-dismiss="alert" />
+          
+          
+        </div>
+
       </div>
     );
   }

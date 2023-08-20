@@ -1,0 +1,103 @@
+body, html {
+    background-color: #D50000;
+  }
+  .card-image-container {
+    position: relative; /* Important pour le positionnement absolu de l'overlay */
+    height: 50%; /* Comme la photo doit prendre la moitié de la card */
+    overflow: hidden; /* Pour s'assurer que rien ne dépasse */
+  }
+  
+  .sport-card {
+    background-color: #570202;
+    width: 300px;
+    color: white;
+    height: 500px;
+    border-radius: 25px;
+    overflow: hidden; /* To ensure inner content respects border-radius */
+    margin: 15px; /* Some space around the card */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Optional: Adds a shadow to the card */
+  }
+  
+  .overlay2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Prendre toute la largeur de l'image */
+    height: 100%; /* Prendre toute la hauteur de l'image */
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+  }
+  
+  .sport-image {
+    position: relative;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    color: white;
+  }
+  
+  .sport-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .sport-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 5px 0;
+    font-style: italic;
+    font-weight: bold;
+    font-size: xx-large;
+    z-index: 2;
+  }
+  
+  .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
+    height: 50%; /* To occupy the second half of the card */
+    padding: 10px; 
+    position: relative; /* For absolute positioning of the swipe text */
+  }
+  
+  .sport-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 90%; /* Adjust according to your design needs */
+    margin: 0 auto; /* Center this container */
+    padding: 0 10px; /* This padding ensures there's a gap between the button and the card's edge */
+  }
+  
+  .swipe {
+    position: absolute; /* Absolute positioning */
+    bottom: 10px; /* Placed at the bottom */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Fine-tune horizontal centering */
+    text-align: center; /* Centers the text */
+  }
+  
+  .interested-button, .not-interested-button {
+    border-radius: 10px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 5px 10px; /* Adding some padding inside inputs */
+  }
+  
+  .interested-button {
+    background-color: green;
+    margin-left: 10px;
+  }
+  
+  .not-interested-button {
+    background-color: red;
+    margin-right: 10px;
+  }
+  
