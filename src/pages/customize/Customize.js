@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Navbar from '../../components/comp_Navbar/navbar.js';
 import Card from '../../components/comp_Card/card.js';
-import "./styles.css";
+import "./style.css";
 
 
 export default class Customize extends Component {

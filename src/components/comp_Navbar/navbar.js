@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './style.css';
 import { withRouter } from 'react-router-dom';
 
 class Navbar extends React.Component {

@@ -6,7 +6,7 @@ import "./styles.css";
 
 // Define an array of upcoming events
 // ces deux constantes servent piocher l'image aléatoire utilisée dans le
-const imageContext = require.context('./images', false, /\.(jpg|jpeg|png|gif)$/);
+const imageContext = require.context('../../../public/images', false, /\.(jpg|jpeg|png|gif)$/);
 const images = imageContext.keys().map(imageContext);
 
 export default class Index extends Component {
