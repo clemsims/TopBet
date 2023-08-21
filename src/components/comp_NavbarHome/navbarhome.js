@@ -26,16 +26,25 @@ class Navbarhome extends React.Component {
                   <span>Top</span><span className="red">Bet</span>
               </a>
               <button className="menu-button" onClick={this.toggleMenu}>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                    <div className="bar"></div>
-                </button>
+                {this.state.menuOpen ? (
+                    <div className="arrow-icon"></div>
+                ) : (
+                    <>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                        <div className="bar"></div>
+                    </>
+                )}
+              </button>
                 {this.state.menuOpen ? (
                       <div className="menu menu-open">
                         <a href="#">Profile</a>
                         <a href="#">Old Bets</a>
                         <a href="#">Settings</a>
                         <a href="#" onClick={this.handleindex}>Logout</a>
+                        <button className="menu-button arrow-button-outside" onClick={this.toggleMenu}>
+                         <div className="arrow-icon"></div>
+                        </button>
                       </div>
                   ) : null}
           </nav>
