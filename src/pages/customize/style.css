@@ -11,6 +11,38 @@ body, html {
   }
   
   
+  .overlay-major {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000;
+    color: white; 
+
+  }
   
+  .overlay-major-content {
+      text-align: center;
+      color: white;
+      font-size: 20px;
+      position: relative;  /* Fait en sorte que les enfants positionnés absolument se réfèrent à cet élément */
+      width: 100%;
+      max-width: 600px;  /* Ajustez selon vos préférences */
+    }
+  
+  .overlay-major-button {
+    margin-top: 20px; 
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
   
   

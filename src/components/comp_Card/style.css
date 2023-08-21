@@ -16,6 +16,13 @@ body, html {
     overflow: hidden; /* To ensure inner content respects border-radius */
     margin: 15px; /* Some space around the card */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Optional: Adds a shadow to the card */
+    z-index: 1; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
   }
   
   .overlay2 {
