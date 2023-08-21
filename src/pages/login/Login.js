@@ -206,7 +206,7 @@ export default class Login extends Component {
           </div>
         </div>
         <div className="background">{this.renderimgfond()}</div>
-        <div className="overlay">
+        <div className="overlaylogin">
         <div className="registration-widget">
           <h1 className="welcome">
           Welcome back!

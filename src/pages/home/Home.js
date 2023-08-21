@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Navbar from '../../components/comp_Navbar/navbar.js';
+import Navbarhome from '../../components/comp_NavbarHome/navbarhome.js';
 import "./style.css";
 
 
@@ -13,40 +13,18 @@ export default class Home extends Component {
     });
   };
   
-  state = {
-    Boxe: {
-      show:true,
-      interested:'DNK'
-    },
-    Football: {
-      show:true,
-      interested:'DNK'
-    },
-    Badminton: {
-      show:true,
-      interested:'DNK'
-    },
-    Formula1: {
-      show:true,
-      interested:'DNK'
-    },
-    Golf: {
-      show:true,
-      interested:'DNK'
-    },
-    Tennis: {
-      show:true,
-      interested:'DNK'
-    },
-    showOverlay: true
-  };
   
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      showOverlay: true
+    };
+  }
   render() {
     return (
       <div className="div-panel">
         <div className="headertext">
-          <Navbar history={this.props.history}  />
+          <Navbarhome history={this.props.history}  />
         </div>
       </div>
     );

@@ -171,7 +171,7 @@ export default class Registration extends Component {
     return (
       <div className="div-panel">
         <div className="background">{this.renderimgfond()}</div>
-        <div className="overlay">
+        <div className="overlayregistration">
         <div className="registration-widget">
           <h1 className="welcome">
           Welcome!
