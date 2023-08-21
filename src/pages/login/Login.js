@@ -27,10 +27,12 @@ export default class Login extends Component {
   // Redirects to the right pages for the header buttons
 
   handleLogin = () => {
-    if (sessionStorage.getItem("username")) this.props.history.push("/main");
+    if (sessionStorage.getItem("username")) this.props.history.push("/home");
     this.props.history.push("/login");
   };
-
+  handleLoginfornow = () => {
+    this.props.history.push("/home"); // Redirect to 
+  };
 
   handlehome = () => {
     this.props.history.push("/");
@@ -232,7 +234,7 @@ export default class Login extends Component {
               >
                 Forgot password?
               </span>
-              <button type="submit" onClick={this.handleLogin}>Sign in</button>
+              <button type="submit" onClick={this.handleLoginfornow}>Sign in</button>
             </div>
           </form>
         </div>
